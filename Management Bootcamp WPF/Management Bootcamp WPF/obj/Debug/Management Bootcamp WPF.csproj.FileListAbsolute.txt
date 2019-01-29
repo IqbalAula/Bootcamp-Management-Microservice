@@ -14,3 +14,6 @@ c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\M
 c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.pdb
 c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuUser.g.cs
 c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuUser.baml
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.exe.config
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.exe
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.pdb
