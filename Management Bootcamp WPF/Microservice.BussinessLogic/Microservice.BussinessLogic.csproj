@@ -54,10 +54,22 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IDepartmentService.cs" />
+    <Compile Include="Services\Master\DepartmentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microservice.Common\Microservice.Common.csproj">
+      <Project>{3f65dcfa-45d5-4047-a6da-7705f2e64960}</Project>
+      <Name>Microservice.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microservice.DataAccess\Microservice.DataAccess.csproj">
+      <Project>{44a06434-5d28-45dc-a6e8-d2767f3f1781}</Project>
+      <Name>Microservice.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
