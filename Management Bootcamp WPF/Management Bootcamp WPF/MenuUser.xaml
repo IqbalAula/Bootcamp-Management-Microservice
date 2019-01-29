@@ -1,0 +1,12 @@
+﻿<Window x:Class="Management_Bootcamp_WPF.MenuUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Management_Bootcamp_WPF"
+        mc:Ignorable="d"
+        Title="Menu User" Height="330.882" Width="476.471">
+    <Grid>
+
+    </Grid>
+</Window>

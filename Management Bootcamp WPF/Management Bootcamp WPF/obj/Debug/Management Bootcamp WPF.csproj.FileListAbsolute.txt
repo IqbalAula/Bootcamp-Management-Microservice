@@ -1,0 +1,16 @@
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.exe.config
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.exe
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.pdb
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.csprojResolveAssemblyReference.cache
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MainWindow.g.cs
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\App.g.cs
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF_MarkupCompile.cache
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF_MarkupCompile.lref
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MainWindow.baml
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.g.resources
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management_Bootcamp_WPF.Properties.Resources.resources
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.csproj.GenerateResource.Cache
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.exe
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.pdb
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuUser.g.cs
+c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuUser.baml
