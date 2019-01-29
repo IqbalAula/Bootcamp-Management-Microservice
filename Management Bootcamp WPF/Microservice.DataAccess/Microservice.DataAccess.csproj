@@ -54,6 +54,15 @@
   <ItemGroup>
     <Compile Include="Context\MyContext.cs" />
     <Compile Include="Core\BaseModel.cs" />
+    <Compile Include="Migrations\201901290933241_AddFirstModel.cs" />
+    <Compile Include="Migrations\201901290933241_AddFirstModel.Designer.cs">
+      <DependentUpon>201901290933241_AddFirstModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901290941188_UpdateFirstModelSkillStudent.cs" />
+    <Compile Include="Migrations\201901290941188_UpdateFirstModelSkillStudent.Designer.cs">
+      <DependentUpon>201901290941188_UpdateFirstModelSkillStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Achievement.cs" />
     <Compile Include="Model\Batch.cs" />
     <Compile Include="Model\Class.cs" />
@@ -81,7 +90,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <EmbeddedResource Include="Migrations\201901290933241_AddFirstModel.resx">
+      <DependentUpon>201901290933241_AddFirstModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901290941188_UpdateFirstModelSkillStudent.resx">
+      <DependentUpon>201901290941188_UpdateFirstModelSkillStudent.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
