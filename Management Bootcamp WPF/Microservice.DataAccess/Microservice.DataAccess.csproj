@@ -55,14 +55,24 @@
     <Compile Include="Context\MyContext.cs" />
     <Compile Include="Core\BaseModel.cs" />
     <Compile Include="Model\Achievement.cs" />
+    <Compile Include="Model\Batch.cs" />
+    <Compile Include="Model\Class.cs" />
+    <Compile Include="Model\DailyScore.cs" />
+    <Compile Include="Model\Department.cs" />
+    <Compile Include="Model\DetailLesson.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\ErrorBank.cs" />
     <Compile Include="Model\HistoryDetailLesson.cs" />
+    <Compile Include="Model\Lesson.cs" />
     <Compile Include="Model\Organization.cs" />
     <Compile Include="Model\Placement.cs" />
+    <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Schedule.cs" />
+    <Compile Include="Model\Skill.cs" />
+    <Compile Include="Model\SkillStudent.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\TaskScore.cs" />
+    <Compile Include="Model\WorkExperience.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
