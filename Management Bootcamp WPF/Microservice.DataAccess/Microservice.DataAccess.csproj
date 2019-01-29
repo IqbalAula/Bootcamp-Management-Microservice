@@ -82,6 +82,25 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\TaskScore.cs" />
     <Compile Include="Model\WorkExperience.cs" />
+    <Compile Include="Param\AchievementParam.cs" />
+    <Compile Include="Param\BatchParam.cs" />
+    <Compile Include="Param\ClassParam.cs" />
+    <Compile Include="Param\DailyScoreParam.cs" />
+    <Compile Include="Param\DepartmentParam.cs" />
+    <Compile Include="Param\DetailLessonParam.cs" />
+    <Compile Include="Param\EmployeeParam.cs" />
+    <Compile Include="Param\ErrorbankParam.cs" />
+    <Compile Include="Param\HistoryDetailLessonParam.cs" />
+    <Compile Include="Param\LessonParam.cs" />
+    <Compile Include="Param\OrganizationParam.cs" />
+    <Compile Include="Param\PlacementParam.cs" />
+    <Compile Include="Param\RoomParam.cs" />
+    <Compile Include="Param\ScheduleParam.cs" />
+    <Compile Include="Param\SkillParam.cs" />
+    <Compile Include="Param\SkillStudentParam.cs" />
+    <Compile Include="Param\StudentParam.cs" />
+    <Compile Include="Param\TaskScoreParam.cs" />
+    <Compile Include="Param\WorkExperienceParam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
