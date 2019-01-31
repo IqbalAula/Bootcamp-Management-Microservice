@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microservice.DataAccess.Model;
 using Microservice.DataAccess.Context;
+using System.Windows.Forms;
 
 namespace Microservice.Common.Interfaces.Master
 {
@@ -23,8 +24,7 @@ namespace Microservice.Common.Interfaces.Master
             if (result > 0)
             {
                 status = true;
-                Console.WriteLine("Delete Successfully");
-                Console.Read();
+                MessageBox.Show("Delete Successfully");
             }
             return status;
         }
@@ -36,7 +36,8 @@ namespace Microservice.Common.Interfaces.Master
 
         public Department Get(int? id)
         {
-            return _context.Departments.Where(x => (x.isDelete == false) && (x.Id == id)).SingleOrDefault();
+            //return _context.Departments.Where(x => (x.isDelete == false) && (x.Id == id)).SingleOrDefault();
+            return _context.Departments.Find(id);
         }
 
         public bool Insert(DepartmentParam departmentParam)
@@ -49,21 +50,21 @@ namespace Microservice.Common.Interfaces.Master
             if (result > 0)
             {
                 status = true;
-                Console.Write("Insert Successfully");
-                Console.Read();
+                MessageBox.Show("Insert Successfully");
             }
             return status;
         }
 
-        public List<Department> Search(string keywoard, string category)
+        public List<Department> Search(string keyword, string category)
         {
             if (category == "Id")
             {
-                return _context.Departments.Where(x => (x.isDelete == false) && (x.Id.ToString().Contains(keywoard))).ToList();
+                return _context.Departments.Where(x => (x.isDelete == false) && (x.Id.ToString().Contains(keyword))).ToList();
+
             }
             else if (category == "Name")
-            {
-                return _context.Departments.Where(x => (x.isDelete == false) && (x.Name.Contains(keywoard))).ToList();
+            {                
+                return _context.Departments.Where(x => (x.isDelete == false) && (x.Name.Contains(keyword))).ToList();                
             }
             else
             {
@@ -74,16 +75,18 @@ namespace Microservice.Common.Interfaces.Master
         public bool Update(int? id, DepartmentParam departmentParam)
         {
             var result = 0;
-            Department deparment = Get(id);
+            var department = Get(id);
             department.Name = departmentParam.Name;
             department.UpdateDate = DateTimeOffset.Now.LocalDateTime;
-            _context.Entry(department).State = System.Data.Entity.EntityState.Modified;
             result = _context.SaveChanges();
             if (result > 0)
             {
                 status = true;
-                Console.Write("Update Successfully");
-                Console.Read();
+                MessageBox.Show("Update Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Update Error");
             }
             return status;
         }

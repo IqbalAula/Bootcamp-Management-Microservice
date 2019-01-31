@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,8 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ISkillRepository.cs" />
+    <Compile Include="Interfaces\IPlacementRepository.cs" />
     <Compile Include="Interfaces\IDepartmentRepository.cs" />
+    <Compile Include="Interfaces\LoginRepository.cs" />
+    <Compile Include="Interfaces\Master\PlacementRepository.cs" />
     <Compile Include="Interfaces\Master\DepartmentRepository.cs" />
+    <Compile Include="Interfaces\Master\LoginRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

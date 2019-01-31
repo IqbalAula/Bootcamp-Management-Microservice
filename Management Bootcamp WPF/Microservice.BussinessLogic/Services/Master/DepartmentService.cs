@@ -56,9 +56,9 @@ namespace Microservice.BussinessLogic.Services.Master
             return status;
         }
 
-        public List<Department> Search(string keywoard, string category)
+        public List<Department> Search(string keyword, string category)
         {
-            return _departmentRepository.Search(keywoard, category);
+            return _departmentRepository.Search(keyword, category);
         }
 
         public bool Update(int? id, DepartmentParam departmentParam)

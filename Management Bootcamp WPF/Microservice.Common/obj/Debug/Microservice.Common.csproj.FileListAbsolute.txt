@@ -1,0 +1,12 @@
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\bin\Debug\Microservice.Common.exe.config
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\bin\Debug\Microservice.Common.exe
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\bin\Debug\Microservice.Common.pdb
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\bin\Debug\EntityFramework.dll
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\bin\Debug\Microservice.DataAccess.exe
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\bin\Debug\Microservice.DataAccess.pdb
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\bin\Debug\EntityFramework.xml
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\bin\Debug\EntityFramework.SqlServer.xml
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\obj\Debug\Microservice.Common.csprojResolveAssemblyReference.cache
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\obj\Debug\Microservice.Common.exe
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Common\obj\Debug\Microservice.Common.pdb

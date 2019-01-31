@@ -26,12 +26,14 @@ namespace Management_Bootcamp_WPF
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
+        {/*
             if (UsernameTextBox.Text == "ilham" && PasswordTextBox.Text == "habibie")
             {
-                new MenuUser().Show();
+                new MenuHR().Show();
                 this.Close();
-            }
+            }*/
+            new MenuHR().Show();
+            this.Close();
         }
     }
 }

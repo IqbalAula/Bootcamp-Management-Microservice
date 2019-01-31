@@ -54,8 +54,13 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ISkillService.cs" />
+    <Compile Include="Services\IPlacementService.cs" />
     <Compile Include="Services\IDepartmentService.cs" />
+    <Compile Include="Services\ILoginService.cs" />
+    <Compile Include="Services\Master\PlacementService.cs" />
     <Compile Include="Services\Master\DepartmentService.cs" />
+    <Compile Include="Services\Master\LoginService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

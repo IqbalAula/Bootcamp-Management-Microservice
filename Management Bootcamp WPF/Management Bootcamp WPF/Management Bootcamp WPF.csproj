@@ -76,14 +76,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenuUser.xaml">
+    <Page Include="MenuHR.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuUser.xaml.cs">
-      <DependentUpon>MenuUser.xaml</DependentUpon>
+    <Compile Include="MenuHR.xaml.cs">
+      <DependentUpon>MenuHR.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -114,6 +114,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microservice.BussinessLogic\Microservice.BussinessLogic.csproj">
+      <Project>{8d0459ed-4c0e-4c16-9fb0-18c92952e03a}</Project>
+      <Name>Microservice.BussinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microservice.Common\Microservice.Common.csproj">
+      <Project>{3f65dcfa-45d5-4047-a6da-7705f2e64960}</Project>
+      <Name>Microservice.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microservice.DataAccess\Microservice.DataAccess.csproj">
+      <Project>{44a06434-5d28-45dc-a6e8-d2767f3f1781}</Project>
+      <Name>Microservice.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

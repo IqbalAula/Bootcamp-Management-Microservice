@@ -14,6 +14,6 @@ namespace Microservice.BussinessLogic.Services
         bool Delete(int? id);
         List<Department> Get();
         Department Get(int? id);
-        List<Department> Search(string keywoard, string category);
+        List<Department> Search(string keyword, string category);
     }
 }
