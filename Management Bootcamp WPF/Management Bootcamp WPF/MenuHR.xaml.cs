@@ -34,8 +34,19 @@ namespace Management_Bootcamp_WPF
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
             departmentParam.Name = textBoxName.Text;
-            _departmentService.Insert(departmentParam);
-            LoadGrid();            
+            if (string.IsNullOrEmpty(textBoxName.Text) == true)
+            {
+                MessageBox.Show("Please insert name department!");
+            }
+            else if (string.IsNullOrWhiteSpace(textBoxName.Text) == true)
+            {
+                MessageBox.Show("Don't insert white space");
+            }
+            else
+            {                
+                _departmentService.Insert(departmentParam);
+                LoadGrid();
+            }                        
         }
         private void LoadGrid()
         {
@@ -51,24 +62,56 @@ namespace Management_Bootcamp_WPF
 
         private void buttonUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int id = Convert.ToInt16(textBlockId.Text);
-            departmentParam.Name = textBoxName.Text;
-            _departmentService.Update(id, departmentParam);
-            LoadGrid();
+            object item = dataGridDepartment.SelectedItem;
+            if (item == null)
+            {
+                MessageBox.Show("Please choice data want to edit!");
+            }
+            else
+            {
+                departmentParam.Name = textBoxName.Text;
+                if (string.IsNullOrEmpty(textBoxName.Text) == true)
+                {
+                    MessageBox.Show("Please insert name department!");
+                }
+                else if (string.IsNullOrWhiteSpace(textBoxName.Text) == true)
+                {
+                    MessageBox.Show("Don't insert white space");
+                }
+                else
+                {
+                    _departmentService.Update(Convert.ToInt16(textBlockId.Text), departmentParam);
+                    LoadGrid();
+                }
+            }            
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
-        {
-            int id = Convert.ToInt16(textBlockId.Text);
-            _departmentService.Delete(id);
-            LoadGrid();
+        {           
+            object item = dataGridDepartment.SelectedItem;
+            if (item == null)
+            {
+                MessageBox.Show("Please choice data want to delete!");
+            }
+            else
+            {
+                _departmentService.Delete(Convert.ToInt16(textBlockId.Text));
+                LoadGrid();
+            }            
         }
 
         private void dataGridDepartment_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             object item = dataGridDepartment.SelectedItem;
-            textBlockId.Text = (dataGridDepartment.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-            textBoxName.Text = (dataGridDepartment.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+            if ( dataGridDepartment.SelectedIndex < 0)
+            {
+                textBlockId.Text = "";
+                textBoxName.Text = "";
+            } else
+            {
+                textBlockId.Text = (dataGridDepartment.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxName.Text = (dataGridDepartment.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+            }            
         }
 
         private void textBoxName_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -79,7 +122,52 @@ namespace Management_Bootcamp_WPF
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
-            dataGridDepartment.ItemsSource = _departmentService.Search(textBoxSearch.Text, comboBoxSearch.Text);
+            if (string.IsNullOrEmpty(comboBoxSearch.Text) == true)
+            {
+                MessageBox.Show("Please choice category search!");
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(textBoxSearch.Text) == true)
+                {
+                    MessageBox.Show("Please insert keywoard search!");
+                }
+                else if (string.IsNullOrWhiteSpace(textBoxSearch.Text) == true)
+                {
+                    MessageBox.Show("Don't insert white space");
+                }
+                else
+                {
+                    dataGridDepartment.ItemsSource = _departmentService.Search(textBoxSearch.Text, comboBoxSearch.Text);
+                }
+            }            
+        }
+
+        private void textBoxSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter) return;
+
+            // your event handler here
+            e.Handled = true;
+            if (string.IsNullOrEmpty(comboBoxSearch.Text) == true)
+            {
+                MessageBox.Show("Please choice category search!");
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(textBoxSearch.Text) == true)
+                {
+                    MessageBox.Show("Please insert keywoard search!");
+                }
+                else if (string.IsNullOrWhiteSpace(textBoxSearch.Text) == true)
+                {
+                    MessageBox.Show("Don't insert white space");
+                }
+                else
+                {
+                    dataGridDepartment.ItemsSource = _departmentService.Search(textBoxSearch.Text, comboBoxSearch.Text);
+                }
+            }
         }
     }
 }

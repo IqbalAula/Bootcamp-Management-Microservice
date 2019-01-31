@@ -67,7 +67,7 @@ namespace Microservice.Common.Interfaces.Master
                 return _context.Departments.Where(x => (x.isDelete == false) && (x.Name.Contains(keyword))).ToList();                
             }
             else
-            {
+            {                
                 return _context.Departments.Where(x => x.isDelete == false).ToList();
             }
         }

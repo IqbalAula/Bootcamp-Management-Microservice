@@ -11,32 +11,26 @@
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="361" Margin="10,10,0,0" VerticalAlignment="Top" Width="706">
             <TabItem Header="Manage Department">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
-                    <TextBox x:Name="textBoxSearch" HorizontalAlignment="Left" Height="23" Margin="306,7,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276"/>
-                    <ComboBox x:Name="comboBoxSearch" HorizontalAlignment="Left" Margin="245,7,0,0" VerticalAlignment="Top" Width="56">
+                    <Label x:Name="labelSearch" Content="Search" HorizontalAlignment="Left" Margin="291,4,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxSearch" HorizontalAlignment="Left" Margin="341,8,0,0" VerticalAlignment="Top" Width="56">
                         <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
                     </ComboBox>
+                    <TextBox x:Name="textBoxSearch" HorizontalAlignment="Left" Height="23" Margin="413,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" KeyUp="textBoxSearch_KeyUp" />
                     <Button x:Name="buttonSearch" Content="Search" HorizontalAlignment="Left" Margin="600,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearch_Click"/>
-                    <Label x:Name="labelId" Content="Id" HorizontalAlignment="Left" Margin="64,26,0,0" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlockId" HorizontalAlignment="Left" Margin="140,31,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
-                    <Label x:Name="labelName" Content="Name" HorizontalAlignment="Left" Margin="64,57,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxName" HorizontalAlignment="Left" PreviewTextInput="textBoxName_PreviewTextInput" Height="23" Margin="140,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403"/>
-                    <Button x:Name="buttonSave" Content="Save" HorizontalAlignment="Left" Margin="341,89,0,0" VerticalAlignment="Top" Width="75" Click="buttonSave_Click"/>
-                    <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="245,90,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click"/>
-                    <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="140,89,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete_Click"/>
+                    <Label x:Name="labelId" Content="Id" HorizontalAlignment="Left" Margin="22,16,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockId" HorizontalAlignment="Left" Margin="140,20,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
+                    <Label x:Name="labelName" Content="Name" HorizontalAlignment="Left" Margin="22,47,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxName" HorizontalAlignment="Left" PreviewTextInput="textBoxName_PreviewTextInput" Height="23" Margin="86,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403"/>
+                    <Button x:Name="buttonInsert" Content="Insert" HorizontalAlignment="Left" Margin="140,79,0,0" VerticalAlignment="Top" Width="75" Click="buttonSave_Click"/>
+                    <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="248,79,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click"/>
+                    <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="375,79,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete_Click"/>
                     <DataGrid x:Name="dataGridDepartment" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,115,0,0" VerticalAlignment="Top" Width="653" Height="208" AutoGenerateColumns="False" SelectedCellsChanged="dataGridDepartment_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                            <DataGridTemplateColumn>
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
-                    </DataGrid>                    
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="Manage Placement">
