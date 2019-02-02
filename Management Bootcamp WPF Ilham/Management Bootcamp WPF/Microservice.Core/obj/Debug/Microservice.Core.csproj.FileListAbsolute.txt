@@ -1,0 +1,10 @@
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.Core\bin\Debug\Microservice.Core.exe.config
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.Core\bin\Debug\Microservice.Core.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.Core\bin\Debug\Microservice.Core.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.dll
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.xml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.Core\obj\Debug\Microservice.Core.csprojResolveAssemblyReference.cache
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.Core\obj\Debug\Microservice.Core.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.Core\obj\Debug\Microservice.Core.pdb
