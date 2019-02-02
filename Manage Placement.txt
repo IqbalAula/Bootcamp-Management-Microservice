@@ -1,0 +1,43 @@
+Manage Placement
+<TabItem Header="Manage Placement">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="156*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="textBoxSearchPlacement" HorizontalAlignment="Left" Height="23" Margin="230,7,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Column="1" KeyUp="textBoxSearchBatch_KeyUp"/>
+                    <ComboBox x:Name="comboBoxSearchPlacement" HorizontalAlignment="Left" Margin="128,7,0,0" VerticalAlignment="Top" Width="97" Grid.Column="1">
+                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <Button x:Name="buttonSearchPlacement" Content="Search" HorizontalAlignment="Left" Margin="524,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchPlacement_Click" Grid.Column="1"/>
+                    <Label x:Name="labelIdPlacement" Content="Id" HorizontalAlignment="Left" Margin="64,26,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="textBlockIdPlacement" HorizontalAlignment="Left" Margin="64,31,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelNamePlacement" Content="Name" HorizontalAlignment="Left" Margin="64,57,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxNamePlacement" HorizontalAlignment="Left" PreviewTextInput="textBoxNamePlacement_PreviewTextInput" Height="23" Margin="64,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403" Grid.Column="1"/>
+                    <Button x:Name="buttonInsertPlacement" Content="Insert" HorizontalAlignment="Left" Margin="65,308,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertPlacement_Click" Grid.Column="1"/>
+                    <Button x:Name="buttonUpdatePlacement" Content="Update" HorizontalAlignment="Left" Margin="150,308,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateBatch_Click" Grid.Column="1"/>
+                    <DataGrid x:Name="dataGridPlacement" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,345,0,0" VerticalAlignment="Top" Width="653" Height="208" AutoGenerateColumns="False" SelectedCellsChanged="dataGridBatch_SelectedCellsChanged" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="buttonDeletePlacement" Content="Delete" HorizontalAlignment="Left" Margin="239,308,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteBatch_Click" Grid.Column="1"/>
+                    <Label x:Name="labelCategoryPlacement" Content="Category" HorizontalAlignment="Left" Margin="65,3,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelAddressPlacement" Content="Address" HorizontalAlignment="Left" Margin="64,87,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxAddressPlacement" HorizontalAlignment="Left" PreviewTextInput="textBoxNamePlacement_PreviewTextInput" Height="23" Margin="64,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403" Grid.Column="1"/>
+                    <Label x:Name="labelRtPlacement" Content="RT" HorizontalAlignment="Left" Margin="64,117,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxRtPlacement" HorizontalAlignment="Left" PreviewTextInput="textBoxNamePlacement_PreviewTextInput" Height="23" Margin="64,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
+                    <Label x:Name="labelRwPlacement" Content="RW" HorizontalAlignment="Left" Margin="64,147,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxRwPlacement" HorizontalAlignment="Left" PreviewTextInput="textBoxNamePlacement_PreviewTextInput" Height="23" Margin="64,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
+                    <Label x:Name="labelKelurahanPlacement" Content="Kelurahan" HorizontalAlignment="Left" Margin="64,177,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxKelurahanPlacement" HorizontalAlignment="Left" PreviewTextInput="textBoxNamePlacement_PreviewTextInput" Height="23" Margin="64,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
+                    <Label x:Name="labelKecamatanPlacement" Content="Kecamatan" HorizontalAlignment="Left" Margin="64,207,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxKecamatanPlacement" HorizontalAlignment="Left" PreviewTextInput="textBoxNamePlacement_PreviewTextInput" Height="23" Margin="64,211,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
+                    <Label x:Name="labelKabupatenPlacement" Content="Kabupaten" HorizontalAlignment="Left" Margin="64,237,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxKabupatenPlacement" HorizontalAlignment="Left" PreviewTextInput="textBoxNamePlacement_PreviewTextInput" Height="23" Margin="64,241,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
+                    <Label x:Name="labelPhonePlacement" Content="Phone" HorizontalAlignment="Left" Margin="64,267,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxPhonePlacement" HorizontalAlignment="Left" PreviewTextInput="textBoxNamePlacement_PreviewTextInput" Height="23" Margin="64,271,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="161" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
