@@ -10,7 +10,7 @@ namespace Microservice.DataAccess.Model
     public class Achievement : BaseModel
     {
         public string Name { get; set; }
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
         public virtual Student students { get; set; }
     }
 }

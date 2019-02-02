@@ -11,7 +11,7 @@ namespace Microservice.DataAccess.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTimeOffset Dob { get; set; }
+        public DateTime Dob { get; set; }
         public string Pob { get; set; }
         public string Gender { get; set; }
         public string Religion { get; set; }
@@ -27,7 +27,7 @@ namespace Microservice.DataAccess.Model
         public string Password { get; set; }
         public string Status { get; set; }
 
-        public virtual Placement placements { get; set; }
-        public virtual Class classes { get; set; }
+        public int Placements { get; set; }
+        public int Classes { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace Microservice.DataAccess.Model
     public class EmployeeParam
     {
         public string Name { get; set; }
-        public DateTimeOffset Dob { get; set; }
+        public DateTime Dob { get; set; }
         public string Pob { get; set; }
         public string Gender { get; set; }
         public string Religion { get; set; }

@@ -79,6 +79,7 @@
     <Compile Include="Services\Master\BatchService.cs" />
     <Compile Include="Services\Master\ClassService.cs" />
     <Compile Include="Services\Master\DailyScoreService.cs" />
+    <Compile Include="Services\Master\RoomService.cs" />
     <Compile Include="Services\Master\SkillService.cs" />
     <Compile Include="Services\Master\DetailLessonService.cs" />
     <Compile Include="Services\Master\EmployeeService.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Services\Master\PlacementService.cs" />
     <Compile Include="Services\Master\DepartmentService.cs" />
     <Compile Include="Services\Master\LoginService.cs" />
+    <Compile Include="Services\Master\StudentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

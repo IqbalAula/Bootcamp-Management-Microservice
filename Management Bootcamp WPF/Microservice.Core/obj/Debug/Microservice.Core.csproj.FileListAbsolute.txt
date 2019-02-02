@@ -5,6 +5,5 @@ D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microserv
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.SqlServer.dll
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.xml
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.SqlServer.xml
-D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\obj\Debug\Microservice.Core.csprojResolveAssemblyReference.cache
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\obj\Debug\Microservice.Core.exe
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\obj\Debug\Microservice.Core.pdb

@@ -14,13 +14,6 @@ c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\M
 c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.pdb
 c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuUser.g.cs
 c:\users\habibie\documents\visual studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuUser.baml
-D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.csprojResolveAssemblyReference.cache
-D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MainWindow.g.cs
-D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuStudent.g.cs
-D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuHR.g.cs
-D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\App.g.cs
-D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF_MarkupCompile.cache
-D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF_MarkupCompile.lref
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.exe.config
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.exe
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.pdb
@@ -34,6 +27,13 @@ D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Managemen
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Microservice.DataAccess.pdb
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\EntityFramework.xml
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\EntityFramework.SqlServer.xml
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.csprojResolveAssemblyReference.cache
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MainWindow.g.cs
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuStudent.g.cs
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuHR.g.cs
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\App.g.cs
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF_MarkupCompile.cache
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF_MarkupCompile.lref
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MainWindow.baml
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuStudent.baml
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuHR.baml

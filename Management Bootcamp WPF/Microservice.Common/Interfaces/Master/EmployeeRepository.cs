@@ -31,34 +31,34 @@ namespace Microservice.Common.Interfaces.Master
 
         public List<Employee> Get()
         {
-            return _context.Emplyoees.Where(x => x.IsDelete == false).ToList();
+            return _context.Employees.Where(x => x.IsDelete == false).ToList();
         }
         public Employee Get(int? id)
         {
-            // return _context.Emplyoees.Where(x => (x.IsDelete == false) && (x.Id == id)).SingleOrDefault();
-            return _context.Emplyoees.Find(id);
+            // return _context.Employees.Where(x => (x.IsDelete == false) && (x.Id == id)).SingleOrDefault();
+            return _context.Employees.Find(id);
         }
         public bool Insert(EmployeeParam employeeParam)
         {
             var result = 0;
             employee.Name = employeeParam.Name;
-            employee.Dob = DateTimeOffset.Now.LocalDateTime;
-            employee.Pob = employeeParam.Pob;
-            employee.Gender = employeeParam.Gender;
-            employee.Religion = employeeParam.Religion;
-            employee.Address = employeeParam.Address;
-            employee.RT = employeeParam.RT;
-            employee.RW = employeeParam.RW;
-            employee.Kelurahan = employeeParam.Kelurahan;
-            employee.Kecamatan = employeeParam.Kecamatan;
-            employee.Kabupaten = employeeParam.Kabupaten;
+            //employee.Dob = employeeParam.Dob;
+            //employee.Pob = employeeParam.Pob;
+            //employee.Gender = employeeParam.Gender;
+            //employee.Religion = employeeParam.Religion;
+            //employee.Address = employeeParam.Address;
+            //employee.RT = employeeParam.RT;
+            //employee.RW = employeeParam.RW;
+            //employee.Kelurahan = employeeParam.Kelurahan;
+            //employee.Kecamatan = employeeParam.Kecamatan;
+            //employee.Kabupaten = employeeParam.Kabupaten;
             employee.Phone = employeeParam.Phone;
             employee.Email = employeeParam.Email;
             employee.Username = employeeParam.Username;
             employee.Password = employeeParam.Password;
             employee.Role = employeeParam.Role;
             employee.CreateDate = DateTimeOffset.Now.LocalDateTime;
-            _context.Emplyoees.Add(employee);
+            _context.Employees.Add(employee);
             result = _context.SaveChanges();
             if (result > 0)
             {
@@ -71,19 +71,19 @@ namespace Microservice.Common.Interfaces.Master
         {
             if (category == "Id")
             {
-                return _context.Emplyoees.Where(x => (x.IsDelete == false) && (x.Id.ToString().Contains(keyword))).ToList();
+                return _context.Employees.Where(x => (x.IsDelete == false) && (x.Id.ToString().Contains(keyword))).ToList();
             }
             else if (category == "Name")
             {
-                return _context.Emplyoees.Where(x => (x.IsDelete == false) && (x.Name.Contains(keyword))).ToList();
+                return _context.Employees.Where(x => (x.IsDelete == false) && (x.Name.Contains(keyword))).ToList();
             }
             else if (category == "Role")
             {
-                return _context.Emplyoees.Where(x => (x.IsDelete == false) && (x.Role.Contains(keyword))).ToList();
+                return _context.Employees.Where(x => (x.IsDelete == false) && (x.Role.Contains(keyword))).ToList();
             }
             else
             {
-                return _context.Emplyoees.Where(x => x.IsDelete == false).ToList();
+                return _context.Employees.Where(x => x.IsDelete == false).ToList();
             }
         }
         public bool Update(int? id, EmployeeParam employeeParam)
@@ -91,7 +91,7 @@ namespace Microservice.Common.Interfaces.Master
             var result = 0;
             var employee = Get(id);
             employee.Name = employeeParam.Name;
-            employee.Dob = DateTimeOffset.Now.LocalDateTime;
+            employee.Dob = employeeParam.Dob;
             employee.Pob = employeeParam.Pob;
             employee.Gender = employeeParam.Gender;
             employee.Religion = employeeParam.Religion;

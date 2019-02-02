@@ -77,6 +77,8 @@
     <Compile Include="Interfaces\Master\BatchRepository.cs" />
     <Compile Include="Interfaces\Master\ClassRepository.cs" />
     <Compile Include="Interfaces\Master\DailyScoreRepository.cs" />
+    <Compile Include="Interfaces\Master\RoomRepository.cs" />
+    <Compile Include="Interfaces\Master\StudentRepository.cs" />
     <Compile Include="Interfaces\Master\SkillRepository.cs" />
     <Compile Include="Interfaces\Master\DetailLessonRepository.cs" />
     <Compile Include="Interfaces\Master\EmployeeRepository.cs" />

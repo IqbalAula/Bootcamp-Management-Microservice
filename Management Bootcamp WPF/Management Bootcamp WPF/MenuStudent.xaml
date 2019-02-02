@@ -33,9 +33,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Manage Placement">
-                
-            </TabItem>
+            
         </TabControl>
     </Grid>
 </Window>

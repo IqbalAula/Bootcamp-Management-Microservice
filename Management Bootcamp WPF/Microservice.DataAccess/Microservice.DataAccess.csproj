@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201902011259538_updateModel.Designer.cs">
       <DependentUpon>201902011259538_updateModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902021628526_UpdateDatetimeoffsetToDatetime.cs" />
+    <Compile Include="Migrations\201902021628526_UpdateDatetimeoffsetToDatetime.Designer.cs">
+      <DependentUpon>201902021628526_UpdateDatetimeoffsetToDatetime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Achievement.cs" />
     <Compile Include="Model\Batch.cs" />
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902011259538_updateModel.resx">
       <DependentUpon>201902011259538_updateModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902021628526_UpdateDatetimeoffsetToDatetime.resx">
+      <DependentUpon>201902021628526_UpdateDatetimeoffsetToDatetime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

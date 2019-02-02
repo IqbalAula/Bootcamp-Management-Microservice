@@ -14,7 +14,7 @@ namespace Microservice.Common.Interfaces.Master
         
         public Employee Get(string username, string password)
         {
-            return _context.Emplyoees.Where(x => (x.IsDelete == false) && (x.Username == username) && (x.Password == password)).SingleOrDefault();
+            return _context.Employees.Where(x => (x.IsDelete == false) && (x.Username == username) && (x.Password == password)).SingleOrDefault();
         }
     }
 }

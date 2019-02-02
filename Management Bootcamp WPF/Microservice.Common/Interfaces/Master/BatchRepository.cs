@@ -32,22 +32,22 @@ namespace Microservice.Common.Interfaces.Master
 
         public List<Batch> Get()
         {
-            return _context.Batches.Where(x => x.IsDelete == false).ToList();
+            return _context.Batchs.Where(x => x.IsDelete == false).ToList();
         }
 
         public Batch Get(int? id)
         {
-            return _context.Batches.Find(id);
+            return _context.Batchs.Find(id);
         }
 
         public bool Insert(BatchParam batchParam)
         {
             var result = 0;
             batch.Name = batchParam.Name;
-            batch.DateStart = DateTimeOffset.Now.LocalDateTime; ;
+            batch.DateStart = batchParam.DateStart;
             batch.DateEnd = batch.DateStart.AddMonths(3);
             batch.CreateDate = DateTimeOffset.Now.LocalDateTime;
-            _context.Batches.Add(batch);
+            _context.Batchs.Add(batch);
             result = _context.SaveChanges();
             if (result > 0)
             {
@@ -65,15 +65,15 @@ namespace Microservice.Common.Interfaces.Master
         {
             if (category == "Id")
             {
-                return _context.Batches.Where(x => (x.IsDelete == false) && (x.Id.ToString().Contains(keywoard))).ToList();
+                return _context.Batchs.Where(x => (x.IsDelete == false) && (x.Id.ToString().Contains(keywoard))).ToList();
             }
             else if (category == "Name")
             {
-                return _context.Batches.Where(x => (x.IsDelete == false) && (x.Name.Contains(keywoard))).ToList();
+                return _context.Batchs.Where(x => (x.IsDelete == false) && (x.Name.Contains(keywoard))).ToList();
             }
             else
             {
-                return _context.Batches.Where(x => x.IsDelete == false).ToList();
+                return _context.Batchs.Where(x => x.IsDelete == false).ToList();
             }
         }
 
@@ -82,7 +82,7 @@ namespace Microservice.Common.Interfaces.Master
             var result = 0;
             var batch = Get(id);
             batch.Name = batchParam.Name;
-            batch.DateStart = DateTimeOffset.Now.LocalDateTime;
+            batch.DateStart = batchParam.DateStart;
             batch.DateEnd = batch.DateStart.AddMonths(3);
             batch.UpdateDate = DateTimeOffset.Now.LocalDateTime;            
             result = _context.SaveChanges();

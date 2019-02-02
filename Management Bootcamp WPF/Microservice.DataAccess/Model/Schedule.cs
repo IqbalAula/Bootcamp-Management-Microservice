@@ -9,8 +9,8 @@ namespace Microservice.DataAccess.Model
 {
     public class Schedule : BaseModel
     {
-        public DateTimeOffset DateStart { get; set; }
-        public DateTimeOffset DateEnd { get; set; }
+        public DateTime DateStart { get; set; }
+        public DateTime DateEnd { get; set; }
         public virtual Employee employees { get; set; }
         public virtual Lesson lessons { get; set; }
         public virtual Room room { get; set; }

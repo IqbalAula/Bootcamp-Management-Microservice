@@ -13,7 +13,7 @@ namespace Microservice.DataAccess.Context
         public MyContext() : base("bootcampManagement") {}
 
         public DbSet<Placement> Placements { get; set; }
-        public DbSet<Employee> Emplyoees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<HistoryDetailLesson> HistoryDetailLessons { get; set; }
         public DbSet<Achievement> Achievements { get; set; }
@@ -28,7 +28,7 @@ namespace Microservice.DataAccess.Context
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Class> Classes { get; set; }
-        public DbSet<Batch> Batches { get; set; }
+        public DbSet<Batch> Batchs { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Skill> Skills { get; set; }
 
