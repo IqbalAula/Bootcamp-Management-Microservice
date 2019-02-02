@@ -1,0 +1,13 @@
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\Microservice.DataAccess.exe.config
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\Microservice.DataAccess.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\Microservice.DataAccess.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.Migrations.firstMigration.resources
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.Migrations.updateTableSkillStudent.resources
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.csproj.GenerateResource.Cache
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.csprojResolveAssemblyReference.cache

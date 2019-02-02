@@ -1,0 +1,30 @@
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.csprojResolveAssemblyReference.cache
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MainWindow.g.cs
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuHR.g.cs
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuMentor.g.cs
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuUser.g.cs
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\App.g.cs
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF_MarkupCompile.cache
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF_MarkupCompile.lref
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.exe.config
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\EntityFramework.dll
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Microservice.BussinessLogic.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Microservice.Common.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Microservice.DataAccess.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Microservice.BussinessLogic.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Microservice.Common.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Microservice.DataAccess.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\EntityFramework.xml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MainWindow.baml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuHR.baml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuMentor.baml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuUser.baml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.g.resources
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management_Bootcamp_WPF.Properties.Resources.resources
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.csproj.GenerateResource.Cache
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.pdb
