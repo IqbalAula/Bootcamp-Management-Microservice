@@ -15,6 +15,6 @@ namespace Microservice.DataAccess.Core
         public DateTimeOffset CreateDate { get; set; }
         public DateTimeOffset UpdateDate { get; set; }
         public DateTimeOffset DeleteDate { get; set; }
-        public bool isDelete { get; set; }
+        public bool IsDelete { get; set; }
     }
 }

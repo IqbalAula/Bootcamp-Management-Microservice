@@ -18,13 +18,7 @@ namespace Microservice.BussinessLogic.Services.Master
         {
             if (_departmentRepository.Get(id) == null)
             {
-                Console.WriteLine("Sorry, your data is not found");
-                Console.Read();
-            }
-            else if (id.ToString() == " ")
-            {
-                Console.WriteLine("Don't insert white space");
-                Console.Read();
+                MessageBox.Show("Sorry, your data is not found");
             }
             else
             {

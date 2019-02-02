@@ -62,6 +62,14 @@
     <Compile Include="Migrations\201901290941188_UpdateFirstModelSkillStudent.Designer.cs">
       <DependentUpon>201901290941188_UpdateFirstModelSkillStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902010221471_UpdateStudentAddSecretQuestion.cs" />
+    <Compile Include="Migrations\201902010221471_UpdateStudentAddSecretQuestion.Designer.cs">
+      <DependentUpon>201902010221471_UpdateStudentAddSecretQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902011259538_updateModel.cs" />
+    <Compile Include="Migrations\201902011259538_updateModel.Designer.cs">
+      <DependentUpon>201902011259538_updateModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Achievement.cs" />
     <Compile Include="Model\Batch.cs" />
@@ -114,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901290941188_UpdateFirstModelSkillStudent.resx">
       <DependentUpon>201901290941188_UpdateFirstModelSkillStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902010221471_UpdateStudentAddSecretQuestion.resx">
+      <DependentUpon>201902010221471_UpdateStudentAddSecretQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902011259538_updateModel.resx">
+      <DependentUpon>201902011259538_updateModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

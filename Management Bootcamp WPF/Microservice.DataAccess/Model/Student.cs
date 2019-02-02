@@ -25,6 +25,8 @@ namespace Microservice.DataAccess.Model
         public string Username { get; set; }
         public string Password { get; set; }
         public string Status { get; set; }
+        public string SecretQuestion { get; set; }
+        public string SecretAnswer { get; set; }
 
         public virtual Placement placements { get; set; }
         public virtual Class classes { get; set; }

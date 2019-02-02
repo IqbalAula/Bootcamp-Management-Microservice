@@ -18,7 +18,7 @@ namespace Microservice.Common.Interfaces.Master
         {
             var result = 0;
             var department = Get(id);
-            department.isDelete = true;
+            department.IsDelete = true;
             department.DeleteDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)
@@ -31,12 +31,12 @@ namespace Microservice.Common.Interfaces.Master
 
         public List<Department> Get()
         {
-            return _context.Departments.Where(x => x.isDelete == false).ToList();
+            return _context.Departments.Where(x => x.IsDelete == false).ToList();
         }
 
         public Department Get(int? id)
         {
-            //return _context.Departments.Where(x => (x.isDelete == false) && (x.Id == id)).SingleOrDefault();
+            //return _context.Departments.Where(x => (x.IsDelete == false) && (x.Id == id)).SingleOrDefault();
             return _context.Departments.Find(id);
         }
 
@@ -59,16 +59,15 @@ namespace Microservice.Common.Interfaces.Master
         {
             if (category == "Id")
             {
-                return _context.Departments.Where(x => (x.isDelete == false) && (x.Id.ToString().Contains(keyword))).ToList();
-
+                return _context.Departments.Where(x => (x.IsDelete == false) && (x.Id.ToString().Contains(keyword))).ToList();
             }
             else if (category == "Name")
             {                
-                return _context.Departments.Where(x => (x.isDelete == false) && (x.Name.Contains(keyword))).ToList();                
+                return _context.Departments.Where(x => (x.IsDelete == false) && (x.Name.Contains(keyword))).ToList();                
             }
             else
             {                
-                return _context.Departments.Where(x => x.isDelete == false).ToList();
+                return _context.Departments.Where(x => x.IsDelete == false).ToList();
             }
         }
 
@@ -86,7 +85,7 @@ namespace Microservice.Common.Interfaces.Master
             }
             else
             {
-                MessageBox.Show("Update Error");
+                MessageBox.Show("Update Failed");
             }
             return status;
         }

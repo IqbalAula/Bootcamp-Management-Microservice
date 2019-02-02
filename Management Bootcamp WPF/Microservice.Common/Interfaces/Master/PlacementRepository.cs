@@ -18,7 +18,7 @@ namespace Microservice.Common.Interfaces.Master
         {
             var result = 0;
             var placement = Get(id);
-            placement.isDelete = true;
+            placement.IsDelete = true;
             placement.DeleteDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)
@@ -31,12 +31,12 @@ namespace Microservice.Common.Interfaces.Master
 
         public List<Placement> Get()
         {
-            return _context.Placements.Where(x => x.isDelete == false).ToList();
+            return _context.Placements.Where(x => x.IsDelete == false).ToList();
         }
 
         public Placement Get(int? id)
         {
-            //return _context.Placements.Where(x => (x.isDelete == false) && (x.Id == id)).SingleOrDefault();
+            //return _context.Placements.Where(x => (x.IsDelete == false) && (x.Id == id)).SingleOrDefault();
             return _context.Placements.Find(id);
         }
 
@@ -66,15 +66,15 @@ namespace Microservice.Common.Interfaces.Master
         {
             if (category == "Id")
             {
-                return _context.Placements.Where(x => (x.isDelete == false) && (x.Id.ToString().Contains(keywoard))).ToList();
+                return _context.Placements.Where(x => (x.IsDelete == false) && (x.Id.ToString().Contains(keywoard))).ToList();
             }
             else if (category == "Name")
             {
-                return _context.Placements.Where(x => (x.isDelete == false) && (x.Name.Contains(keywoard))).ToList();
+                return _context.Placements.Where(x => (x.IsDelete == false) && (x.Name.Contains(keywoard))).ToList();
             }
             else
             {
-                return _context.Placements.Where(x => x.isDelete == false).ToList();
+                return _context.Placements.Where(x => x.IsDelete == false).ToList();
             }
         }
 

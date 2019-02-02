@@ -20,10 +20,6 @@ namespace Microservice.BussinessLogic.Services.Master
             {
                 MessageBox.Show("Sorry, your data is not found");
             }
-            else if (id.ToString() == " ")
-            {
-                MessageBox.Show("Don't insert white space");
-            }
             else
             {
                 status = _employeeRepository.Delete(id);
@@ -43,20 +39,12 @@ namespace Microservice.BussinessLogic.Services.Master
 
         public bool Insert(EmployeeParam employeeParam)
         {
-            if (employeeParam.Name.ToString() == " ")
-            {
-                MessageBox.Show("Don't insert white space");
-            }
-            else
-            {
-                status = _employeeRepository.Insert(employeeParam);
-            }
-            return status;
+            return _employeeRepository.Insert(employeeParam);
         }
 
-        public List<Employee> Search(string keywoard, string category)
+        public List<Employee> Search(string keyword, string category)
         {
-            return _employeeRepository.Search(keywoard, category);
+            return _employeeRepository.Search(keyword, category);
         }
 
         public bool Update(int? id, EmployeeParam employeeParam)
@@ -65,20 +53,9 @@ namespace Microservice.BussinessLogic.Services.Master
             {
                 MessageBox.Show("Sorry, your data is not found");
             }
-            else if (id.ToString() == " ")
-            {
-                MessageBox.Show("Don't insert white space in Id");
-            }
             else
             {
-                if (employeeParam.Name.ToString() == " ")
-                {
-                    MessageBox.Show("Don't insert white space in Name");
-                }
-                else
-                {
-                    status = _employeeRepository.Update(id, employeeParam);
-                }
+                status = _employeeRepository.Update(id, employeeParam);
             }
             return status;
         }

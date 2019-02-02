@@ -22,7 +22,7 @@ namespace Microservice.DataAccess.Context
         public DbSet<TaskScore> TaskScores { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<DailyScore> DailyScores { get; set; }
-        public DbSet<DetailLesson> DetailLesson { get; set; }
+        public DbSet<DetailLesson> DetailLessons { get; set; }
         public DbSet<WorkExperience> WorkExperiences { get; set; }
         public DbSet<SkillStudent> SkillStudents { get; set; }
         public DbSet<Room> Rooms { get; set; }

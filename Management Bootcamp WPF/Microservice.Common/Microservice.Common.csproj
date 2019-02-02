@@ -62,6 +62,7 @@
     <Compile Include="Interfaces\IErrorBankRepository.cs" />
     <Compile Include="Interfaces\IHistoryDetailLessonRepository.cs" />
     <Compile Include="Interfaces\ILessonRepository.cs" />
+    <Compile Include="Interfaces\ILoginRepository.cs" />
     <Compile Include="Interfaces\IOrganizationRepository.cs" />
     <Compile Include="Interfaces\IRoomRepository.cs" />
     <Compile Include="Interfaces\IScheduleService.cs" />
@@ -72,11 +73,11 @@
     <Compile Include="Interfaces\IStudentRepository.cs" />
     <Compile Include="Interfaces\ITaskScoreRepository.cs" />
     <Compile Include="Interfaces\IWorkExperienceRepository.cs" />
-    <Compile Include="Interfaces\LoginRepository.cs" />
     <Compile Include="Interfaces\Master\AchievementRepository.cs" />
     <Compile Include="Interfaces\Master\BatchRepository.cs" />
     <Compile Include="Interfaces\Master\ClassRepository.cs" />
     <Compile Include="Interfaces\Master\DailyScoreRepository.cs" />
+    <Compile Include="Interfaces\Master\SkillRepository.cs" />
     <Compile Include="Interfaces\Master\DetailLessonRepository.cs" />
     <Compile Include="Interfaces\Master\EmployeeRepository.cs" />
     <Compile Include="Interfaces\Master\ErrorBankRepository.cs" />

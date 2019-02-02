@@ -46,8 +46,8 @@ namespace Microservice.Common.Interfaces.Master
             detailLesson.Name = detailLessonParam.Name;
             detailLesson.Date = DateTimeOffset.Now.LocalDateTime;
             detailLesson.LinkFile = detailLessonParam.LinkFile;
-            detailLesson.Employees.Id = detailLessonParam.Employees.Id;
-            detailLesson.Lessons.Id = detailLessonParam.Lessons.Id;
+            detailLesson.employees.Id = detailLessonParam.Employees.Id;
+            detailLesson.lessons.Id = detailLessonParam.Lessons.Id;
             detailLesson.CreateDate = DateTimeOffset.Now.LocalDateTime;
             _context.DetailLessons.Add(detailLesson);
             result = _context.SaveChanges();
@@ -86,8 +86,8 @@ namespace Microservice.Common.Interfaces.Master
             detailLesson.Name = detailLessonParam.Name;
             detailLesson.Date = DateTimeOffset.Now.LocalDateTime;
             detailLesson.LinkFile = detailLessonParam.LinkFile;
-            detailLesson.Employees.Id = detailLessonParam.Employees.Id;
-            detailLesson.Lessons.Id = detailLessonParam.Lessons.Id;
+            detailLesson.employees.Id = detailLessonParam.Employees.Id;
+            detailLesson.lessons.Id = detailLessonParam.Lessons.Id;
             detailLesson.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)

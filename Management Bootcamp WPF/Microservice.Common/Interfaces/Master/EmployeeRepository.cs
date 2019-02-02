@@ -25,7 +25,6 @@ namespace Microservice.Common.Interfaces.Master
             {
                 status = true;
                 MessageBox.Show("Delete Successfully");
-                Console.Read();
             }
             return status;
         }
@@ -66,21 +65,21 @@ namespace Microservice.Common.Interfaces.Master
                 status = true;
                 MessageBox.Show("Insert Successfully");
             }
-            else
-            {
-                MessageBox.Show("Insert Failed");
-            }
             return status;
         }
-        public List<Employee> Search(string keywoard, string category)
+        public List<Employee> Search(string keyword, string category)
         {
             if (category == "Id")
             {
-                return _context.Emplyoees.Where(x => (x.IsDelete == false) && (x.Id.ToString().Contains(keywoard))).ToList();
+                return _context.Emplyoees.Where(x => (x.IsDelete == false) && (x.Id.ToString().Contains(keyword))).ToList();
             }
             else if (category == "Name")
             {
-                return _context.Emplyoees.Where(x => (x.IsDelete == false) && (x.Name.Contains(keywoard))).ToList();
+                return _context.Emplyoees.Where(x => (x.IsDelete == false) && (x.Name.Contains(keyword))).ToList();
+            }
+            else if (category == "Role")
+            {
+                return _context.Emplyoees.Where(x => (x.IsDelete == false) && (x.Role.Contains(keyword))).ToList();
             }
             else
             {
@@ -121,11 +120,8 @@ namespace Microservice.Common.Interfaces.Master
 
             return status;
         }
-
-
-        
     }
 
       
-    }
+}
 
