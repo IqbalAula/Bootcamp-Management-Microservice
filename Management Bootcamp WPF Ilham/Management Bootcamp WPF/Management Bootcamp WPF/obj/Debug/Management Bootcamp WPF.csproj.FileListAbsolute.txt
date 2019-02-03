@@ -28,3 +28,6 @@ C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\M
 C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.csproj.GenerateResource.Cache
 C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.exe
 C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.pdb
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF Ilham\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.exe.config
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF Ilham\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.exe
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF Ilham\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.pdb

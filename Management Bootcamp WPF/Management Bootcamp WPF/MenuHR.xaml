@@ -144,7 +144,7 @@
                     <Label x:Name="labelNameBatch" Content="Name" HorizontalAlignment="Left" Margin="64,57,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                     <TextBox x:Name="textBoxNameBatch" HorizontalAlignment="Left" PreviewTextInput="textBoxNameBatch_PreviewTextInput" Height="23" Margin="64,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403" Grid.Column="1"/>
                     <Label x:Name="labelDateStartBatch" Content="Date Start" Margin="64,95,615,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <DatePicker x:Name="dateDateStartBatch" HorizontalAlignment="Left" Margin="65,96,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <DatePicker x:Name="dateDateStartBatch" SelectedDate="{Binding Path=DateStartBatch, StringFormat='mm/dd/yyyy'}" HorizontalAlignment="Left" Margin="65,96,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                     <Button x:Name="buttonInsertBatch" Content="Insert" HorizontalAlignment="Left" Margin="67,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertBatch_Click" Grid.Column="1"/>
                     <Button x:Name="buttonUpdateBatch" Content="Update" HorizontalAlignment="Left" Margin="152,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateBatch_Click" Grid.Column="1"/>
                     <DataGrid x:Name="dataGridBatch" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,165,0,0" VerticalAlignment="Top" Width="653" Height="188" AutoGenerateColumns="False" SelectedCellsChanged="dataGridBatch_SelectedCellsChanged" Grid.ColumnSpan="2">

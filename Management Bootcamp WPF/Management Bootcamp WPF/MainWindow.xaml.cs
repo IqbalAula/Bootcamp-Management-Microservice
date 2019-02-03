@@ -33,7 +33,7 @@ namespace Management_Bootcamp_WPF
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             var username = textBoxUsername.Text;
-            var password = textBoxPassword.Text;
+            var password = passwordBoxPassword.Password;
             var get = loginService.Get(username, password);
             if (get == null)
             {

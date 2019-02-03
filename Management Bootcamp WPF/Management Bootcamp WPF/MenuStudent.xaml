@@ -33,7 +33,80 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            
+            <!--Manage Achievement-->
+            <TabItem Header="Manage Achievement">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="156*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="textBoxSearchAchievement" HorizontalAlignment="Left" Height="23" Margin="230,7,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Column="1" KeyUp="textBoxSearchAchievement_KeyUp"/>
+                    <ComboBox x:Name="comboBoxSearchAchievement" HorizontalAlignment="Left" Margin="128,7,0,0" VerticalAlignment="Top" Width="97" Grid.Column="1">
+                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <Button x:Name="buttonSearchAchievement" Content="Search" HorizontalAlignment="Left" Margin="524,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchAchievement_Click" Grid.Column="1"/>
+                    <Label x:Name="labelIdAchievement" Content="Id" HorizontalAlignment="Left" Margin="64,26,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="textBlockIdAchievement" HorizontalAlignment="Left" Margin="64,31,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelNameAchievement" Content="Name" HorizontalAlignment="Left" Margin="64,57,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxNameAchievement" HorizontalAlignment="Left" PreviewTextInput="textBoxNameAchievement_PreviewTextInput" Height="23" Margin="64,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403" Grid.Column="1"/>
+                    <Label x:Name="labelDateAchievement" Content="Date" Margin="64,95,564,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <DatePicker x:Name="dateDateAchievement" SelectedDate="{Binding Path=DateStartAchievement, StringFormat='mm/dd/yyyy'}" HorizontalAlignment="Center" Margin="65,96,457,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button x:Name="buttonInsertAchievement" Content="Insert" HorizontalAlignment="Left" Margin="67,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertAchievement_Click" Grid.Column="1"/>
+                    <Button x:Name="buttonUpdateAchievement" Content="Update" HorizontalAlignment="Left" Margin="152,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateAchievement_Click" Grid.Column="1"/>
+                    <DataGrid x:Name="dataGridAchievement" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,165,0,0" VerticalAlignment="Top" Width="653" Height="188" AutoGenerateColumns="False" SelectedCellsChanged="dataGridAchievement_SelectedCellsChanged" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="buttonDeleteAchievement" Content="Delete" HorizontalAlignment="Left" Margin="241,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteAchievement_Click" Grid.Column="1"/>
+                    <Label x:Name="labelCategoryAchievement" Content="Category" HorizontalAlignment="Left" Margin="65,3,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <!--Manage Organization-->
+            <TabItem Header="Manage Organization">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="156*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="labelCategoryOrganization" Content="Category" HorizontalAlignment="Left" Margin="65,3,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxSearchOrganization" HorizontalAlignment="Left" Height="23" Margin="230,7,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Column="1" KeyUp="textBoxSearchOrganization_KeyUp"/>
+                    <ComboBox x:Name="comboBoxSearchOrganization" HorizontalAlignment="Left" Margin="128,7,0,0" VerticalAlignment="Top" Width="97" Grid.Column="1">
+                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <Button x:Name="buttonSearchOrganization" Content="Search" HorizontalAlignment="Left" Margin="524,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchOrganization_Click" Grid.Column="1"/>
+                    <Label x:Name="labelIdOrganization" Content="Id" HorizontalAlignment="Left" Margin="20,31,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdOrganization" HorizontalAlignment="Left" Margin="20,36,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelNameOrganization" Content="Name" HorizontalAlignment="Left" Margin="20,58,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxNameOrganization" HorizontalAlignment="Left" PreviewTextInput="textBoxNameOrganization_PreviewTextInput" Height="23" Margin="10,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251" Grid.Column="1"/>
+                    <Label x:Name="labelPositionOrganization" Content="Position" HorizontalAlignment="Left" Margin="20,87,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxPositionOrganization" HorizontalAlignment="Left" PreviewTextInput="textBoxNameOrganization_PreviewTextInput" Height="23" Margin="10,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251" Grid.Column="1"/>
+                    <Label x:Name="labelDateStartOrganization" Content="Date" Margin="275,43,277,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <DatePicker x:Name="dateDateStartOrganization" SelectedDate="{Binding Path=DateStartOrganization, StringFormat='mm/dd/yyyy'}" HorizontalAlignment="Left" Margin="352,44,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelDateEndOrganization" Content="to" Margin="471,43,131,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <DatePicker x:Name="dateDateEndOrganization" SelectedDate="{Binding Path=DateEndOrganization, StringFormat='mm/dd/yyyy'}" HorizontalAlignment="Left" Margin="512,44,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+
+                    <Label x:Name="labelDescriptionOrganization" Content="Description" HorizontalAlignment="Left" Margin="276,70,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxDescriptionOrganization" HorizontalAlignment="Left" PreviewTextInput="textBoxDescriptionOrganization_PreviewTextInput" Height="40" Margin="352,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="262" Grid.Column="1"/>
+                    <Button x:Name="buttonInsertOrganization" Content="Insert" HorizontalAlignment="Left" Margin="333,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertOrganization_Click" Grid.Column="1"/>
+                    <Button x:Name="buttonUpdateOrganization" Content="Update" HorizontalAlignment="Left" Margin="418,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateOrganization_Click" Grid.Column="1"/>
+                    <Button x:Name="buttonDeleteOrganization" Content="Delete" HorizontalAlignment="Left" Margin="507,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteOrganization_Click" Grid.Column="1"/>
+                    <DataGrid x:Name="dataGridOrganization" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,168,0,0" VerticalAlignment="Top" Width="668" Height="185" AutoGenerateColumns="False" SelectedCellsChanged="dataGridOrganization_SelectedCellsChanged" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Position" Binding="{Binding Path=Position}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date Start" Binding="{Binding Path=DateStart}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date End" Binding="{Binding Path=DateEnd}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>                    
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

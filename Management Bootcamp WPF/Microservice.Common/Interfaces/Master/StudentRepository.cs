@@ -60,7 +60,7 @@ namespace Microservice.Common.Interfaces.Master
             student.Password = studentParam.Password;
             student.Status = "ON BOOTCAMP";
             student.classes = _context.Classes.Find(studentParam.Classes);
-            student.placements = _context.Placements.Find("PT. Mitra Integrasi Informatika");
+            student.placements = _context.Placements.Find(studentParam.Placements);
             student.CreateDate = DateTimeOffset.Now.LocalDateTime;
             _context.Students.Add(student);
             result = _context.SaveChanges();

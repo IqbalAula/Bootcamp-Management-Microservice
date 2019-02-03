@@ -32,9 +32,7 @@ namespace Management_Bootcamp_WPF
         BatchParam batchParam = new BatchParam();
 
         IRoomService _roomService = new RoomService();
-        RoomParam roomParam = new RoomParam();       
-        //string id;
-        //string name;
+        RoomParam roomParam = new RoomParam();
         public MenuHR()
         {
             InitializeComponent();
@@ -638,6 +636,9 @@ namespace Management_Bootcamp_WPF
                 textBoxLocationRoom.Text = (dataGridRoom.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
             }
         }
+
+
+        
     }
 }
 

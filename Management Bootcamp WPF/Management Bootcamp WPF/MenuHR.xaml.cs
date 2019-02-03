@@ -63,7 +63,7 @@ namespace Management_Bootcamp_WPF
             var get = _employeeService.Get(Settings.Default.Id);
             textBlockIdProfileHR.Text = Convert.ToString(get.Id);
             textBoxNameProfileHR.Text = get.Name;
-            dateDobProfileHR.DisplayDate = Convert.ToDateTime(get.Dob);
+            dateDobProfileHR.SelectedDate = get.Dob;
             textBoxPobProfileHR.Text = get.Pob;
             comboBoxGenderProfileHR.Text = get.Gender;
             comboBoxReligionProfileHR.Text = get.Religion;
@@ -590,7 +590,7 @@ namespace Management_Bootcamp_WPF
         {
             textBlockIdBatch.Text = "";
             textBoxNameBatch.Text = "";
-            dateDateStartBatch.DisplayDate = Convert.ToDateTime("");
+            dateDateStartBatch.Text = "";
             dataGridBatch.ItemsSource = _batchService.Get();
 
         }
@@ -607,7 +607,7 @@ namespace Management_Bootcamp_WPF
             DateTime? selectedDate = dateDateStartBatch.SelectedDate;
             if (selectedDate.HasValue)
             {
-                batchParam.DateEnd = selectedDate.Value;
+                batchParam.DateStart = selectedDate.Value;
             }
             if (string.IsNullOrEmpty(textBoxNameBatch.Text) == true)
             {
@@ -632,13 +632,13 @@ namespace Management_Bootcamp_WPF
             {
                 textBlockIdBatch.Text = "";
                 textBoxNameBatch.Text = "";
-                dateDateStartBatch.DisplayDate = Convert.ToDateTime("");
+                dateDateStartBatch.Text = "";
             }
             else
             {
                 textBlockIdBatch.Text = (dataGridBatch.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxNameBatch.Text = (dataGridBatch.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                dateDateStartBatch.DisplayDate = Convert.ToDateTime((dataGridBatch.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text);
+                textBoxNameBatch.Text = (dataGridBatch.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;                
+                dateDateStartBatch.SelectedDate = Convert.ToDateTime((dataGridBatch.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text);
             }
         }
 
@@ -655,7 +655,7 @@ namespace Management_Bootcamp_WPF
                 DateTime? selectedDate = dateDateStartBatch.SelectedDate;
                 if (selectedDate.HasValue)
                 {
-                    batchParam.DateEnd = selectedDate.Value;
+                    batchParam.DateStart = selectedDate.Value;
                 }
                 if (string.IsNullOrEmpty(textBoxNameBatch.Text) == true)
                 {
@@ -751,7 +751,7 @@ namespace Management_Bootcamp_WPF
 
         private void textBoxNameClass_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z. ]*$");
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z0-9. ]*$");
             e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
         }
 
@@ -760,6 +760,7 @@ namespace Management_Bootcamp_WPF
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[0-9]*$");
             e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
         }
+
         private void textBoxLocationClass_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z.0-9 ]*$");
@@ -1107,6 +1108,7 @@ namespace Management_Bootcamp_WPF
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[0-9+]*$");
             e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
         }
+
         private void textBoxEmailStudent_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z.0-9@]*$");
@@ -1127,6 +1129,7 @@ namespace Management_Bootcamp_WPF
             studentParam.Email = textBoxEmailStudent.Text;
             studentParam.Username = textBoxUsernameStudent.Text;
             studentParam.Password = textBoxPasswordStudent.Text;
+            studentParam.Placements = 1;
             if (string.IsNullOrEmpty(textBoxNameStudent.Text) == true)
             {
                 MessageBox.Show("Please insert name student!");
@@ -1330,8 +1333,6 @@ namespace Management_Bootcamp_WPF
         {
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[1-9]*$");
             e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
-        }
-
-       
+        }       
     }
 }

@@ -12,6 +12,6 @@ namespace Microservice.DataAccess.Model
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
-        public virtual Student students { get; set; }
+        public int students { get; set; }
     }
 }

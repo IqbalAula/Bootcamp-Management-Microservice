@@ -42,16 +42,16 @@ namespace Microservice.Common.Interfaces.Master
         {
             var result = 0;
             employee.Name = employeeParam.Name;
-            //employee.Dob = employeeParam.Dob;
-            //employee.Pob = employeeParam.Pob;
-            //employee.Gender = employeeParam.Gender;
-            //employee.Religion = employeeParam.Religion;
-            //employee.Address = employeeParam.Address;
-            //employee.RT = employeeParam.RT;
-            //employee.RW = employeeParam.RW;
-            //employee.Kelurahan = employeeParam.Kelurahan;
-            //employee.Kecamatan = employeeParam.Kecamatan;
-            //employee.Kabupaten = employeeParam.Kabupaten;
+            employee.Dob = employeeParam.Dob;
+            employee.Pob = employeeParam.Pob;
+            employee.Gender = employeeParam.Gender;
+            employee.Religion = employeeParam.Religion;
+            employee.Address = employeeParam.Address;
+            employee.RT = employeeParam.RT;
+            employee.RW = employeeParam.RW;
+            employee.Kelurahan = employeeParam.Kelurahan;
+            employee.Kecamatan = employeeParam.Kecamatan;
+            employee.Kabupaten = employeeParam.Kabupaten;
             employee.Phone = employeeParam.Phone;
             employee.Email = employeeParam.Email;
             employee.Username = employeeParam.Username;
