@@ -34,25 +34,128 @@ namespace Management_Bootcamp_WPF
         {
             var username = textBoxUsername.Text;
             var password = passwordBoxPassword.Password;
-            var get = loginService.Get(username, password);
-            if (get == null)
+            var loginas = comboBoxLoginAs.Text;
+            if (loginas == "Student")
             {
-                MessageBox.Show("Sorry your username and password not correct");
+                var get = loginService.GetStudent(username, password);
+                if (get == null)
+                {
+                    MessageBox.Show("Sorry your username and password not correct");
 
+                }
+                else
+                {
+                    Settings.Default.Id = get.Id;
+                    Settings.Default.username = get.Username;
+                    Settings.Default.password = get.Password;
+                    new MenuStudent().Show();
+                    this.Close();
+                }
+            }
+            else if (loginas == "Employee")
+            {
+                var get = loginService.GetEmployee(username, password);
+                if (get == null)
+                {
+                    MessageBox.Show("Sorry your username and password not correct");
+
+                }
+                else
+                {
+                    Settings.Default.Id = get.Id;
+                    Settings.Default.username = get.Username;
+                    Settings.Default.password = get.Password;
+                    Settings.Default.role = get.Role;
+                    if (get.Role == "Manager")
+                    {
+                        new MenuHR().Show();
+                        this.Close();
+                    }
+                    else if (get.Role == "HR")
+                    {
+                        new MenuHR().Show();
+                        this.Close();
+                    } else if (get.Role == "Mentor")
+                    {
+                        new MenuMentor().Show();
+                        this.Close();
+                    } else
+                    {
+                        MessageBox.Show("Sorry account cannot access the systems!");
+                    }
+                }
             }
             else
             {
-                Settings.Default.Id = get.Id;
-                Settings.Default.username = get.Username;
-                Settings.Default.password = get.Password;
-                Settings.Default.role = get.Role;
-                new MenuHR().Show();
-                this.Close();
+                MessageBox.Show("Please Choice Category As Login");
             }
-            ////new MenuStudent().Show();
-            ////this.Close();
-            //new MenuHR().Show();
-            //this.Close();
+        }
+
+        private void passwordBoxPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter) return;
+
+            // your event handler here
+            e.Handled = true;
+            var username = textBoxUsername.Text;
+            var password = passwordBoxPassword.Password;
+            var loginas = comboBoxLoginAs.Text;
+            if (loginas == "Student")
+            {
+                var get = loginService.GetStudent(username, password);
+                if (get == null)
+                {
+                    MessageBox.Show("Sorry your username and password not correct");
+
+                }
+                else
+                {
+                    Settings.Default.Id = get.Id;
+                    Settings.Default.username = get.Username;
+                    Settings.Default.password = get.Password;
+                    new MenuStudent().Show();
+                    this.Close();
+                }
+            }
+            else if (loginas == "Employee")
+            {
+                var get = loginService.GetEmployee(username, password);
+                if (get == null)
+                {
+                    MessageBox.Show("Sorry your username and password not correct");
+
+                }
+                else
+                {
+                    Settings.Default.Id = get.Id;
+                    Settings.Default.username = get.Username;
+                    Settings.Default.password = get.Password;
+                    Settings.Default.role = get.Role;
+                    if (get.Role == "Manager")
+                    {
+                        new MenuHR().Show();
+                        this.Close();
+                    }
+                    else if (get.Role == "HR")
+                    {
+                        new MenuHR().Show();
+                        this.Close();
+                    }
+                    else if (get.Role == "Mentor")
+                    {
+                        new MenuMentor().Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sorry account cannot access the systems!");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Choice Category As Login");
+            }
         }
     }
 }

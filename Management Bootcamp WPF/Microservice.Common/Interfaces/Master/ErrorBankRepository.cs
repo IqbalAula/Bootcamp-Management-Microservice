@@ -47,8 +47,8 @@ namespace Microservice.Common.Interfaces.Master
             errorBank.Description = errorBankParam.Description;
             errorBank.Solution = errorBankParam.Solution;
             errorBank.Date = DateTimeOffset.Now.LocalDateTime;
-            errorBank.students.Id = errorBankParam.students.Id;
-            errorBank.departments.Id = errorBankParam.departments.Id;
+            errorBank.students = _context.Students.Find(errorBankParam.students);
+            errorBank.departments = _context.Departments.Find(errorBankParam.departments);
             errorBank.CreateDate = DateTimeOffset.Now.LocalDateTime;
             _context.ErrorBanks.Add(errorBank);
             result = _context.SaveChanges();
@@ -84,8 +84,8 @@ namespace Microservice.Common.Interfaces.Master
             errorBank.Description = errorBankParam.Description;
             errorBank.Solution = errorBankParam.Solution;
             errorBank.Date = DateTimeOffset.Now.LocalDateTime;
-            errorBank.students.Id = errorBankParam.students.Id;
-            errorBank.departments.Id = errorBankParam.departments.Id;
+            errorBank.students = _context.Students.Find(errorBankParam.students);
+            errorBank.departments = _context.Departments.Find(errorBankParam.departments);
             errorBank.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)

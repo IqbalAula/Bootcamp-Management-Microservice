@@ -13,6 +13,6 @@ namespace Microservice.DataAccess.Model
         public string Name { get; set; }
         public string level { get; set; }
 
-        public virtual Department Departements { get; set; }
+        public string Departements { get; set; }
     }
 }

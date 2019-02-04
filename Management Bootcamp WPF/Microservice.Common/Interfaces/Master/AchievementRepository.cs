@@ -44,8 +44,8 @@ namespace Microservice.Common.Interfaces.Master
         {
             var result = 0;
             achievement.Name = achievementParam.Name;
-            achievement.Date = DateTimeOffset.Now.LocalDateTime; ;
-            achievement.students.Id = achievementParam.students.Id;
+            achievement.Date = achievementParam.Date;
+            achievement.students = _context.Students.Find(achievementParam.students);
             achievement.CreateDate = DateTimeOffset.Now.LocalDateTime;
             _context.Achievements.Add(achievement);
             result = _context.SaveChanges();
@@ -82,8 +82,8 @@ namespace Microservice.Common.Interfaces.Master
             var result = 0;
             var achievement = Get(id);
             achievement.Name = achievementParam.Name;
-            achievement.Date = DateTimeOffset.Now.LocalDateTime;
-            achievement.students.Id = achievementParam.students.Id;
+            achievement.Date = achievementParam.Date;
+            achievement.students = _context.Students.Find(achievementParam.students);
             achievement.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)
@@ -96,6 +96,11 @@ namespace Microservice.Common.Interfaces.Master
                 MessageBox.Show("Update Failed");
             }
             return status;
+        }
+
+        public List<Achievement> GetStudent(int? id)
+        {
+            return _context.Achievements.Where(x => x.IsDelete == false && x.students.Id == id).ToList();
         }
     }
 }

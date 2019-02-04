@@ -42,7 +42,7 @@ namespace Microservice.BussinessLogic.Services.Master
 
         public bool Insert(HistoryDetailLessonParam historyDetailLessonParam)
         {
-            if (historyDetailLessonParam.students.Id.ToString() == " ")
+            if (historyDetailLessonParam.students.ToString() == " ")
             {
                 MessageBox.Show("Don't insert white space");
             }
@@ -70,7 +70,7 @@ namespace Microservice.BussinessLogic.Services.Master
             }
             else
             {
-                if (historyDetailLessonParam.students.Id.ToString() == " ")
+                if (historyDetailLessonParam.students.ToString() == " ")
                 {
                     MessageBox.Show("Don't insert white space in Name");
                 }

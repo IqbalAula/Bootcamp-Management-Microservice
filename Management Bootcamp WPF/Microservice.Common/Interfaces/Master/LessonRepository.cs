@@ -45,7 +45,8 @@ namespace Microservice.Common.Interfaces.Master
             var result = 0;
             lesson.Name = lessonParam.Name;
             lesson.level = lessonParam.level;
-            lesson.Departements.Id = lessonParam.Departements.Id;
+            //var pull = _context.Lessons.Find(Convert.ToInt16(lessonParam.Departements));
+            lesson.Departements = _context.Departments.Find(Convert.ToInt16(lessonParam.Departements));
             lesson.CreateDate = DateTimeOffset.Now.LocalDateTime;
             _context.Lessons.Add(lesson);
             result = _context.SaveChanges();
@@ -71,6 +72,14 @@ namespace Microservice.Common.Interfaces.Master
             {
                 return _context.Lessons.Where(x => (x.IsDelete == false) && (x.Name.Contains(keywoard))).ToList();
             }
+            else if (category == "Level")
+            {
+                return _context.Lessons.Where(x => (x.IsDelete == false) && (x.level.Contains(keywoard))).ToList();
+            }
+            else if (category == "Department")
+            {
+                return _context.Lessons.Where(x => (x.IsDelete == false) && (x.Departements.Name.Contains(keywoard))).ToList();
+            }
             else
             {
                 return _context.Lessons.Where(x => x.IsDelete == false).ToList();
@@ -81,8 +90,10 @@ namespace Microservice.Common.Interfaces.Master
         {
             var result = 0;
             var lesson = Get(id);
+            lesson.Name = lessonParam.Name;
             lesson.level = lessonParam.level;
-            lesson.Departements.Id = lessonParam.Departements.Id;
+            //var pull = _context.Lessons.Find(Convert.ToInt16(lessonParam.Departements));
+            lesson.Departements = _context.Departments.Find(Convert.ToInt16(lessonParam.Departements)); ;
             lesson.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)

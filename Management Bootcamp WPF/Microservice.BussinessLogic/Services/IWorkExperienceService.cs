@@ -15,5 +15,6 @@ namespace Microservice.BussinessLogic.Services
         List<WorkExperience> Get();
         WorkExperience Get(int? id);
         List<WorkExperience> Search(string keyword, string category);
+        List<WorkExperience> GetStudent(int? id);
     }
 }

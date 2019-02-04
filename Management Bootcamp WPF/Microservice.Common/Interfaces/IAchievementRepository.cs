@@ -15,5 +15,6 @@ namespace Microservice.Common.Interfaces
         List<Achievement> Get();
         Achievement Get(int? id);
         List<Achievement> Search(string keywoard, string category);
+        List<Achievement> GetStudent(int? id);
     }
 }

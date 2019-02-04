@@ -5,12 +5,12 @@ D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microserv
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.xml
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
-D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.csprojResolveAssemblyReference.cache
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.Migrations.AddFirstModel.resources
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.Migrations.UpdateFirstModelSkillStudent.resources
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.Migrations.UpdateStudentAddSecretQuestion.resources
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.Migrations.updateModel.resources
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.Migrations.UpdateDatetimeoffsetToDatetime.resources
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.Migrations.UpdateColumnWork.resources
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.csproj.GenerateResource.Cache
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.exe
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.pdb
-D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.Migrations.UpdateDatetimeoffsetToDatetime.resources

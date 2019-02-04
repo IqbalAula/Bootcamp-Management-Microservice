@@ -14,8 +14,8 @@ namespace Microservice.DataAccess.Model
         public double Score1 { get; set; }
         public double Score2 { get; set; }
         public double Score3 { get; set; }
-        public virtual Student Students { get; set; }
-        public virtual Employee Employees { get; set; }
-        public virtual Lesson Lessons { get; set; }
+        public string Students { get; set; }
+        public string Employees { get; set; }
+        public string Lessons { get; set; }
     }
 }

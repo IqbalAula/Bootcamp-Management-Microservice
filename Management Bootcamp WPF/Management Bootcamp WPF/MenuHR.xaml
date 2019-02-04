@@ -10,7 +10,7 @@
     <Grid Margin="0,0,0,18">
         <TabControl x:Name="tabControl" Margin="10,28,0,-40" HorizontalAlignment="Left" Width="783">
             <!--Manage Employee-->
-            <TabItem Header="Manage Employee">
+            <TabItem Header="Employee">
                 <Grid Background="#FFE5E5E5" Margin="10,4,-14,13" VerticalAlignment="Top" Height="571">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="19*"/>
@@ -43,6 +43,7 @@
                     <ComboBox x:Name="comboBoxRoleEmployee" HorizontalAlignment="Left" Margin="28,142,0,0" VerticalAlignment="Top" Width="245" Grid.Column="1">
                         <ComboBoxItem Content="Manager" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="HR" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Mentor" HorizontalAlignment="Left" Width="92"/>
                     </ComboBox>
                     <Label x:Name="labelEmailEmployee" Content="Email" HorizontalAlignment="Left" Margin="349,50,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                     <TextBox x:Name="textBoxEmailEmployee" HorizontalAlignment="Left" PreviewTextInput="textBoxEmailEmployee_PreviewTextInput" Height="23" Margin="438,53,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
@@ -67,7 +68,7 @@
                 </Grid>
             </TabItem>
             <!--Manage Room-->
-            <TabItem Header="Manage Room">
+            <TabItem Header="Room">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="19*"/>
@@ -102,7 +103,7 @@
                 </Grid>
             </TabItem>
             <!--Manage Department-->
-            <TabItem Header="Manage Department">
+            <TabItem Header="Department">
                 <Grid Background="#FFE5E5E5" Margin="0,0,-2,-26">
                     <Label x:Name="labelSearchDepartment" Content="Search" HorizontalAlignment="Left" Margin="291,4,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="comboBoxSearchDepartment" HorizontalAlignment="Left" Margin="341,8,0,0" VerticalAlignment="Top" Width="56">
@@ -127,7 +128,7 @@
                 </Grid>
             </TabItem>
             <!--Manage Batch-->
-            <TabItem Header="Manage Batch">
+            <TabItem Header="Batch">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="19*"/>
@@ -160,7 +161,7 @@
                 </Grid>
             </TabItem>
             <!--Manage Class-->
-            <TabItem Header="Manage Class">
+            <TabItem Header="Class">
                 <Grid Background="#FFE5E5E5" Margin="10,4,-14,13" VerticalAlignment="Top" Height="571">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="19*"/>
@@ -199,14 +200,14 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Department" Binding="{Binding Path=Departments.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Department" Binding="{Binding Path=Department.Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Batch" Binding="{Binding Path=Batchs.Name}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </TabItem>
             <!--Manage Placement-->
-            <TabItem Header="Manage Placement">
+            <TabItem Header="Placement">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="19*"/>
@@ -261,7 +262,7 @@
                 </Grid>
             </TabItem>
             <!--Manage Student-->
-            <TabItem Header="Manage Student">
+            <TabItem Header="Student">
                 <Grid Background="#FFE5E5E5" Margin="10,4,-14,13" VerticalAlignment="Top" Height="571">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="19*"/>
@@ -315,7 +316,7 @@
                 </Grid>
             </TabItem>
             <!--Manage ProfileHR-->
-            <TabItem Header="Manage Profile">
+            <TabItem Header="Profile">
                 <Grid Background="#FFE5E5E5" Margin="10,4,-3,13" VerticalAlignment="Top" Height="571">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="19*"/>
@@ -352,15 +353,15 @@
                         <ComboBoxItem Content="Budha" HorizontalAlignment="Left" Width="92"/>
                     </ComboBox>
                     <Label x:Name="labelPhoneProfileHR" Content="Phone" HorizontalAlignment="Left" Margin="22,230,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxPhoneProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="28,231,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxPhoneProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxPhoneProfileHR_PreviewTextInput" Height="23" Margin="28,231,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
                     <Label x:Name="labelEmailProfileHR" Content="Email" HorizontalAlignment="Left" Margin="22,256,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxEmailProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="28,259,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxEmailProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxEmailProfileHR_PreviewTextInput" Height="23" Margin="28,259,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
                     <Label x:Name="labelUsernameProfileHR" Content="Username" HorizontalAlignment="Left" Margin="22,282,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="75"/>
-                    <TextBox x:Name="textBoxUsernameProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="28,288,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxUsernameProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxUsernameProfileHR_PreviewTextInput" Height="23" Margin="28,288,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
                     <Label x:Name="labelPasswordProfileHR" Content="Password" HorizontalAlignment="Left" Margin="22,308,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxPasswordProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="28,316,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxPasswordProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxUsernameProfileHR_PreviewTextInput" Height="23" Margin="28,316,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
                     <Label x:Name="labelAddressProfileHR" Content="Address" HorizontalAlignment="Left" Margin="328,48,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox x:Name="textBoxAddressProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="55" Margin="404,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxAddressProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxUsernameProfileHR_PreviewTextInput" Height="55" Margin="404,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
                     <Label x:Name="labelRtProfileHR" Content="RT" HorizontalAlignment="Left" Margin="328,108,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                     <TextBox x:Name="textBoxRtProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxRtProfileHR_PreviewTextInput" Height="23" Margin="404,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
                     <Label x:Name="labelRwProfileHR" Content="RW" HorizontalAlignment="Left" Margin="328,138,0,0" VerticalAlignment="Top" Grid.Column="1"/>
@@ -374,6 +375,7 @@
                     <Button x:Name="buttonSaveProfileHR" Content="Save" HorizontalAlignment="Left" Margin="569,324,0,0" VerticalAlignment="Top" Width="75" Click="buttonSaveProfileHR_Click" Grid.Column="1"/>
                 </Grid>
             </TabItem>
+            
         </TabControl>
         <Button x:Name="buttonLogout" Content="Logout" HorizontalAlignment="Left" Margin="732,8,0,0" VerticalAlignment="Top" Width="75" Click="buttonLogout_Click"/>
     </Grid>

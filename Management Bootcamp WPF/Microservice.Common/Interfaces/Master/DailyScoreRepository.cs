@@ -41,16 +41,16 @@ namespace Microservice.Common.Interfaces.Master
             return _context.DailyScores.Find(id);
         }
 
-        public bool Insert(DailyScore dailyScoreParam)
+        public bool Insert(DailyScoreParam dailyScoreParam)
         {
             var result = 0;
             dailyScore.Date = DateTimeOffset.Now.LocalDateTime;
             dailyScore.Score1 = dailyScoreParam.Score1;
-            dailyScore.Score2 = dailyScoreParam.Score1;
-            dailyScore.Score3 = dailyScoreParam.Score1;
-            dailyScore.Students.Id = dailyScoreParam.Students.Id;
-            dailyScore.Employees.Id = dailyScoreParam.Employees.Id;
-            dailyScore.Lessons.Id = dailyScoreParam.Lessons.Id;
+            dailyScore.Score2 = dailyScoreParam.Score2;
+            dailyScore.Score3 = dailyScoreParam.Score3;
+            dailyScore.students = _context.Students.Find(Convert.ToInt16(dailyScoreParam.Students));
+            dailyScore.employees = _context.Employees.Find(Convert.ToInt16(dailyScoreParam.Employees));
+            dailyScore.lessons = _context.Lessons.Find(Convert.ToInt16(dailyScoreParam.Lessons));
             dailyScore.CreateDate = DateTimeOffset.Now.LocalDateTime;
             _context.DailyScores.Add(dailyScore);
             result = _context.SaveChanges();
@@ -72,30 +72,41 @@ namespace Microservice.Common.Interfaces.Master
             {
                 return _context.DailyScores.Where(x => (x.IsDelete == false) && (x.Id.ToString().Contains(keywoard))).ToList();
             }
+            else if (category == "Lessons")
+            {
+                return _context.DailyScores.Where(x => (x.IsDelete == false) && (x.lessons.Name.Contains(keywoard))).ToList();
+            }
+            else if (category == "Student Name")
+            {
+                return _context.DailyScores.Where(x => (x.IsDelete == false) && (x.students.Name.Contains(keywoard))).ToList();
+            }
+            else if (category == "Employee")
+            {
+                return _context.DailyScores.Where(x => (x.IsDelete == false) && (x.employees.Name.Contains(keywoard))).ToList();
+            }
             else
             {
                 return _context.DailyScores.Where(x => x.IsDelete == false).ToList();
             }
         }
 
-        public bool Update(int? id, DailyScore dailyScoreParam)
+        public bool Update(int? id, DailyScoreParam dailyScoreParam)
         {
             var result = 0;
             var dailyScore = Get(id);
             dailyScore.Date = DateTimeOffset.Now.LocalDateTime;
             dailyScore.Score1 = dailyScoreParam.Score1;
-            dailyScore.Score2 = dailyScoreParam.Score1;
-            dailyScore.Score3 = dailyScoreParam.Score1;
-            dailyScore.Students.Id = dailyScoreParam.Students.Id;
-            dailyScore.Employees.Id = dailyScoreParam.Employees.Id;
-            dailyScore.Lessons.Id = dailyScoreParam.Lessons.Id;
+            dailyScore.Score2 = dailyScoreParam.Score2;
+            dailyScore.Score3 = dailyScoreParam.Score3;
+            dailyScore.students = _context.Students.Find(Convert.ToInt16(dailyScoreParam.Students));
+            dailyScore.employees = _context.Employees.Find(Convert.ToInt16(dailyScoreParam.Employees));
+            dailyScore.lessons = _context.Lessons.Find(Convert.ToInt16(dailyScoreParam.Lessons));
             dailyScore.UpdateDate = DateTimeOffset.Now.LocalDateTime;            
             result = _context.SaveChanges();
             if (result > 0)
             {
                 status = true;
-                MessageBox.Show("Update Successfully");
-                Console.Read();
+                MessageBox.Show("Update Successfully");                
             }
             else
             {
@@ -103,5 +114,15 @@ namespace Microservice.Common.Interfaces.Master
             }
             return status;
         }
+
+        //public bool Insert(DailyScoreParam dailyScoreParam)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public bool Update(int? id, DailyScoreParam dailyScoreParam)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

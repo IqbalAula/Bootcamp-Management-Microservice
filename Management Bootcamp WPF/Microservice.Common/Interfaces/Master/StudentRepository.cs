@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microservice.DataAccess.Model;
 using Microservice.DataAccess.Context;
 using System.Windows.Forms;
+using System.Data.Entity.Validation;
 
 namespace Microservice.Common.Interfaces.Master
 {
@@ -42,33 +43,40 @@ namespace Microservice.Common.Interfaces.Master
 
         public bool Insert(StudentParam studentParam)
         {
-            var result = 0;
-            student.Name = studentParam.Name;
-            student.Dob = studentParam.Dob;
-            student.Pob = studentParam.Pob;
-            student.Gender = studentParam.Gender;
-            student.Religion = studentParam.Religion;
-            student.Address = studentParam.Address;
-            student.RT = studentParam.RT;
-            student.RW = studentParam.RW;
-            student.Kelurahan = studentParam.Kelurahan;
-            student.Kecamatan = studentParam.Kecamatan;
-            student.Kabupaten = studentParam.Kabupaten;
-            student.Phone = studentParam.Phone;
-            student.Email = studentParam.Email;
-            student.Username = studentParam.Username;
-            student.Password = studentParam.Password;
-            student.Status = "ON BOOTCAMP";
-            student.classes = _context.Classes.Find(studentParam.Classes);
-            student.placements = _context.Placements.Find(studentParam.Placements);
-            student.CreateDate = DateTimeOffset.Now.LocalDateTime;
-            _context.Students.Add(student);
-            result = _context.SaveChanges();
-            if (result > 0)
+            try
             {
-                status = true;
-                MessageBox.Show("Insert Successfully");
+                var result = 0;
+                student.Name = studentParam.Name;
+                student.Dob = studentParam.Dob;
+                student.Pob = studentParam.Pob;
+                student.Gender = studentParam.Gender;
+                student.Religion = studentParam.Religion;
+                student.Address = studentParam.Address;
+                student.RT = studentParam.RT;
+                student.RW = studentParam.RW;
+                student.Kelurahan = studentParam.Kelurahan;
+                student.Kecamatan = studentParam.Kecamatan;
+                student.Kabupaten = studentParam.Kabupaten;
+                student.Phone = studentParam.Phone;
+                student.Email = studentParam.Email;
+                student.Username = studentParam.Username;
+                student.Password = studentParam.Password;
+                student.Status = "ON BOOTCAMP";
+                student.classes = _context.Classes.Find(studentParam.Classes);
+                student.placements = _context.Placements.Find(studentParam.Placements);
+                student.CreateDate = DateTimeOffset.Now.LocalDateTime;
+                _context.Students.Add(student);
+                result = _context.SaveChanges();
+                if (result > 0)
+                {
+                    status = true;
+                    MessageBox.Show("Insert Successfully");
+                }
             }
+            catch (DbEntityValidationException e)
+            {
+                Console.Write(e.EntityValidationErrors);
+            }            
             return status;
         }
 

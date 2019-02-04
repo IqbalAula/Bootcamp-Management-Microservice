@@ -12,9 +12,9 @@ namespace Microservice.DataAccess.Model
         public int Id { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
-        public virtual Employee employees { get; set; }
-        public virtual Lesson lessons { get; set; }
-        public virtual Room room { get; set; }
-        public virtual Class classes { get; set; }
+        public string employees { get; set; }
+        public string lessons { get; set; }
+        public string room { get; set; }
+        public string classes { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Microservice.DataAccess.Model
         public string Name { get; set; }
         public DateTimeOffset Date { get; set; }
         public string LinkFile { get; set; }
-        public virtual Employee Employees { get; set; }
-        public virtual Lesson Lessons { get; set; }
+        public string Employees { get; set; }
+        public string Lessons { get; set; }
     }
 }

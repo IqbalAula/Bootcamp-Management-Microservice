@@ -10,7 +10,7 @@ namespace Microservice.DataAccess.Model
     public class HistoryDetailLessonParam
     {
         public int Id { get; set; }
-        public virtual Student students { get; set; }
-        public virtual DetailLesson  detailLessons { get; set; }
+        public int students { get; set; }
+        public int  detailLessons { get; set; }
 }
 }

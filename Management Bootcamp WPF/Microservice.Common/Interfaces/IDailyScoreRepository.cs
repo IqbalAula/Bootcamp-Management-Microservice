@@ -9,8 +9,8 @@ namespace Microservice.Common.Interfaces
 {
     public interface IDailyScoreRepository
     {
-        bool Insert(DailyScore dailyScoreParam);
-        bool Update(int? id, DailyScore dailyScoreParam);
+        bool Insert(DailyScoreParam dailyScoreParam);
+        bool Update(int? id, DailyScoreParam dailyScoreParam);
         bool Delete(int? id);
         List<DailyScore> Get();
         DailyScore Get(int? id);

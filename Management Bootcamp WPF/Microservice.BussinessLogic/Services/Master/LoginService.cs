@@ -13,9 +13,15 @@ namespace Microservice.BussinessLogic.Services.Master
     public class LoginService : ILoginService
     {
         ILoginRepository _loginRepository = new LoginRepository();
-        public Employee Get(string username, string password)
+        
+        public Employee GetEmployee(string username, string password)
         {
-            return _loginRepository.Get(username, password);
+            return _loginRepository.GetEmployee(username, password);
+        }
+
+        public Student GetStudent(string username, string password)
+        {
+            return _loginRepository.GetStudent(username, password);
         }
     }
 }

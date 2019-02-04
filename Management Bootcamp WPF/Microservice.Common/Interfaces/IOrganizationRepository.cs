@@ -15,5 +15,6 @@ namespace Microservice.Common.Interfaces
         List<Organization> Get();
         Organization Get(int? id);
         List<Organization> Search(string keyword, string category);
+        List<Organization> GetStudent(int? id);
     }
 }

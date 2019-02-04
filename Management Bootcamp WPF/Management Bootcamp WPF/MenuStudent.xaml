@@ -8,8 +8,9 @@
         Title="Menu Student" Height="433.882" Width="734.471"
         Loaded="Window_Loaded">
     <Grid Margin="0,0,0,24">
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="361" Margin="10,10,0,0" VerticalAlignment="Top" Width="706">
-            <TabItem Header="Manage Skill">
+        <Button x:Name="buttonLogout" Content="Logout" HorizontalAlignment="Left" Margin="641,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonLogout_Click"/>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="346" Margin="10,25,0,0" VerticalAlignment="Top" Width="706">
+            <!--<TabItem Header="Skill">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
                     <Label x:Name="labelSearchSkill" Content="Search" HorizontalAlignment="Left" Margin="291,4,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="comboBoxSearchSkill" HorizontalAlignment="Left" Margin="341,8,0,0" VerticalAlignment="Top" Width="56">
@@ -25,16 +26,24 @@
                     <Button x:Name="buttonInsertSkill" Content="Insert" HorizontalAlignment="Left" Margin="140,79,0,0" VerticalAlignment="Top" Width="75" Click="buttonSaveSkill_Click"/>
                     <Button x:Name="buttonUpdateSkill" Content="Update" HorizontalAlignment="Left" Margin="248,79,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateSkill_Click"/>
                     <Button x:Name="buttonDeleteSkill" Content="Delete" HorizontalAlignment="Left" Margin="375,79,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteSkill_Click"/>
-                    <DataGrid x:Name="dataGridSkill" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,115,0,0" VerticalAlignment="Top" Width="653" Height="208" AutoGenerateColumns="False" SelectedCellsChanged="dataGridSkill_SelectedCellsChanged">
+                    <DataGrid x:Name="dataGridSkill" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,115,0,0" VerticalAlignment="Top" Width="653" Height="195" AutoGenerateColumns="False" SelectedCellsChanged="dataGridSkill_SelectedCellsChanged" RenderTransformOrigin="0.5,0.5">
+                        <DataGrid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.546"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.99"/>
+                            </TransformGroup>
+                        </DataGrid.RenderTransform>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-            </TabItem>
+            </TabItem>-->
             <!--Manage Achievement-->
-            <TabItem Header="Manage Achievement">
+            <TabItem Header="Achievement">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="19*"/>
@@ -66,7 +75,7 @@
                 </Grid>
             </TabItem>
             <!--Manage Organization-->
-            <TabItem Header="Manage Organization">
+            <TabItem Header="Organization">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="19*"/>
@@ -89,9 +98,8 @@
                     <DatePicker x:Name="dateDateStartOrganization" SelectedDate="{Binding Path=DateStartOrganization, StringFormat='mm/dd/yyyy'}" HorizontalAlignment="Left" Margin="352,44,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                     <Label x:Name="labelDateEndOrganization" Content="to" Margin="471,43,131,0" VerticalAlignment="Top" Grid.Column="1"/>
                     <DatePicker x:Name="dateDateEndOrganization" SelectedDate="{Binding Path=DateEndOrganization, StringFormat='mm/dd/yyyy'}" HorizontalAlignment="Left" Margin="512,44,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-
                     <Label x:Name="labelDescriptionOrganization" Content="Description" HorizontalAlignment="Left" Margin="276,70,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox x:Name="textBoxDescriptionOrganization" HorizontalAlignment="Left" PreviewTextInput="textBoxDescriptionOrganization_PreviewTextInput" Height="40" Margin="352,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="262" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxDescriptionOrganization" HorizontalAlignment="Left" PreviewTextInput="textBoxNameOrganization_PreviewTextInput" Height="40" Margin="352,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="262" Grid.Column="1"/>
                     <Button x:Name="buttonInsertOrganization" Content="Insert" HorizontalAlignment="Left" Margin="333,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertOrganization_Click" Grid.Column="1"/>
                     <Button x:Name="buttonUpdateOrganization" Content="Update" HorizontalAlignment="Left" Margin="418,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateOrganization_Click" Grid.Column="1"/>
                     <Button x:Name="buttonDeleteOrganization" Content="Delete" HorizontalAlignment="Left" Margin="507,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteOrganization_Click" Grid.Column="1"/>
@@ -104,7 +112,112 @@
                             <DataGridTextColumn Header="Date End" Binding="{Binding Path=DateEnd}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}"></DataGridTextColumn>
                         </DataGrid.Columns>
-                    </DataGrid>                    
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <!--Manage WorkExperience-->
+            <TabItem Header="Work Experience">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="156*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="labelCategoryWorkExperience" Content="Category" HorizontalAlignment="Left" Margin="65,3,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxSearchWorkExperience" HorizontalAlignment="Left" Height="23" Margin="230,7,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Column="1" KeyUp="textBoxSearchWorkExperience_KeyUp"/>
+                    <ComboBox x:Name="comboBoxSearchWorkExperience" HorizontalAlignment="Left" Margin="128,7,0,0" VerticalAlignment="Top" Width="97" Grid.Column="1">
+                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <Button x:Name="buttonSearchWorkExperience" Content="Search" HorizontalAlignment="Left" Margin="524,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchWorkExperience_Click" Grid.Column="1"/>
+                    <Label x:Name="labelIdWorkExperience" Content="Id" HorizontalAlignment="Left" Margin="20,31,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdWorkExperience" HorizontalAlignment="Left" Margin="20,36,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelNameWorkExperience" Content="Name" HorizontalAlignment="Left" Margin="20,58,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxNameWorkExperience" HorizontalAlignment="Left" PreviewTextInput="textBoxNameWorkExperience_PreviewTextInput" Height="23" Margin="10,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251" Grid.Column="1"/>
+                    <Label x:Name="labelPositionWorkExperience" Content="Position" HorizontalAlignment="Left" Margin="20,87,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxPositionWorkExperience" HorizontalAlignment="Left" PreviewTextInput="textBoxNameWorkExperience_PreviewTextInput" Height="23" Margin="10,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251" Grid.Column="1"/>
+                    <Label x:Name="labelDateStartWorkExperience" Content="Date" Margin="275,43,277,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <DatePicker x:Name="dateDateStartWorkExperience" SelectedDate="{Binding Path=DateStartWorkExperience, StringFormat='mm/dd/yyyy'}" HorizontalAlignment="Left" Margin="352,44,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelDateEndWorkExperience" Content="to" Margin="471,43,131,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <DatePicker x:Name="dateDateEndWorkExperience" SelectedDate="{Binding Path=DateEndWorkExperience, StringFormat='mm/dd/yyyy'}" HorizontalAlignment="Left" Margin="512,44,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelDescriptionWorkExperience" Content="Description" HorizontalAlignment="Left" Margin="276,70,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxDescriptionWorkExperience" HorizontalAlignment="Left" PreviewTextInput="textBoxNameWorkExperience_PreviewTextInput" Height="40" Margin="352,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="262" Grid.Column="1"/>
+                    <Button x:Name="buttonInsertWorkExperience" Content="Insert" HorizontalAlignment="Left" Margin="333,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertWorkExperience_Click" Grid.Column="1"/>
+                    <Button x:Name="buttonUpdateWorkExperience" Content="Update" HorizontalAlignment="Left" Margin="418,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateWorkExperience_Click" Grid.Column="1"/>
+                    <Button x:Name="buttonDeleteWorkExperience" Content="Delete" HorizontalAlignment="Left" Margin="507,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteWorkExperience_Click" Grid.Column="1"/>
+                    <DataGrid x:Name="dataGridWorkExperience" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,168,0,0" VerticalAlignment="Top" Width="668" Height="185" AutoGenerateColumns="False" SelectedCellsChanged="dataGridWorkExperience_SelectedCellsChanged" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Position" Binding="{Binding Path=Position}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date Start" Binding="{Binding Path=DateStart}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date End" Binding="{Binding Path=DateEnd}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <!--Manage ErrorBank-->
+            <TabItem Header="Error Bank">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="156*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="labelCategoryErrorBank" Content="Category" HorizontalAlignment="Left" Margin="65,3,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxSearchErrorBank" HorizontalAlignment="Left" Height="23" Margin="230,7,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Column="1" KeyUp="textBoxSearchErrorBank_KeyUp"/>
+                    <ComboBox x:Name="comboBoxSearchErrorBank" HorizontalAlignment="Left" Margin="128,7,0,0" VerticalAlignment="Top" Width="97" Grid.Column="1">
+                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <Button x:Name="buttonSearchErrorBank" Content="Search" HorizontalAlignment="Left" Margin="524,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchErrorBank_Click" Grid.Column="1"/>
+                    <Label x:Name="labelIdErrorBank" Content="Id" HorizontalAlignment="Left" Margin="20,31,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdErrorBank" HorizontalAlignment="Left" Margin="43,35,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelMessageErrorBank" Content="Message Error" HorizontalAlignment="Left" Margin="20,58,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="89"/>
+                    <TextBox x:Name="textBoxMessageErrorBank" HorizontalAlignment="Left" PreviewTextInput="textBoxMessageErrorBank_PreviewTextInput" Height="23" Margin="43,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="361" Grid.Column="1"/>
+                    <Label x:Name="labelDescriptionErrorBank" Content="Description" HorizontalAlignment="Left" Margin="20,87,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="79"/>
+                    <TextBox x:Name="textBoxDescriptionErrorBank" HorizontalAlignment="Left" PreviewTextInput="textBoxMessageErrorBank_PreviewTextInput" Height="23" Margin="43,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="361" Grid.Column="1"/>
+                    <Label x:Name="labelSolutionErrorBank" Content="Solution" HorizontalAlignment="Left" Margin="20,123,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxSolutionErrorBank" HorizontalAlignment="Left" PreviewTextInput="textBoxMessageErrorBank_PreviewTextInput" Height="40" Margin="43,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="361" Grid.Column="1"/>
+                    <Button x:Name="buttonInsertErrorBank" Content="Insert" HorizontalAlignment="Left" Margin="458,64,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertErrorBank_Click" Grid.Column="1"/>
+                    <Button x:Name="buttonUpdateErrorBank" Content="Update" HorizontalAlignment="Left" Margin="458,94,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateErrorBank_Click" Grid.Column="1"/>
+                    <Button x:Name="buttonDeleteErrorBank" Content="Delete" HorizontalAlignment="Left" Margin="458,126,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteErrorBank_Click" Grid.Column="1"/>
+                    <DataGrid x:Name="dataGridErrorBank" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,179,0,0" VerticalAlignment="Top" Width="668" Height="143" AutoGenerateColumns="False" SelectedCellsChanged="dataGridErrorBank_SelectedCellsChanged" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Message Error" Binding="{Binding Path=Message}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Solution" Binding="{Binding Path=Solution}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Name Finder" Binding="{Binding Path=students.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Class" Binding="{Binding Path=students.classes.Name}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <!--Manage DetailLesson-->
+            <TabItem Header="DetailLesson">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-2,-26">
+                    <Label x:Name="labelSearchDetailLesson" Content="Search" HorizontalAlignment="Left" Margin="291,4,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxSearchDetailLesson" HorizontalAlignment="Left" Margin="341,8,0,0" VerticalAlignment="Top" Width="56">
+                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <TextBox x:Name="textBoxSearchDetailLesson" HorizontalAlignment="Left" Height="23" Margin="413,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" KeyUp="textBoxSearchDetailLesson_KeyUp" />
+                    <Button x:Name="buttonSearchDetailLesson" Content="Search" HorizontalAlignment="Left" Margin="600,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchDetailLesson_Click"/>
+                    <Label x:Name="labelIdDetailLesson" Content="Id" HorizontalAlignment="Left" Margin="22,16,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdDetailLesson" HorizontalAlignment="Left" Margin="140,20,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
+                    <Label x:Name="labelNameDetailLesson" Content="Name" HorizontalAlignment="Left" Margin="22,47,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxNameDetailLesson" HorizontalAlignment="Left" PreviewTextInput="textBoxNameDetailLesson_PreviewTextInput" Height="23" Margin="86,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403"/>
+                    <Button x:Name="buttonDownloadDetailLesson" Content="Download" HorizontalAlignment="Left" Margin="530,53,0,0" VerticalAlignment="Top" Width="75" Click="buttonDownloadDetailLesson_Click"/>
+                    <DataGrid x:Name="dataGridDetailLesson" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,115,0,0" VerticalAlignment="Top" Width="653" Height="208" AutoGenerateColumns="False" SelectedCellsChanged="dataGridDetailLesson_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Lesson" Binding="{Binding Path=Lesson.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Mentor" Binding="{Binding Path=employee.Name}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
         </TabControl>

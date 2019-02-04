@@ -10,10 +10,10 @@ namespace Microservice.DataAccess.Model
     public class WorkExperience : BaseModel
     {
         public string Name { get; set; }
-        public string Posision { get; set; }
+        public string Position { get; set; }
         public string Description { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
-        public virtual Student Students { get; set; }
+        public virtual Student students { get; set; }
     }
 }

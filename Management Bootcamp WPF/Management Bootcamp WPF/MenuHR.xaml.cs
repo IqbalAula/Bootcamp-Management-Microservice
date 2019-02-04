@@ -1320,7 +1320,26 @@ namespace Management_Bootcamp_WPF
             {
                 _employeeService.Update(Convert.ToInt16(textBlockIdProfileHR.Text), employeeParam);
                 LoadProfile();
+                LoadGridEmployee();
             }
+        }
+
+        private void textBoxPhoneProfileHR_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[0-9+]*$");
+            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        }
+
+        private void textBoxEmailProfileHR_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z.0-9@]*$");
+            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        }
+
+        private void textBoxUsernameProfileHR_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z0-9]*$");
+            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
         }
 
         private void textBoxNameProfileHR_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -1333,6 +1352,6 @@ namespace Management_Bootcamp_WPF
         {
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[1-9]*$");
             e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
-        }       
+        }
     }
 }

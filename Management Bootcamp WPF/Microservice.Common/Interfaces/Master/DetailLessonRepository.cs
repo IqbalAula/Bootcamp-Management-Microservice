@@ -46,8 +46,9 @@ namespace Microservice.Common.Interfaces.Master
             detailLesson.Name = detailLessonParam.Name;
             detailLesson.Date = DateTimeOffset.Now.LocalDateTime;
             detailLesson.LinkFile = detailLessonParam.LinkFile;
-            detailLesson.employees.Id = detailLessonParam.Employees.Id;
-            detailLesson.lessons.Id = detailLessonParam.Lessons.Id;
+            //lesson.Departements = _context.Departments.Find(Convert.ToInt16(lessonParam.Departements));
+            detailLesson.employees = _context.Employees.Find(Convert.ToInt16(detailLessonParam.Employees));
+            detailLesson.lessons = _context.Lessons.Find(Convert.ToInt16(detailLessonParam.Lessons));
             detailLesson.CreateDate = DateTimeOffset.Now.LocalDateTime;
             _context.DetailLessons.Add(detailLesson);
             result = _context.SaveChanges();
@@ -73,6 +74,18 @@ namespace Microservice.Common.Interfaces.Master
             {
                 return _context.DetailLessons.Where(x => (x.IsDelete == false) && (x.Name.Contains(keywoard))).ToList();
             }
+            else if (category == "Link File")
+            {
+                return _context.DetailLessons.Where(x => (x.IsDelete == false) && (x.LinkFile.Contains(keywoard))).ToList();
+            }
+            else if (category == "Lesson")
+            {
+                return _context.DetailLessons.Where(x => (x.IsDelete == false) && (x.lessons.Name.Contains(keywoard))).ToList();
+            }
+            else if (category == "Employee")
+            {
+                return _context.DetailLessons.Where(x => (x.IsDelete == false) && (x.employees.Name.Contains(keywoard))).ToList();
+            }
             else
             {
                 return _context.DetailLessons.Where(x => x.IsDelete == false).ToList();
@@ -86,8 +99,8 @@ namespace Microservice.Common.Interfaces.Master
             detailLesson.Name = detailLessonParam.Name;
             detailLesson.Date = DateTimeOffset.Now.LocalDateTime;
             detailLesson.LinkFile = detailLessonParam.LinkFile;
-            detailLesson.employees.Id = detailLessonParam.Employees.Id;
-            detailLesson.lessons.Id = detailLessonParam.Lessons.Id;
+            detailLesson.employees = _context.Employees.Find(Convert.ToInt16(detailLessonParam.Employees));
+            detailLesson.lessons = _context.Lessons.Find(Convert.ToInt16(detailLessonParam.Lessons));
             detailLesson.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)

@@ -12,9 +12,14 @@ namespace Microservice.Common.Interfaces.Master
     {
         MyContext _context = new MyContext();
         
-        public Employee Get(string username, string password)
+        public Employee GetEmployee(string username, string password)
         {
             return _context.Employees.Where(x => (x.IsDelete == false) && (x.Username == username) && (x.Password == password)).SingleOrDefault();
+        }
+
+        public Student GetStudent(string username, string password)
+        {
+            return _context.Students.Where(x => (x.IsDelete == false) && (x.Username == username) && (x.Password == password)).SingleOrDefault();
         }
     }
 }

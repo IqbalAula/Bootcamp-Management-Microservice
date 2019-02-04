@@ -49,9 +49,11 @@ namespace Microservice.BussinessLogic.Services.Master
             }
             else
             {
-                //status = _dailyScoreRepository.Insert(dailyScoreParam);
+                status = _dailyScoreRepository.Insert(dailyScoreParam);
             }
             return status;
+
+            //return _dailyScoreRepository.Insert(dailyScoreParam);
         }
 
         public List<DailyScore> Search(string keywoard, string category)
@@ -77,7 +79,7 @@ namespace Microservice.BussinessLogic.Services.Master
                 }
                 else
                 {
-                   // status = _dailyScoreRepository.Update(id, dailyScoreParam);
+                   status = _dailyScoreRepository.Update(id, dailyScoreParam);
                 }
             }
             return status;

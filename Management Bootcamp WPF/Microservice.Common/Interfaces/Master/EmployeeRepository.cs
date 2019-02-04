@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microservice.DataAccess.Model;
 using Microservice.DataAccess.Context;
 using System.Windows.Forms;
+using System.Data.Entity.Validation;
 
 namespace Microservice.Common.Interfaces.Master
 {
@@ -40,31 +41,38 @@ namespace Microservice.Common.Interfaces.Master
         }
         public bool Insert(EmployeeParam employeeParam)
         {
-            var result = 0;
-            employee.Name = employeeParam.Name;
-            employee.Dob = employeeParam.Dob;
-            employee.Pob = employeeParam.Pob;
-            employee.Gender = employeeParam.Gender;
-            employee.Religion = employeeParam.Religion;
-            employee.Address = employeeParam.Address;
-            employee.RT = employeeParam.RT;
-            employee.RW = employeeParam.RW;
-            employee.Kelurahan = employeeParam.Kelurahan;
-            employee.Kecamatan = employeeParam.Kecamatan;
-            employee.Kabupaten = employeeParam.Kabupaten;
-            employee.Phone = employeeParam.Phone;
-            employee.Email = employeeParam.Email;
-            employee.Username = employeeParam.Username;
-            employee.Password = employeeParam.Password;
-            employee.Role = employeeParam.Role;
-            employee.CreateDate = DateTimeOffset.Now.LocalDateTime;
-            _context.Employees.Add(employee);
-            result = _context.SaveChanges();
-            if (result > 0)
+            try
             {
-                status = true;
-                MessageBox.Show("Insert Successfully");
+                var result = 0;
+                employee.Name = employeeParam.Name;
+                //employee.Dob = employeeParam.Dob;
+                //employee.Pob = employeeParam.Pob;
+                //employee.Gender = employeeParam.Gender;
+                //employee.Religion = employeeParam.Religion;
+                //employee.Address = employeeParam.Address;
+                //employee.RT = employeeParam.RT;
+                //employee.RW = employeeParam.RW;
+                //employee.Kelurahan = employeeParam.Kelurahan;
+                //employee.Kecamatan = employeeParam.Kecamatan;
+                //employee.Kabupaten = employeeParam.Kabupaten;
+                employee.Phone = employeeParam.Phone;
+                employee.Email = employeeParam.Email;
+                employee.Username = employeeParam.Username;
+                employee.Password = employeeParam.Password;
+                employee.Role = employeeParam.Role;
+                employee.CreateDate = DateTimeOffset.Now.LocalDateTime;
+                _context.Employees.Add(employee);
+                result = _context.SaveChanges();
+                if (result > 0)
+                {
+                    status = true;
+                    MessageBox.Show("Insert Successfully");
+                }
             }
+            catch (DbEntityValidationException e)
+            {
+                Console.Write(e.EntityValidationErrors);
+            }            
             return status;
         }
         public List<Employee> Search(string keyword, string category)
@@ -105,7 +113,7 @@ namespace Microservice.Common.Interfaces.Master
             employee.Email = employeeParam.Email;
             employee.Username = employeeParam.Username;
             employee.Password = employeeParam.Password;
-            employee.Role = employeeParam.Role;
+            //employee.Role = employeeParam.Role;
             employee.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)

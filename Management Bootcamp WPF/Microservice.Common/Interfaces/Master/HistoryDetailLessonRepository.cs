@@ -42,8 +42,8 @@ namespace Microservice.Common.Interfaces
         public bool Insert(HistoryDetailLessonParam historyDetailLessonParam)
         {
             var result = 0;
-            historyDetailLesson.students.Id = historyDetailLessonParam.students.Id;
-            historyDetailLesson.detailLessons.Id = historyDetailLessonParam.detailLessons.Id;
+            historyDetailLesson.students = _context.Students.Find(historyDetailLessonParam.students);
+            historyDetailLesson.detailLessons = _context.DetailLessons.Find(historyDetailLessonParam.detailLessons);
             historyDetailLesson.CreateDate = DateTimeOffset.Now.LocalDateTime;
             _context.HistoryDetailLessons.Add(historyDetailLesson);
             result = _context.SaveChanges();
@@ -75,8 +75,8 @@ namespace Microservice.Common.Interfaces
         {
             var result = 0;
             var historyDetailLesson = Get(id);
-            historyDetailLesson.students.Id = historyDetailLessonParam.students.Id;
-            historyDetailLesson.detailLessons.Id = historyDetailLessonParam.detailLessons.Id;
+            historyDetailLesson.students = _context.Students.Find(historyDetailLessonParam.students);
+            historyDetailLesson.detailLessons = _context.DetailLessons.Find(historyDetailLessonParam.detailLessons);
             historyDetailLesson.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Microservice.Common.Interfaces
 {
-    public interface IScheduleService
+    public interface IScheduleRepository
     {
         bool Insert(ScheduleParam scheduleParam);
         bool Update(int? id, ScheduleParam scheduleParam);

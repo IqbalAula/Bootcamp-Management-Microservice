@@ -20,10 +20,6 @@ namespace Microservice.BussinessLogic.Services.Master
             {
                 MessageBox.Show("Sorry, your data is not found");
             }
-            else if (id.ToString() == " ")
-            {
-                MessageBox.Show("Don't insert white space");
-            }
             else
             {
                 status = _achievementRepository.Delete(id);
@@ -41,17 +37,14 @@ namespace Microservice.BussinessLogic.Services.Master
             return _achievementRepository.Get(id);
         }
 
+        public List<Achievement> GetStudent(int? id)
+        {
+            return _achievementRepository.GetStudent(id);
+        }
+
         public bool Insert(AchievementParam achievementParam)
         {
-            if (achievementParam.Name.ToString() == " " && achievementParam.Date.Date.ToString() == " " &&  achievementParam.students.Id.ToString() == " ")
-            {
-                MessageBox.Show("Don't insert white space");
-            }
-            else
-            {
-                status = _achievementRepository.Insert(achievementParam);
-            }
-            return status;
+            return _achievementRepository.Insert(achievementParam);
         }
 
         public List<Achievement> Search(string keywoard, string category)
@@ -65,24 +58,9 @@ namespace Microservice.BussinessLogic.Services.Master
             {
                 MessageBox.Show("Sorry, your data is not found");
             }
-            else if (id.ToString() == " ")
-            {
-                MessageBox.Show("Don't insert white space in Id");
-            }
             else
             {
-                if (achievementParam.Name.ToString() == " ")
-                {
-                    MessageBox.Show("Don't insert white space in Name");
-                }
-                else if (achievementParam.Date.ToString() == " ")
-                {
-                    MessageBox.Show("Don't insert white space in Date");
-                }
-                else
-                {
-                    status = _achievementRepository.Update(id, achievementParam);
-                }
+                status = _achievementRepository.Update(id, achievementParam);
             }
             return status;
         }
