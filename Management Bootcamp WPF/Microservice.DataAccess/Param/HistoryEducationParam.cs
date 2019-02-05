@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace Microservice.DataAccess.Model
 {
-    public class ScheduleParam
+    public class HistoryEducationParam
     {
         public int Id { get; set; }
+        public string Degree { get; set; }
+        public string StudyProgram { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
-        public string lessons { get; set; }
-        public string room { get; set; }
-        public string classes { get; set; }
+        public string Ipk { get; set; }
+        public string universitys { get; set; }
+        public string students { get; set; }
     }
 }

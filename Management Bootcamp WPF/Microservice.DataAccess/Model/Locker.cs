@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Microservice.DataAccess.Model
 {
-    public class SkillStudent : BaseModel
+    public class Locker : BaseModel
     {
-        public virtual Student students { get; set; }
-        public virtual Skill skills { get; set; }
+        public virtual Employee employees { get; set; }
     }
 }

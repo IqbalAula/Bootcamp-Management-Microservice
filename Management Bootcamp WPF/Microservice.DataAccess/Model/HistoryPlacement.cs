@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Microservice.DataAccess.Model
 {
-    public class ScheduleParam
-    {
-        public int Id { get; set; }
+    public class HistoryPlacement : BaseModel
+    {       
+        public string Position { get; set; }
+        public string Description { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
-        public string lessons { get; set; }
-        public string room { get; set; }
-        public string classes { get; set; }
+        public virtual Placement placements { get; set; }
+        public virtual Student students { get; set; }
     }
 }

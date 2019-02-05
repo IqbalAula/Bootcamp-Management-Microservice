@@ -11,9 +11,8 @@ namespace Microservice.DataAccess.Model
     {
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
-        public virtual Employee employees { get; set; }
         public virtual Lesson lessons { get; set; }
-        public virtual Room room { get; set; }
         public virtual Class classes { get; set; }
+        public virtual Room room { get; set; }
     }
 }

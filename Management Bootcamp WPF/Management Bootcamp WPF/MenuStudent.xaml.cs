@@ -28,15 +28,15 @@ namespace Management_Bootcamp_WPF
         IOrganizationService _organizationService = new OrganizationService();
         IWorkExperienceService _workExperienceService = new WorkExperienceService();
         IErrorBankService _errorBankService = new ErrorBankService();
-        IDetailLessonService _detailLessonService = new DetailLessonService();
-        IHistoryDetailLessonService _historyDetailLessonService = new HistoryDetailLessonService();
+        //IDetailLessonService _detailLessonService = new DetailLessonService();
+        //IHistoryDetailLessonService _historyDetailLessonService = new HistoryDetailLessonService();
         //SkillParam skillParam = new SkillParam();
         AchievementParam achievementParam = new AchievementParam();
         OrganizationParam organizationParam = new OrganizationParam();
         WorkExperienceParam workExperienceParam = new WorkExperienceParam();
         ErrorBankParam errorBankParam = new ErrorBankParam();
-        DetailLessonParam detailLessonParam = new DetailLessonParam();
-        HistoryDetailLessonParam historyDetailLessonParam = new HistoryDetailLessonParam();
+        //DetailLessonParam detailLessonParam = new DetailLessonParam();
+        //HistoryDetailLessonParam historyDetailLessonParam = new HistoryDetailLessonParam();
         public MenuStudent()
         {
             InitializeComponent();
@@ -849,90 +849,90 @@ namespace Management_Bootcamp_WPF
         }
 
         //manage DetailLesson
-        private void LoadGridDetailLesson()
-        {
-            textBoxNameDetailLesson.Text = "";
-            textBlockIdDetailLesson.Text = "";
-            dataGridDetailLesson.ItemsSource = _detailLessonService.Get();
-        }
+        //private void LoadGridDetailLesson()
+        //{
+        //    textBoxNameDetailLesson.Text = "";
+        //    textBlockIdDetailLesson.Text = "";
+        //    dataGridDetailLesson.ItemsSource = _detailLessonService.Get();
+        //}
 
-        private void textBoxNameDetailLesson_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z. ]*$");
-            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
-        }
+        //private void textBoxNameDetailLesson_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        //{
+        //    System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z. ]*$");
+        //    e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        //}
 
-        private void buttonDownloadDetailLesson_Click(object sender, RoutedEventArgs e)
-        {
-            historyDetailLessonParam.detailLessons = Convert.ToInt16(textBlockIdDetailLesson.Text);
-            historyDetailLessonParam.students = Settings.Default.Id;
-            _historyDetailLessonService.Insert(historyDetailLessonParam);
-        }
+        //private void buttonDownloadDetailLesson_Click(object sender, RoutedEventArgs e)
+        //{
+        //    historyDetailLessonParam.detailLessons = Convert.ToInt16(textBlockIdDetailLesson.Text);
+        //    historyDetailLessonParam.students = Settings.Default.Id;
+        //    _historyDetailLessonService.Insert(historyDetailLessonParam);
+        //}
 
-        private void dataGridDetailLesson_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            object item = dataGridDetailLesson.SelectedItem;
-            if (dataGridDetailLesson.SelectedIndex < 0)
-            {
-                textBlockIdDetailLesson.Text = "";
-                textBoxNameDetailLesson.Text = "";
-            }
-            else
-            {
-                textBlockIdDetailLesson.Text = (dataGridDetailLesson.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxNameDetailLesson.Text = (dataGridDetailLesson.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+        //private void dataGridDetailLesson_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        //{
+        //    object item = dataGridDetailLesson.SelectedItem;
+        //    if (dataGridDetailLesson.SelectedIndex < 0)
+        //    {
+        //        textBlockIdDetailLesson.Text = "";
+        //        textBoxNameDetailLesson.Text = "";
+        //    }
+        //    else
+        //    {
+        //        textBlockIdDetailLesson.Text = (dataGridDetailLesson.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+        //        textBoxNameDetailLesson.Text = (dataGridDetailLesson.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
                 
-            }
-        }
+        //    }
+        //}
 
-        private void buttonSearchDetailLesson_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(comboBoxSearchDetailLesson.Text) == true)
-            {
-                MessageBox.Show("Please choice category search!");
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(textBoxSearchDetailLesson.Text) == true)
-                {
-                    MessageBox.Show("Please insert keywoard search!");
-                }
-                else if (string.IsNullOrWhiteSpace(textBoxSearchDetailLesson.Text) == true)
-                {
-                    MessageBox.Show("Don't insert white space");
-                }
-                else
-                {
-                    dataGridDetailLesson.ItemsSource = _detailLessonService.Search(textBoxSearchDetailLesson.Text, comboBoxSearchDetailLesson.Text);
-                }
-            }
-        }
+        //private void buttonSearchDetailLesson_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(comboBoxSearchDetailLesson.Text) == true)
+        //    {
+        //        MessageBox.Show("Please choice category search!");
+        //    }
+        //    else
+        //    {
+        //        if (string.IsNullOrEmpty(textBoxSearchDetailLesson.Text) == true)
+        //        {
+        //            MessageBox.Show("Please insert keywoard search!");
+        //        }
+        //        else if (string.IsNullOrWhiteSpace(textBoxSearchDetailLesson.Text) == true)
+        //        {
+        //            MessageBox.Show("Don't insert white space");
+        //        }
+        //        else
+        //        {
+        //            dataGridDetailLesson.ItemsSource = _detailLessonService.Search(textBoxSearchDetailLesson.Text, comboBoxSearchDetailLesson.Text);
+        //        }
+        //    }
+        //}
 
-        private void textBoxSearchDetailLesson_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key != Key.Enter) return;
+        //private void textBoxSearchDetailLesson_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    if (e.Key != Key.Enter) return;
 
-            // your event handler here
-            e.Handled = true;
-            if (string.IsNullOrEmpty(comboBoxSearchDetailLesson.Text) == true)
-            {
-                MessageBox.Show("Please choice category search!");
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(textBoxSearchDetailLesson.Text) == true)
-                {
-                    MessageBox.Show("Please insert keywoard search!");
-                }
-                else if (string.IsNullOrWhiteSpace(textBoxSearchDetailLesson.Text) == true)
-                {
-                    MessageBox.Show("Don't insert white space");
-                }
-                else
-                {
-                    dataGridDetailLesson.ItemsSource = _detailLessonService.Search(textBoxSearchDetailLesson.Text, comboBoxSearchDetailLesson.Text);
-                }
-            }
-        }
+        //    // your event handler here
+        //    e.Handled = true;
+        //    if (string.IsNullOrEmpty(comboBoxSearchDetailLesson.Text) == true)
+        //    {
+        //        MessageBox.Show("Please choice category search!");
+        //    }
+        //    else
+        //    {
+        //        if (string.IsNullOrEmpty(textBoxSearchDetailLesson.Text) == true)
+        //        {
+        //            MessageBox.Show("Please insert keywoard search!");
+        //        }
+        //        else if (string.IsNullOrWhiteSpace(textBoxSearchDetailLesson.Text) == true)
+        //        {
+        //            MessageBox.Show("Don't insert white space");
+        //        }
+        //        else
+        //        {
+        //            dataGridDetailLesson.ItemsSource = _detailLessonService.Search(textBoxSearchDetailLesson.Text, comboBoxSearchDetailLesson.Text);
+        //        }
+        //    }
+        //}
     }
 }

@@ -45,7 +45,7 @@ namespace Microservice.Common.Interfaces.Master
             var result = 0;
             classes.Name = classParam.Name;
             classes.Departments = _context.Departments.Find(classParam.Departments);
-            classes.Batchs = _context.Batchs.Find(classParam.Batchs);
+            classes.batchs = _context.Batchs.Find(classParam.Batchs);
             classes.CreateDate = DateTimeOffset.Now.LocalDateTime;
             _context.Classes.Add(classes);
             result = _context.SaveChanges();
@@ -77,7 +77,7 @@ namespace Microservice.Common.Interfaces.Master
             }
             else if (category == "Batch")
             {
-                return _context.Classes.Where(x => (x.IsDelete == false) && (x.Batchs.Name.Contains(keywoard))).ToList();
+                return _context.Classes.Where(x => (x.IsDelete == false) && (x.batchs.Name.Contains(keywoard))).ToList();
             }
             else
             {
@@ -91,7 +91,7 @@ namespace Microservice.Common.Interfaces.Master
             Class classes = Get(id);
             classes.Name = classParam.Name;
             classes.Departments = _context.Departments.Find(classParam.Departments);
-            classes.Batchs = _context.Batchs.Find(classParam.Batchs);
+            classes.batchs = _context.Batchs.Find(classParam.Batchs);
             classes.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             //_context.Entry(batch).State = System.Data.Entity.EntityState.Modified;
             result = _context.SaveChanges();

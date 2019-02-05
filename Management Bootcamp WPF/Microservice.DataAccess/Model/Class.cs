@@ -11,6 +11,7 @@ namespace Microservice.DataAccess.Model
     {
         public string Name { get; set; }
         public Department Departments { get; set; }
-        public virtual Batch Batchs { get; set; }
+        public virtual Batch batchs { get; set; }
+        public virtual Employee employees { get; set; }
     }
 }

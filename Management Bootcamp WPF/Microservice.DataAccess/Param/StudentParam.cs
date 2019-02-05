@@ -9,8 +9,8 @@ namespace Microservice.DataAccess.Model
 {
     public class StudentParam
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public DateTime Dob { get; set; }
         public string Pob { get; set; }
         public string Gender { get; set; }
@@ -18,16 +18,19 @@ namespace Microservice.DataAccess.Model
         public string Address { get; set; }
         public int RT { get; set; }
         public int RW { get; set; }
-        public string Kelurahan { get; set; }
-        public string Kecamatan { get; set; }
-        public string Kabupaten { get; set; }
+        public string Village { get; set; }
+        public string District { get; set; }
+        public string Regencie { get; set; }
+        public string Provience { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Status { get; set; }
-
-        public int Placements { get; set; }
-        public int Classes { get; set; }
+        public string SecretQuestion { get; set; }
+        public string SecretAnswer { get; set; }
+        public string AccessCard { get; set; }
+        public string HiringLocation { get; set; }
+        public int classes { get; set; }
     }
 }

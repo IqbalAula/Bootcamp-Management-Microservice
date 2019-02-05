@@ -44,7 +44,7 @@ namespace Microservice.Common.Interfaces.Master
             try
             {
                 var result = 0;
-                employee.Name = employeeParam.Name;
+                employee.FirstName = employeeParam.FirstName;
                 //employee.Dob = employeeParam.Dob;
                 //employee.Pob = employeeParam.Pob;
                 //employee.Gender = employeeParam.Gender;
@@ -83,7 +83,7 @@ namespace Microservice.Common.Interfaces.Master
             }
             else if (category == "Name")
             {
-                return _context.Employees.Where(x => (x.IsDelete == false) && (x.Name.Contains(keyword))).ToList();
+                return _context.Employees.Where(x => (x.IsDelete == false) && (x.FirstName.Contains(keyword))).ToList();
             }
             else if (category == "Role")
             {
@@ -98,7 +98,7 @@ namespace Microservice.Common.Interfaces.Master
         {
             var result = 0;
             var employee = Get(id);
-            employee.Name = employeeParam.Name;
+            employee.FirstName = employeeParam.FirstName;
             employee.Dob = employeeParam.Dob;
             employee.Pob = employeeParam.Pob;
             employee.Gender = employeeParam.Gender;

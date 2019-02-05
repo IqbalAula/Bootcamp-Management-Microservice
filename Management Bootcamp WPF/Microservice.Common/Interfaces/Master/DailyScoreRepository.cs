@@ -78,11 +78,11 @@ namespace Microservice.Common.Interfaces.Master
             }
             else if (category == "Student Name")
             {
-                return _context.DailyScores.Where(x => (x.IsDelete == false) && (x.students.Name.Contains(keywoard))).ToList();
+                return _context.DailyScores.Where(x => (x.IsDelete == false) && (x.students.FirstName.Contains(keywoard))).ToList();
             }
             else if (category == "Employee")
             {
-                return _context.DailyScores.Where(x => (x.IsDelete == false) && (x.employees.Name.Contains(keywoard))).ToList();
+                return _context.DailyScores.Where(x => (x.IsDelete == false) && (x.employees.FirstName.Contains(keywoard))).ToList();
             }
             else
             {

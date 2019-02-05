@@ -44,3 +44,14 @@ D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Managemen
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.csproj.GenerateResource.Cache
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.exe
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\bin\Debug\Management Bootcamp WPF.exe.config
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF.csprojResolveAssemblyReference.cache
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MainWindow.g.cs
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuMentor.g.cs
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuStudent.g.cs
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\MenuHR.g.cs
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\App.g.cs
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF_MarkupCompile.cache
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\Management Bootcamp WPF_MarkupCompile.lref

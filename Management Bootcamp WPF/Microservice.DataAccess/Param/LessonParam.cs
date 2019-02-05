@@ -11,8 +11,9 @@ namespace Microservice.DataAccess.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string level { get; set; }
-
+        public string Level { get; set; }
+        public string LinkFile { get; set; }
         public string Departements { get; set; }
+        public string Employees { get; set; }
     }
 }

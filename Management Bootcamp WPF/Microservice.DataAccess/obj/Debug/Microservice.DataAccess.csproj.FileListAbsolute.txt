@@ -14,3 +14,13 @@ D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microserv
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.csproj.GenerateResource.Cache
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.exe
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\Microservice.DataAccess.exe.config
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\Microservice.DataAccess.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\Microservice.DataAccess.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.DataAccess\obj\Debug\Microservice.DataAccess.pdb

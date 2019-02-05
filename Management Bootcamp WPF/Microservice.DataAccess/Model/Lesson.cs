@@ -10,8 +10,9 @@ namespace Microservice.DataAccess.Model
     public class Lesson : BaseModel
     {
         public string Name { get; set; }
-        public string level { get; set; }
-
-        public virtual Department Departements { get; set; }
+        public string Level { get; set; }
+        public string LinkFile { get; set; }
+        public virtual Department departements { get; set; }
+        public virtual Employee employees { get; set; }
     }
 }

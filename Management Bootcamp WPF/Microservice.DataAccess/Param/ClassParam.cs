@@ -13,5 +13,6 @@ namespace Microservice.DataAccess.Model
         public string Name { get; set; }
         public int Departments { get; set; }
         public int Batchs { get; set; }
+        public int Employees { get; set; }
     }
 }

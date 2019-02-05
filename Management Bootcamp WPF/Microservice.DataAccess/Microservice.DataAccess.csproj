@@ -54,60 +54,38 @@
   <ItemGroup>
     <Compile Include="Context\MyContext.cs" />
     <Compile Include="Core\BaseModel.cs" />
-    <Compile Include="Migrations\201901290933241_AddFirstModel.cs" />
-    <Compile Include="Migrations\201901290933241_AddFirstModel.Designer.cs">
-      <DependentUpon>201901290933241_AddFirstModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901290941188_UpdateFirstModelSkillStudent.cs" />
-    <Compile Include="Migrations\201901290941188_UpdateFirstModelSkillStudent.Designer.cs">
-      <DependentUpon>201901290941188_UpdateFirstModelSkillStudent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902010221471_UpdateStudentAddSecretQuestion.cs" />
-    <Compile Include="Migrations\201902010221471_UpdateStudentAddSecretQuestion.Designer.cs">
-      <DependentUpon>201902010221471_UpdateStudentAddSecretQuestion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902011259538_updateModel.cs" />
-    <Compile Include="Migrations\201902011259538_updateModel.Designer.cs">
-      <DependentUpon>201902011259538_updateModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902021628526_UpdateDatetimeoffsetToDatetime.cs" />
-    <Compile Include="Migrations\201902021628526_UpdateDatetimeoffsetToDatetime.Designer.cs">
-      <DependentUpon>201902021628526_UpdateDatetimeoffsetToDatetime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902031657217_UpdateColumnWork.cs" />
-    <Compile Include="Migrations\201902031657217_UpdateColumnWork.Designer.cs">
-      <DependentUpon>201902031657217_UpdateColumnWork.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Achievement.cs" />
     <Compile Include="Model\Batch.cs" />
     <Compile Include="Model\Class.cs" />
     <Compile Include="Model\DailyScore.cs" />
     <Compile Include="Model\Department.cs" />
-    <Compile Include="Model\DetailLesson.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\ErrorBank.cs" />
-    <Compile Include="Model\HistoryDetailLesson.cs" />
+    <Compile Include="Model\HistoryEducation.cs" />
     <Compile Include="Model\Lesson.cs" />
     <Compile Include="Model\Organization.cs" />
+    <Compile Include="Model\Locker.cs" />
+    <Compile Include="Model\University.cs" />
     <Compile Include="Model\Placement.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Schedule.cs" />
     <Compile Include="Model\Skill.cs" />
     <Compile Include="Model\SkillStudent.cs" />
     <Compile Include="Model\Student.cs" />
-    <Compile Include="Model\TaskScore.cs" />
+    <Compile Include="Model\WeeklyScore.cs" />
+    <Compile Include="Model\HistoryPlacement.cs" />
     <Compile Include="Model\WorkExperience.cs" />
     <Compile Include="Param\AchievementParam.cs" />
     <Compile Include="Param\BatchParam.cs" />
     <Compile Include="Param\ClassParam.cs" />
     <Compile Include="Param\DailyScoreParam.cs" />
     <Compile Include="Param\DepartmentParam.cs" />
-    <Compile Include="Param\DetailLessonParam.cs" />
     <Compile Include="Param\EmployeeParam.cs" />
     <Compile Include="Param\ErrorbankParam.cs" />
-    <Compile Include="Param\HistoryDetailLessonParam.cs" />
+    <Compile Include="Param\HistoryEducationParam.cs" />
+    <Compile Include="Param\HistoryPlacementParam.cs" />
     <Compile Include="Param\LessonParam.cs" />
+    <Compile Include="Param\LockerParam.cs" />
     <Compile Include="Param\OrganizationParam.cs" />
     <Compile Include="Param\PlacementParam.cs" />
     <Compile Include="Param\RoomParam.cs" />
@@ -115,7 +93,8 @@
     <Compile Include="Param\SkillParam.cs" />
     <Compile Include="Param\SkillStudentParam.cs" />
     <Compile Include="Param\StudentParam.cs" />
-    <Compile Include="Param\TaskScoreParam.cs" />
+    <Compile Include="Param\WeeklyScoreParam.cs" />
+    <Compile Include="Param\UniversityParam.cs" />
     <Compile Include="Param\WorkExperienceParam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,24 +104,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901290933241_AddFirstModel.resx">
-      <DependentUpon>201901290933241_AddFirstModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901290941188_UpdateFirstModelSkillStudent.resx">
-      <DependentUpon>201901290941188_UpdateFirstModelSkillStudent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902010221471_UpdateStudentAddSecretQuestion.resx">
-      <DependentUpon>201902010221471_UpdateStudentAddSecretQuestion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902011259538_updateModel.resx">
-      <DependentUpon>201902011259538_updateModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902021628526_UpdateDatetimeoffsetToDatetime.resx">
-      <DependentUpon>201902021628526_UpdateDatetimeoffsetToDatetime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902031657217_UpdateColumnWork.resx">
-      <DependentUpon>201902031657217_UpdateColumnWork.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
