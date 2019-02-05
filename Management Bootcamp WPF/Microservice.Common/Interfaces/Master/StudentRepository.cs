@@ -46,7 +46,7 @@ namespace Microservice.Common.Interfaces.Master
             try
             {
                 var result = 0;
-                student.Name = studentParam.Name;
+                student.FirstName = studentParam.FirstName;
                 student.Dob = studentParam.Dob;
                 student.Pob = studentParam.Pob;
                 student.Gender = studentParam.Gender;
@@ -54,16 +54,15 @@ namespace Microservice.Common.Interfaces.Master
                 student.Address = studentParam.Address;
                 student.RT = studentParam.RT;
                 student.RW = studentParam.RW;
-                student.Kelurahan = studentParam.Kelurahan;
-                student.Kecamatan = studentParam.Kecamatan;
-                student.Kabupaten = studentParam.Kabupaten;
+                //student.Village = studentParam.Village;
+                //student.District = studentParam.District;
+                //student.Regencie = studentParam.Regencie;
                 student.Phone = studentParam.Phone;
                 student.Email = studentParam.Email;
                 student.Username = studentParam.Username;
                 student.Password = studentParam.Password;
                 student.Status = "ON BOOTCAMP";
-                student.classes = _context.Classes.Find(studentParam.Classes);
-                student.placements = _context.Placements.Find(studentParam.Placements);
+                student.classes = _context.Classes.Find(studentParam.classes);
                 student.CreateDate = DateTimeOffset.Now.LocalDateTime;
                 _context.Students.Add(student);
                 result = _context.SaveChanges();
@@ -88,7 +87,7 @@ namespace Microservice.Common.Interfaces.Master
             }
             else if (category == "Name")
             {
-                return _context.Students.Where(x => (x.IsDelete == false) && (x.Name.Contains(keyword))).ToList();
+                return _context.Students.Where(x => (x.IsDelete == false) && (x.FirstName.Contains(keyword))).ToList();
             }
             else
             {
@@ -100,7 +99,7 @@ namespace Microservice.Common.Interfaces.Master
         {
             var result = 0;
             var student = Get(id);
-            student.Name = studentParam.Name;
+            student.FirstName = studentParam.FirstName;
             student.Dob = studentParam.Dob;
             student.Pob = studentParam.Pob;
             student.Gender = studentParam.Gender;
@@ -108,16 +107,15 @@ namespace Microservice.Common.Interfaces.Master
             student.Address = studentParam.Address;
             student.RT = studentParam.RT;
             student.RW = studentParam.RW;
-            student.Kelurahan = studentParam.Kelurahan;
-            student.Kecamatan = studentParam.Kecamatan;
-            student.Kabupaten = studentParam.Kabupaten;
+            student.Village = studentParam.Village;
+            student.District = studentParam.District;
+            student.Regencie = studentParam.Regencie;
             student.Phone = studentParam.Phone;
             student.Email = studentParam.Email;
             student.Username = studentParam.Username;
             student.Password = studentParam.Password;
             student.Status = studentParam.Status;
-            student.classes = _context.Classes.Find(studentParam.Classes);
-            student.placements = _context.Placements.Find(studentParam.Placements);
+            student.classes = _context.Classes.Find(studentParam.classes);
             student.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)

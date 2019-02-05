@@ -46,7 +46,7 @@
                     <ComboBox x:Name="comboBoxDepartmentLesson" ItemsSource="{Binding Path=getDepartment}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="98,117,0,0" VerticalAlignment="Top" Width="124"/>
                 </Grid>
             </TabItem>
-            
+            <!-- 
             <TabItem Header="Manage Detail Lesson">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
                     <Label x:Name="labelSearchDetailLesson" Content="Search Category" HorizontalAlignment="Left" Margin="206,4,0,0" VerticalAlignment="Top" Width="97"/>
@@ -81,6 +81,7 @@
                     <TextBox x:Name="textBoxLinkfileDetailLesson" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403"/>
                 </Grid>
             </TabItem>
+            -->
             <TabItem Header="Manage Schedule">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
                     <Label x:Name="labelSearchSchedule" Content="Search Category" HorizontalAlignment="Left" Margin="206,4,0,0" VerticalAlignment="Top" Width="97"/>
@@ -183,7 +184,7 @@
                     <Label x:Name="labelChooseDailyScore" Content="Choose"  HorizontalAlignment="Left" Margin="22,201,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Manage Task Score">
+            <TabItem Header="Manage Weekly Score">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
                     <Label x:Name="labelSearchTaskScore" Content="Search Category" HorizontalAlignment="Left" Margin="206,274,0,0" VerticalAlignment="Top" Width="97"/>
                     <ComboBox x:Name="comboBoxSearchTaskScore" HorizontalAlignment="Left" Margin="308,278,0,0" VerticalAlignment="Top" Width="111">
@@ -249,6 +250,7 @@
                     <TextBox x:Name="textBoxScore5TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
                 </Grid>
             </TabItem>
+            <!-- 
             <TabItem Header="History Lesson">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
                     <Label x:Name="labelSearchHistoryLesson" Content="Search Category" HorizontalAlignment="Left" Margin="206,4,0,0" VerticalAlignment="Top" Width="97"/>
@@ -270,6 +272,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
+            -->
         </TabControl>
         <Label x:Name="labelMentorWelcome" Content="Welcome Mentor" HorizontalAlignment="Left" Margin="422,10,0,0" VerticalAlignment="Top" Width="105"/>
         <TextBlock x:Name="textBlockMentor" HorizontalAlignment="Left" Margin="523,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113" Height="20"/>

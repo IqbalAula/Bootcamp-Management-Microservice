@@ -62,7 +62,7 @@ namespace Management_Bootcamp_WPF
 
             var get = _employeeService.Get(Settings.Default.Id);
             textBlockIdProfileHR.Text = Convert.ToString(get.Id);
-            textBoxNameProfileHR.Text = get.Name;
+            textBoxNameProfileHR.Text = get.FirstName;
             dateDobProfileHR.SelectedDate = get.Dob;
             textBoxPobProfileHR.Text = get.Pob;
             comboBoxGenderProfileHR.Text = get.Gender;
@@ -74,9 +74,9 @@ namespace Management_Bootcamp_WPF
             textBoxAddressProfileHR.Text = get.Address;
             textBoxRtProfileHR.Text = Convert.ToString(get.RT);
             textBoxRwProfileHR.Text = Convert.ToString(get.RW);
-            textBoxKelurahanProfileHR.Text = get.Kelurahan;
-            textBoxKecamatanProfileHR.Text = get.Kecamatan;
-            textBoxKabupatenProfileHR.Text = get.Kabupaten;           
+            textBoxKelurahanProfileHR.Text = get.Village;
+            textBoxKecamatanProfileHR.Text = get.District;
+            textBoxKabupatenProfileHR.Text = get.Regencies;           
         }
 
         private void LoadCombo()
@@ -131,7 +131,7 @@ namespace Management_Bootcamp_WPF
 
         private void buttonInsertEmployee_Click(object sender, RoutedEventArgs e)
         {
-            employeeParam.Name = textBoxNameEmployee.Text;
+            employeeParam.FirstName = textBoxNameEmployee.Text;
             employeeParam.Phone = textBoxPhoneEmployee.Text;
             employeeParam.Role = comboBoxRoleEmployee.Text;
             employeeParam.Email = textBoxEmailEmployee.Text;
@@ -186,7 +186,7 @@ namespace Management_Bootcamp_WPF
             }
             else
             {
-                employeeParam.Name = textBoxNameEmployee.Text;
+                employeeParam.FirstName = textBoxNameEmployee.Text;
                 employeeParam.Phone = textBoxPhoneEmployee.Text;
                 employeeParam.Role = comboBoxRoleEmployee.Text;
                 employeeParam.Email = textBoxEmailEmployee.Text;
@@ -1123,13 +1123,12 @@ namespace Management_Bootcamp_WPF
 
         private void buttonInsertStudent_Click(object sender, RoutedEventArgs e)
         {
-            studentParam.Name = textBoxNameStudent.Text;
+            studentParam.FirstName = textBoxNameStudent.Text;
             studentParam.Phone = textBoxPhoneStudent.Text;
-            studentParam.Classes = Convert.ToInt16(comboBoxClassStudent.SelectedValue);
+            studentParam.classes = Convert.ToInt16(comboBoxClassStudent.SelectedValue);
             studentParam.Email = textBoxEmailStudent.Text;
             studentParam.Username = textBoxUsernameStudent.Text;
             studentParam.Password = textBoxPasswordStudent.Text;
-            studentParam.Placements = 1;
             if (string.IsNullOrEmpty(textBoxNameStudent.Text) == true)
             {
                 MessageBox.Show("Please insert name student!");
@@ -1179,9 +1178,9 @@ namespace Management_Bootcamp_WPF
             }
             else
             {
-                studentParam.Name = textBoxNameStudent.Text;
+                studentParam.FirstName = textBoxNameStudent.Text;
                 studentParam.Phone = textBoxPhoneStudent.Text;
-                studentParam.Classes = Convert.ToInt16(comboBoxClassStudent.SelectedValue);
+                studentParam.classes = Convert.ToInt16(comboBoxClassStudent.SelectedValue);
                 studentParam.Email = textBoxEmailStudent.Text;
                 studentParam.Username = textBoxUsernameStudent.Text;
                 studentParam.Password = textBoxPasswordStudent.Text;
@@ -1270,7 +1269,7 @@ namespace Management_Bootcamp_WPF
         {
             var get = _employeeService.Get(Settings.Default.Id);
             textBlockIdProfileHR.Text = Convert.ToString(get.Id);
-            textBoxNameProfileHR.Text = get.Name;
+            textBoxNameProfileHR.Text = get.FirstName;
             dateDobProfileHR.DisplayDate = Convert.ToDateTime(get.Dob);
             textBoxPobProfileHR.Text = get.Pob;
             comboBoxGenderProfileHR.Text = get.Gender;
@@ -1282,14 +1281,14 @@ namespace Management_Bootcamp_WPF
             textBoxAddressProfileHR.Text = get.Address;
             textBoxRtProfileHR.Text = Convert.ToString(get.RT);
             textBoxRwProfileHR.Text = Convert.ToString(get.RW);
-            textBoxKelurahanProfileHR.Text = get.Kelurahan;
-            textBoxKecamatanProfileHR.Text = get.Kecamatan;
-            textBoxKabupatenProfileHR.Text = get.Kabupaten;
+            textBoxKelurahanProfileHR.Text = get.Village;
+            textBoxKecamatanProfileHR.Text = get.District;
+            textBoxKabupatenProfileHR.Text = get.Regencies;
         }
 
         private void buttonSaveProfileHR_Click(object sender, RoutedEventArgs e)
         {
-            employeeParam.Name = textBoxNameProfileHR.Text;
+            employeeParam.FirstName = textBoxNameProfileHR.Text;
             DateTime? selectedDate = dateDobProfileHR.SelectedDate;
             if (selectedDate.HasValue)
             {                
@@ -1305,9 +1304,9 @@ namespace Management_Bootcamp_WPF
             employeeParam.Address = textBoxAddressProfileHR.Text;
             employeeParam.RT = Convert.ToInt16(textBoxRtProfileHR.Text);
             employeeParam.RW = Convert.ToInt16(textBoxRwProfileHR.Text);
-            employeeParam.Kelurahan = textBoxKelurahanProfileHR.Text;
-            employeeParam.Kecamatan = textBoxKecamatanProfileHR.Text;
-            employeeParam.Kabupaten = textBoxKabupatenProfileHR.Text;
+            employeeParam.Village = textBoxKelurahanProfileHR.Text;
+            employeeParam.District = textBoxKecamatanProfileHR.Text;
+            employeeParam.Regencies = textBoxKabupatenProfileHR.Text;
             if (string.IsNullOrEmpty(textBoxNameProfileHR.Text) == true)
             {
                 MessageBox.Show("Please insert name employee!");

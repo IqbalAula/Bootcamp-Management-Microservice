@@ -106,9 +106,9 @@ namespace Microservice.Common.Interfaces.Master
             employee.Address = employeeParam.Address;
             employee.RT = employeeParam.RT;
             employee.RW = employeeParam.RW;
-            employee.Kelurahan = employeeParam.Kelurahan;
-            employee.Kecamatan = employeeParam.Kecamatan;
-            employee.Kabupaten = employeeParam.Kabupaten;
+            //employee.Kelurahan = employeeParam.Kelurahan;
+            //employee.Kecamatan = employeeParam.Kecamatan;
+            //employee.Kabupaten = employeeParam.Kabupaten;
             employee.Phone = employeeParam.Phone;
             employee.Email = employeeParam.Email;
             employee.Username = employeeParam.Username;

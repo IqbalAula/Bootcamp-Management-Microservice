@@ -44,7 +44,6 @@ namespace Microservice.Common.Interfaces.Master
             var result = 0;
             schedule.DateStart = scheduleParam.DateStart;
             schedule.DateEnd = scheduleParam.DateEnd;
-            schedule.employees = _context.Employees.Find(Convert.ToInt16(scheduleParam.employees));
             schedule.lessons = _context.Lessons.Find(Convert.ToInt16(scheduleParam.lessons));
             schedule.room = _context.Rooms.Find(Convert.ToInt16(scheduleParam.room));
             schedule.classes = _context.Classes.Find(Convert.ToInt16(scheduleParam.classes));
@@ -89,10 +88,6 @@ namespace Microservice.Common.Interfaces.Master
             {
                 return _context.Schedules.Where(x => (x.IsDelete == false) && (x.DateEnd.ToString().Contains(keyword))).ToList();
             }
-            else if (category == "Employee")
-            {
-                return _context.Schedules.Where(x => (x.IsDelete == false) && (x.employees.Name.Contains(keyword))).ToList();
-            }
             else
             {
                 return _context.Schedules.Where(x => x.IsDelete == false).ToList();
@@ -105,7 +100,6 @@ namespace Microservice.Common.Interfaces.Master
             var schedule = Get(id);
             schedule.DateStart = scheduleParam.DateStart;
             schedule.DateEnd = scheduleParam.DateEnd;
-            schedule.employees = _context.Employees.Find(Convert.ToInt16(scheduleParam.employees));
             schedule.lessons = _context.Lessons.Find(Convert.ToInt16(scheduleParam.lessons));
             schedule.room = _context.Rooms.Find(Convert.ToInt16(scheduleParam.room));
             schedule.classes = _context.Classes.Find(Convert.ToInt16(scheduleParam.classes));

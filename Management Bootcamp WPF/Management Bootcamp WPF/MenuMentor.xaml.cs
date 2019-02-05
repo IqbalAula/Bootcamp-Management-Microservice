@@ -150,7 +150,7 @@ namespace Management_Bootcamp_WPF
         private void loadcombo()
         {
             comboBoxDepartmentLesson.ItemsSource = _context.Departments.Where(x => x.IsDelete == false).ToList();
-            comboBoxLessonDetailLesson.ItemsSource = _context.Lessons.Where(x => x.IsDelete == false).ToList();
+            //comboBoxLessonDetailLesson.ItemsSource = _context.Lessons.Where(x => x.IsDelete == false).ToList();
             comboBoxLessonSchedule.ItemsSource = _context.Lessons.Where(x => x.IsDelete == false).ToList();
             comboBoxClassSchedule.ItemsSource = _context.Classes.Where(x => x.IsDelete == false).ToList();
             comboBoxRoomSchedule.ItemsSource = _context.Rooms.Where(x => x.IsDelete == false).ToList();
@@ -830,6 +830,11 @@ namespace Management_Bootcamp_WPF
         }
 
         private void dataGridHistoryLesson_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+
+        }
+
+        private void textBoxNameLesson_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
 
         }

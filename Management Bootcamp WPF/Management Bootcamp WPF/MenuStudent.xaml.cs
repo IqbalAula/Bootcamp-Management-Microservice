@@ -848,6 +848,31 @@ namespace Management_Bootcamp_WPF
             }
         }
 
+        private void textBoxSearchDetailLesson_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void buttonSearchDetailLesson_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void textBoxNameDetailLesson_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
+
+        private void buttonDownloadDetailLesson_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dataGridDetailLesson_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+
+        }
+
         //manage DetailLesson
         //private void LoadGridDetailLesson()
         //{
@@ -881,7 +906,7 @@ namespace Management_Bootcamp_WPF
         //    {
         //        textBlockIdDetailLesson.Text = (dataGridDetailLesson.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
         //        textBoxNameDetailLesson.Text = (dataGridDetailLesson.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                
+
         //    }
         //}
 

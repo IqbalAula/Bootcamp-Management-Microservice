@@ -12,6 +12,17 @@ D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microserv
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.BussinessLogic\obj\Debug\Microservice.BussinessLogic.csprojResolveAssemblyReference.cache
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.BussinessLogic\obj\Debug\Microservice.BussinessLogic.exe
 D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.BussinessLogic\obj\Debug\Microservice.BussinessLogic.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\Microservice.BussinessLogic.exe.config
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\Microservice.BussinessLogic.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\Microservice.BussinessLogic.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\EntityFramework.dll
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\Microservice.Common.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\Microservice.DataAccess.exe
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\Microservice.Common.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\Microservice.DataAccess.pdb
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\EntityFramework.xml
+C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\obj\Debug\Microservice.BussinessLogic.csprojResolveAssemblyReference.cache
 C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\obj\Debug\Microservice.BussinessLogic.exe
 C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Microservice.BussinessLogic\obj\Debug\Microservice.BussinessLogic.pdb
