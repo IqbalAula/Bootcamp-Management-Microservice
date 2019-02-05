@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3F65DCFA-45D5-4047-A6DA-7705F2E64960}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microservice.Common</RootNamespace>
+    <AssemblyName>Microservice.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IAchievementRepository.cs" />
+    <Compile Include="Interfaces\IBatchRepository.cs" />
+    <Compile Include="Interfaces\IClassRepository.cs" />
+    <Compile Include="Interfaces\IDailyScoreRepository.cs" />
+    <Compile Include="Interfaces\IDetailLessonRepository.cs" />
+    <Compile Include="Interfaces\IEmployeeRepository.cs" />
+    <Compile Include="Interfaces\IErrorBankRepository.cs" />
+    <Compile Include="Interfaces\IHistoryDetailLessonRepository.cs" />
+    <Compile Include="Interfaces\ILessonRepository.cs" />
+    <Compile Include="Interfaces\ILoginRepository.cs" />
+    <Compile Include="Interfaces\IOrganizationRepository.cs" />
+    <Compile Include="Interfaces\IRoomRepository.cs" />
+    <Compile Include="Interfaces\IScheduleRepository.cs" />
+    <Compile Include="Interfaces\ISkillRepository.cs" />
+    <Compile Include="Interfaces\IPlacementRepository.cs" />
+    <Compile Include="Interfaces\IDepartmentRepository.cs" />
+    <Compile Include="Interfaces\ISkillStudentRepository.cs" />
+    <Compile Include="Interfaces\IStudentRepository.cs" />
+    <Compile Include="Interfaces\ITaskScoreRepository.cs" />
+    <Compile Include="Interfaces\IWorkExperienceRepository.cs" />
+    <Compile Include="Interfaces\Master\AchievementRepository.cs" />
+    <Compile Include="Interfaces\Master\BatchRepository.cs" />
+    <Compile Include="Interfaces\Master\ClassRepository.cs" />
+    <Compile Include="Interfaces\Master\DailyScoreRepository.cs" />
+    <Compile Include="Interfaces\Master\DetailLessonRepository.cs" />
+    <Compile Include="Interfaces\Master\LessonRepository.cs" />
+    <Compile Include="Interfaces\Master\ScheduleRepository.cs" />
+    <Compile Include="Interfaces\Master\TaskScoreRepository.cs" />
+    <Compile Include="Interfaces\Master\WorkExperienceRepository.cs" />
+    <Compile Include="Interfaces\Master\OrganizationRepository.cs" />
+    <Compile Include="Interfaces\Master\RoomRepository.cs" />
+    <Compile Include="Interfaces\Master\StudentRepository.cs" />
+    <Compile Include="Interfaces\Master\SkillRepository.cs" />
+    <Compile Include="Interfaces\Master\EmployeeRepository.cs" />
+    <Compile Include="Interfaces\Master\ErrorBankRepository.cs" />
+    <Compile Include="Interfaces\Master\HistoryDetailLessonRepository.cs" />
+    <Compile Include="Interfaces\Master\PlacementRepository.cs" />
+    <Compile Include="Interfaces\Master\DepartmentRepository.cs" />
+    <Compile Include="Interfaces\Master\LoginRepository.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microservice.DataAccess\Microservice.DataAccess.csproj">
+      <Project>{44a06434-5d28-45dc-a6e8-d2767f3f1781}</Project>
+      <Name>Microservice.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

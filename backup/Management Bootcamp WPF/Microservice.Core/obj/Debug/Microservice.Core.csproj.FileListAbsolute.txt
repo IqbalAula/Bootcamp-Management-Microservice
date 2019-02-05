@@ -1,0 +1,9 @@
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\bin\Debug\Microservice.Core.exe.config
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\bin\Debug\Microservice.Core.exe
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\bin\Debug\Microservice.Core.pdb
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.dll
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.xml
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\obj\Debug\Microservice.Core.exe
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Microservice.Core\obj\Debug\Microservice.Core.pdb
