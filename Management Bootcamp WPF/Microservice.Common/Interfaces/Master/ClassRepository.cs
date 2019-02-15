@@ -46,6 +46,7 @@ namespace Microservice.Common.Interfaces.Master
             classes.Name = classParam.Name;
             classes.Departments = _context.Departments.Find(classParam.Departments);
             classes.batchs = _context.Batchs.Find(classParam.Batchs);
+            classes.employees = _context.Employees.Find(classParam.Employees);
             classes.CreateDate = DateTimeOffset.Now.LocalDateTime;
             _context.Classes.Add(classes);
             result = _context.SaveChanges();
@@ -92,6 +93,7 @@ namespace Microservice.Common.Interfaces.Master
             classes.Name = classParam.Name;
             classes.Departments = _context.Departments.Find(classParam.Departments);
             classes.batchs = _context.Batchs.Find(classParam.Batchs);
+            classes.employees = _context.Employees.Find(classParam.Employees);
             classes.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             //_context.Entry(batch).State = System.Data.Entity.EntityState.Modified;
             result = _context.SaveChanges();

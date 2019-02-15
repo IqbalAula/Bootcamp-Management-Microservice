@@ -10,7 +10,10 @@ namespace Microservice.Common.Interfaces
     public interface IEmployeeRepository
     {
         bool Insert(EmployeeParam employeeParam);
-        bool Update(int? id, EmployeeParam employeeParam);
+        bool UpdateHR(int? id, EmployeeParam employeeParam);
+        bool UpdatePr(int? id, EmployeeParam employeeParam);
+        bool UpdateS(int? id, EmployeeParam employeeParam);
+        bool UpdateP(int? id, EmployeeParam employeeParam);
         bool Delete(int? id);
         List<Employee> Get();
         Employee Get(int? id);

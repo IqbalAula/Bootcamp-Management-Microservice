@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace Microservice.Common.Interfaces
 {
     public interface ILoginRepository
-    {
-        Employee GetEmployee(string username, string password);
-        Student GetStudent(string username, string password);
+    {        
+        Employee GetEmployee(string usernam);
+        Student GetStudent(string username);
     }
 }

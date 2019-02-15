@@ -62,13 +62,13 @@
     <Compile Include="Services\IEmployeeService.cs" />
     <Compile Include="Services\IErrorBankService.cs" />
     <Compile Include="Services\ILessonService.cs" />
+    <Compile Include="Services\ILoginService.cs" />
     <Compile Include="Services\IOrganizationService.cs" />
     <Compile Include="Services\IRoomService.cs" />
     <Compile Include="Services\IScheduleService.cs" />
     <Compile Include="Services\ISkillService.cs" />
     <Compile Include="Services\IPlacementService.cs" />
     <Compile Include="Services\IDepartmentService.cs" />
-    <Compile Include="Services\ILoginService.cs" />
     <Compile Include="Services\ISkillStudentService.cs" />
     <Compile Include="Services\IStudentService.cs" />
     <Compile Include="Services\IWeeklyScoreService.cs" />
@@ -77,19 +77,19 @@
     <Compile Include="Services\Master\BatchService.cs" />
     <Compile Include="Services\Master\ClassService.cs" />
     <Compile Include="Services\Master\DailyScoreService.cs" />
+    <Compile Include="Services\Master\EmployeeService.cs" />
     <Compile Include="Services\Master\LessonService.cs" />
+    <Compile Include="Services\Master\LoginService.cs" />
     <Compile Include="Services\Master\ScheduleService.cs" />
+    <Compile Include="Services\Master\StudentService.cs" />
     <Compile Include="Services\Master\WeeklyScoreService.cs" />
     <Compile Include="Services\Master\WorkExperienceService.cs" />
     <Compile Include="Services\Master\OrganizationService.cs" />
     <Compile Include="Services\Master\RoomService.cs" />
     <Compile Include="Services\Master\SkillService.cs" />
-    <Compile Include="Services\Master\EmployeeService.cs" />
     <Compile Include="Services\Master\ErrorBankService.cs" />
     <Compile Include="Services\Master\PlacementService.cs" />
     <Compile Include="Services\Master\DepartmentService.cs" />
-    <Compile Include="Services\Master\LoginService.cs" />
-    <Compile Include="Services\Master\StudentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

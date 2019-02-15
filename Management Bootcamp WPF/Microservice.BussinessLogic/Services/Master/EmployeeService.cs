@@ -47,7 +47,7 @@ namespace Microservice.BussinessLogic.Services.Master
             return _employeeRepository.Search(keyword, category);
         }
 
-        public bool Update(int? id, EmployeeParam employeeParam)
+        public bool UpdateHR(int? id, EmployeeParam employeeParam)
         {
             if (_employeeRepository.Get(id) == null)
             {
@@ -55,7 +55,46 @@ namespace Microservice.BussinessLogic.Services.Master
             }
             else
             {
-                status = _employeeRepository.Update(id, employeeParam);
+                status = _employeeRepository.UpdateHR(id, employeeParam);
+            }
+            return status;
+        }
+
+        public bool UpdateP(int? id, EmployeeParam employeeParam)
+        {
+            if (_employeeRepository.Get(id) == null)
+            {
+                MessageBox.Show("Sorry, your data is not found");
+            }
+            else
+            {
+                status = _employeeRepository.UpdateP(id, employeeParam);
+            }
+            return status;
+        }
+
+        public bool UpdatePr(int? id, EmployeeParam employeeParam)
+        {
+            if (_employeeRepository.Get(id) == null)
+            {
+                MessageBox.Show("Sorry, your data is not found");
+            }
+            else
+            {
+                status = _employeeRepository.UpdatePr(id, employeeParam);
+            }
+            return status;
+        }
+
+        public bool UpdateS(int? id, EmployeeParam employeeParam)
+        {
+            if (_employeeRepository.Get(id) == null)
+            {
+                MessageBox.Show("Sorry, your data is not found");
+            }
+            else
+            {
+                status = _employeeRepository.UpdateS(id, employeeParam);
             }
             return status;
         }

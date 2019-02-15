@@ -32,7 +32,8 @@ namespace Microservice.Common.Interfaces.Master
 
         public List<Batch> Get()
         {
-            return _context.Batchs.Where(x => x.IsDelete == false).ToList();
+            var get = _context.Batchs.Where(x => x.IsDelete == false).ToList();
+            return get;
         }
 
         public Batch Get(int? id)

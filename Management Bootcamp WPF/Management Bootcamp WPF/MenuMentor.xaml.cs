@@ -27,7 +27,7 @@ namespace Management_Bootcamp_WPF
         ILessonService _lessonService = new LessonService();
         LessonParam lessonParam = new LessonParam();
 
-       // IDetailLessonService _detailLessonService = new DetailLessonService();
+        // IDetailLessonService _detailLessonService = new DetailLessonService();
         //DetailLessonParam detailLessonParam = new DetailLessonParam();
 
         IScheduleService _scheduleService = new ScheduleService();
@@ -42,8 +42,8 @@ namespace Management_Bootcamp_WPF
         IWeeklyScoreService _weeklyScoreService = new WeeklyScoreService();
         WeeklyScoreParam taskScoreParam = new WeeklyScoreParam();
 
-        //IHistoryDetailLessonService _historyLessonService = new HistoryDetailLessonService();
-       // HistoryDetailLessonParam historyLessonParam = new HistoryDetailLessonParam();
+        IEmployeeService _employeeService = new EmployeeService();
+        EmployeeParam employeeParam = new EmployeeParam();
 
         IDepartmentService _departmentService = new DepartmentService();
         //DepartmentParam departmentParam = new DepartmentParam();
@@ -100,7 +100,7 @@ namespace Management_Bootcamp_WPF
             textBoxScore2DailyScore.Text = "";
             textBoxScore3DailyScore.Text = "";
             textBlockIdStudent.Text = "";
-            dataGridStudentsDailyScore.ItemsSource = _studentService.Get();
+            dataGridStudentsDailyScore.ItemsSource = _studentService.Join(Settings.Default.Id);
             dataGridDailyScore.ItemsSource = _dailyScoreService.Get();
         }
 
@@ -114,7 +114,7 @@ namespace Management_Bootcamp_WPF
             textBoxScore4TaskScore.Text = "";
             textBoxScore5TaskScore.Text = "";
             textBlockIdStudentTaskScore.Text = "";
-            dataGridStudentsTaskScore.ItemsSource = _studentService.Get();
+            dataGridStudentsTaskScore.ItemsSource = _studentService.Join(Settings.Default.Id);
             dataGridTaskScore.ItemsSource = _weeklyScoreService.Get();
         }
 
@@ -136,11 +136,11 @@ namespace Management_Bootcamp_WPF
 
             //manage daily score
             comboBoxLessonDailyScore.ItemsSource = _context.Lessons.Where(x => x.IsDelete == false).ToList();
-            dataGridStudentsDailyScore.ItemsSource = _studentService.Get();
             dataGridDailyScore.ItemsSource = _dailyScoreService.Get();
+            dataGridStudentsDailyScore.ItemsSource = _studentService.Join(Settings.Default.Id);
 
-            //manage task score
-            dataGridStudentsTaskScore.ItemsSource = _studentService.Get();
+            //manage weekly score
+            dataGridStudentsTaskScore.ItemsSource = _studentService.Join(Settings.Default.Id);
             dataGridTaskScore.ItemsSource = _weeklyScoreService.Get();
 
             //manage history lesson
@@ -187,6 +187,8 @@ namespace Management_Bootcamp_WPF
             lessonParam.Name = textBoxNameLesson.Text;
             lessonParam.Level = comboBoxLevelLesson.Text;
             lessonParam.Departements = comboBoxDepartmentLesson.SelectedValue.ToString();
+            lessonParam.LinkFile = textBoxLinkFileLesson.Text;
+            lessonParam.Employees = textBlockIdMentor.Text;
             if (string.IsNullOrEmpty(textBoxNameLesson.Text) == true)
             {
                 MessageBox.Show("Please insert name department!");
@@ -264,123 +266,7 @@ namespace Management_Bootcamp_WPF
                 comboBoxLevelLesson.Text = (dataGridLesson.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
                 comboBoxDepartmentLesson.Text = (dataGridLesson.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
             }
-        }
-
-        //================================================================================================================================
-        //Menu Detail Lesson
-        //private void textBoxNameLesson_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        //{
-
-        //}
-
-        //private void buttonInsertDetailLesson_Click(object sender, RoutedEventArgs e)
-        //{
-        //    detailLessonParam.Name = textBoxNameDetailLesson.Text;
-        //    detailLessonParam.LinkFile = textBoxLinkfileDetailLesson.Text;
-        //    detailLessonParam.Employees = textBlockIdMentor.Text;
-        //    detailLessonParam.Lessons = comboBoxLessonDetailLesson.SelectedValue.ToString();
-        //    if (string.IsNullOrEmpty(textBoxNameDetailLesson.Text) == true)
-        //    {
-        //        MessageBox.Show("Please insert name department!");
-        //    }
-        //    else if (string.IsNullOrWhiteSpace(textBoxNameDetailLesson.Text) == true)
-        //    {
-        //        MessageBox.Show("Don't insert white space");
-        //    }
-        //    else
-        //    {
-        //        _detailLessonService.Insert(detailLessonParam);
-        //        LoadGridDetailLesson();
-        //        loadcombo();
-        //    }
-        //}
-
-        //private void buttonUpdateDetailLesson_Click(object sender, RoutedEventArgs e)
-        //{
-        //    object item = dataGridDetailLesson.SelectedItem;
-        //    if (item == null)
-        //    {
-        //        MessageBox.Show("Please choice data want to edit!");
-        //    }
-        //    else
-        //    {
-        //        detailLessonParam.Name = textBoxNameDetailLesson.Text;
-        //        detailLessonParam.LinkFile = textBoxLinkfileDetailLesson.Text;
-        //        detailLessonParam.Employees = textBlockIdMentor.Text;
-        //        detailLessonParam.Lessons = comboBoxLessonDetailLesson.SelectedValue.ToString();
-        //        if (string.IsNullOrEmpty(textBoxNameDetailLesson.Text) == true)
-        //        {
-        //            MessageBox.Show("Please insert name department!");
-        //        }
-        //        else if (string.IsNullOrWhiteSpace(textBoxNameDetailLesson.Text) == true)
-        //        {
-        //            MessageBox.Show("Don't insert white space");
-        //        }
-        //        else
-        //        {
-        //            _detailLessonService.Update(Convert.ToInt16(textBlockIdDetailLesson.Text), detailLessonParam);
-        //            LoadGridDetailLesson();
-        //            loadcombo();
-        //        }
-        //    }
-        //}
-
-        //private void buttonDeleteDetailLesson_Click(object sender, RoutedEventArgs e)
-        //{
-        //    object item = dataGridDetailLesson.SelectedItem;
-        //    if (item == null)
-        //    {
-        //        MessageBox.Show("Please choice data want to delete!");
-        //    }
-        //    else
-        //    {
-        //        _detailLessonService.Delete(Convert.ToInt16(textBlockIdDetailLesson.Text));
-        //        LoadGridDetailLesson();
-        //        loadcombo();
-        //    }
-        //}
-
-        //private void dataGridDetailLesson_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        //{
-        //    object item = dataGridDetailLesson.SelectedItem;
-        //    if (dataGridDetailLesson.SelectedIndex < 0)
-        //    {
-        //        textBlockIdDetailLesson.Text = "";
-        //        textBoxNameDetailLesson.Text = "";
-        //        textBoxLinkfileDetailLesson.Text = "";
-        //        comboBoxLessonDetailLesson.Text = "";
-        //    }
-        //    else
-        //    {
-        //        textBlockIdDetailLesson.Text = (dataGridDetailLesson.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-        //        textBoxNameDetailLesson.Text = (dataGridDetailLesson.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-        //        textBoxLinkfileDetailLesson.Text = (dataGridDetailLesson.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
-        //        comboBoxLessonDetailLesson.Text = (dataGridDetailLesson.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
-        //    }
-        //}
-
-        //private void buttonSearchDetailLesson_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (string.IsNullOrEmpty(comboBoxSearchDetailLesson.Text) == true)
-        //    {
-        //        MessageBox.Show("Please choice category search!");
-        //    }
-        //    else
-        //    {
-        //        if (string.IsNullOrEmpty(comboBoxSearchDetailLesson.Text) == true)
-        //        {
-        //            MessageBox.Show("Please insert keywoard search!");
-        //        }
-        //        else if (string.IsNullOrWhiteSpace(comboBoxSearchDetailLesson.Text) == true)
-        //        {
-        //            MessageBox.Show("Don't insert white space");
-        //        }
-        //        else
-        //        {
-        //            dataGridDetailLesson.ItemsSource = _detailLessonService.Search(textBoxSearchDetailLesson.Text, comboBoxSearchDetailLesson.Text);
-        //        }
-        //    }
-        //}
+        }        
 
         //===============================================================================================================================
         //Schedule
@@ -434,8 +320,8 @@ namespace Management_Bootcamp_WPF
                 LoadGridSchedule();
                 loadcombo();
             }
-           // _scheduleService.Insert(scheduleParam);
-           //  LoadGridSchedule();
+            // _scheduleService.Insert(scheduleParam);
+            //  LoadGridSchedule();
         }
 
         private void buttonUpdateSchedule_Click(object sender, RoutedEventArgs e)
@@ -514,29 +400,7 @@ namespace Management_Bootcamp_WPF
         }
 
         //==============================================================================================================================
-        //MANAGE DAILY SCORE
-        private void buttonSearchStudentDailyScore_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(comboBoxSearchStudentDailyScore.Text) == true)
-            {
-                MessageBox.Show("Please choice category search!");
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(comboBoxSearchStudentDailyScore.Text) == true)
-                {
-                    MessageBox.Show("Please insert keywoard search!");
-                }
-                else if (string.IsNullOrWhiteSpace(comboBoxSearchStudentDailyScore.Text) == true)
-                {
-                    MessageBox.Show("Don't insert white space");
-                }
-                else
-                {
-                    dataGridStudentsDailyScore.ItemsSource = _studentService.Search(textBoxSearchStudentDailyScore.Text, comboBoxSearchStudentDailyScore.Text);
-                }
-            }
-        }
+        
 
         private void buttonSearchDailyScore_Click(object sender, RoutedEventArgs e)
         {
@@ -694,28 +558,28 @@ namespace Management_Bootcamp_WPF
             }
         }
 
-        private void buttonSearchStudentTaskScore_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(comboBoxSearchStudentTaskScore.Text) == true)
-            {
-                MessageBox.Show("Please choice category search!");
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(comboBoxSearchStudentTaskScore.Text) == true)
-                {
-                    MessageBox.Show("Please insert keywoard search!");
-                }
-                else if (string.IsNullOrWhiteSpace(comboBoxSearchStudentTaskScore.Text) == true)
-                {
-                    MessageBox.Show("Don't insert white space");
-                }
-                else
-                {
-                    dataGridStudentsTaskScore.ItemsSource = _studentService.Search(textBoxSearchStudentTaskScore.Text, comboBoxSearchStudentTaskScore.Text);
-                }
-            }
-        }
+        //private void buttonSearchStudentTaskScore_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(comboBoxSearchStudentTaskScore.Text) == true)
+        //    {
+        //        MessageBox.Show("Please choice category search!");
+        //    }
+        //    else
+        //    {
+        //        if (string.IsNullOrEmpty(comboBoxSearchStudentTaskScore.Text) == true)
+        //        {
+        //            MessageBox.Show("Please insert keywoard search!");
+        //        }
+        //        else if (string.IsNullOrWhiteSpace(comboBoxSearchStudentTaskScore.Text) == true)
+        //        {
+        //            MessageBox.Show("Don't insert white space");
+        //        }
+        //        else
+        //        {
+        //            dataGridStudentsTaskScore.ItemsSource = _studentService.Search(textBoxSearchStudentTaskScore.Text, comboBoxSearchStudentTaskScore.Text);
+        //        }
+        //    }
+        //}
 
         private void buttonInsertTaskScore_Click(object sender, RoutedEventArgs e)
         {
@@ -837,6 +701,101 @@ namespace Management_Bootcamp_WPF
         private void textBoxNameLesson_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
 
+        }
+
+        //Manage ProfileMentor
+        private void LoadProfile()
+        {
+            var get = _employeeService.Get(Settings.Default.Id);
+            textBlockIdProfileMentor.Text = Convert.ToString(get.Id);
+            textBoxFirstNameProfileMentor.Text = get.FirstName;
+            textBoxLastNameProfileMentor.Text = get.LastName;
+            dateDobProfileMentor.SelectedDate = Convert.ToDateTime(get.Dob);
+            textBoxPobProfileMentor.Text = get.Pob;
+            comboBoxGenderProfileMentor.Text = get.Gender;
+            comboBoxReligionProfileMentor.Text = get.Religion;
+            textBoxPhoneProfileMentor.Text = get.Phone;
+            textBoxEmailProfileMentor.Text = get.Email;
+            textBoxAddressProfileMentor.Text = get.Address;
+            textBoxRtProfileMentor.Text = Convert.ToString(get.RT);
+            textBoxRwProfileMentor.Text = Convert.ToString(get.RW);
+            textBoxVillageProfileMentor.Text = get.Village;
+            textBoxDistrictProfileMentor.Text = get.District;
+            textBoxRegencieProfileMentor.Text = get.Regencies;
+            textBoxProvienceProfileMentor.Text = get.Provience;
+            textBlockUsernameProfileMentor.Text = get.Username;
+        }
+
+        private void buttonSaveProfileMentor_Click(object sender, RoutedEventArgs e)
+        {
+            employeeParam.FirstName = textBoxFirstNameProfileMentor.Text;
+            employeeParam.LastName = textBoxLastNameProfileMentor.Text;
+            DateTime? selectedDate = dateDobProfileMentor.SelectedDate;
+            if (selectedDate.HasValue)
+            {
+                employeeParam.Dob = selectedDate.Value;
+            }
+            employeeParam.Pob = textBoxPobProfileMentor.Text;
+            employeeParam.Gender = comboBoxGenderProfileMentor.Text;
+            employeeParam.Religion = comboBoxReligionProfileMentor.Text;
+            employeeParam.Phone = textBoxPhoneProfileMentor.Text;
+            employeeParam.Email = textBoxEmailProfileMentor.Text;
+            employeeParam.Address = textBoxAddressProfileMentor.Text;
+            employeeParam.RT = Convert.ToInt16(textBoxRtProfileMentor.Text);
+            employeeParam.RW = Convert.ToInt16(textBoxRwProfileMentor.Text);
+            employeeParam.Village = textBoxVillageProfileMentor.Text;
+            employeeParam.District = textBoxDistrictProfileMentor.Text;
+            employeeParam.Regencies = textBoxRegencieProfileMentor.Text;
+            employeeParam.Provience = textBoxProvienceProfileMentor.Text;
+            if (string.IsNullOrEmpty(textBoxFirstNameProfileMentor.Text) == true)
+            {
+                MessageBox.Show("Please insert name employee!");
+            }
+            else if (string.IsNullOrWhiteSpace(textBoxFirstNameProfileMentor.Text) == true)
+            {
+                MessageBox.Show("Don't insert white space");
+            }
+            else
+            {
+                _employeeService.UpdatePr(Convert.ToInt16(textBlockIdProfileMentor.Text), employeeParam);
+                LoadProfile();
+            }
+        }
+
+        private void textBoxPhoneProfileMentor_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[0-9+]*$");
+            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        }
+
+        private void textBoxEmailProfileMentor_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z.0-9@]*$");
+            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        }
+
+        private void textBoxUsernameProfileMentor_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z0-9]*$");
+            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        }
+
+        private void textBoxNameProfileMentor_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z. ]*$");
+            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        }
+
+        private void textBoxRtProfileMentor_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[1-9]*$");
+            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        }
+
+        private void buttonChangeProfileMentor_Click(object sender, RoutedEventArgs e)
+        {
+            new CheckSecretEmployee().Show();
+            this.Close();
         }
     }
 }

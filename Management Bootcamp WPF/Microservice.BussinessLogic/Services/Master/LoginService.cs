@@ -14,14 +14,14 @@ namespace Microservice.BussinessLogic.Services.Master
     {
         ILoginRepository _loginRepository = new LoginRepository();
         
-        public Employee GetEmployee(string username, string password)
+        public Employee GetEmployee(string username)
         {
-            return _loginRepository.GetEmployee(username, password);
+            return _loginRepository.GetEmployee(username);
         }
 
-        public Student GetStudent(string username, string password)
+        public Student GetStudent(string username)
         {
-            return _loginRepository.GetStudent(username, password);
+            return _loginRepository.GetStudent(username);
         }
     }
 }

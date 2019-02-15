@@ -47,13 +47,14 @@ namespace Microservice.Common.Interfaces.Master
             {
                 var result = 0;
                 student.FirstName = studentParam.FirstName;
-                student.Dob = studentParam.Dob;
-                student.Pob = studentParam.Pob;
-                student.Gender = studentParam.Gender;
-                student.Religion = studentParam.Religion;
-                student.Address = studentParam.Address;
-                student.RT = studentParam.RT;
-                student.RW = studentParam.RW;
+                student.LastName = studentParam.LastName;
+                //student.Dob = studentParam.Dob;
+                //student.Pob = studentParam.Pob;
+                //student.Gender = studentParam.Gender;
+                //student.Religion = studentParam.Religion;
+                //student.Address = studentParam.Address;
+                //student.RT = studentParam.RT;
+                //student.RW = studentParam.RW;
                 //student.Village = studentParam.Village;
                 //student.District = studentParam.District;
                 //student.Regencie = studentParam.Regencie;
@@ -94,12 +95,92 @@ namespace Microservice.Common.Interfaces.Master
                 return _context.Students.Where(x => x.IsDelete == false).ToList();
             }
         }
+        public List<Student> Join(int? id)
+        {
+            return _context.Students.Where(x => (x.IsDelete == false) && (x.classes.employees.Id==id) && x.Status == "ON BOOTCAMP").ToList();
+        }
 
-        public bool Update(int? id, StudentParam studentParam)
+
+        //public bool Update(int? id, StudentParam studentParam)
+        //{
+        //    var result = 0;
+        //    var student = Get(id);
+        //    student.FirstName = studentParam.FirstName;
+        //    student.LastName = studentParam.LastName;
+        //    student.Dob = studentParam.Dob;
+        //    student.Pob = studentParam.Pob;
+        //    student.Gender = studentParam.Gender;
+        //    student.Religion = studentParam.Religion;
+        //    student.Address = studentParam.Address;
+        //    student.RT = studentParam.RT;
+        //    student.RW = studentParam.RW;
+        //    student.Village = studentParam.Village;
+        //    student.District = studentParam.District;
+        //    student.Regencie = studentParam.Regencie;
+        //    student.Provience = studentParam.Provience;
+        //    student.Phone = studentParam.Phone;
+        //    student.Email = studentParam.Email;
+        //    student.Username = studentParam.Username;
+        //    student.Password = studentParam.Password;
+        //    student.Status = studentParam.Status;
+        //    student.SecretQuestion = studentParam.SecretQuestion;
+        //    student.SecretAnswer = studentParam.SecretAnswer;
+        //    student.HiringLocation = studentParam.HiringLocation;
+        //    student.AccessCard = studentParam.AccessCard;
+        //    student.classes = _context.Classes.Find(studentParam.classes);
+        //    student.UpdateDate = DateTimeOffset.Now.LocalDateTime;
+        //    result = _context.SaveChanges();
+        //    if (result > 0)
+        //    {
+        //        status = true;
+        //        MessageBox.Show("Update Successfully");
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Update Failed");
+        //    }
+
+        //    return status;
+        //}
+
+
+        public bool UpdateHR(int? id, StudentParam studentParam)
         {
             var result = 0;
             var student = Get(id);
             student.FirstName = studentParam.FirstName;
+            student.LastName = studentParam.LastName;
+            student.Phone = studentParam.Phone;
+            student.Email = studentParam.Email;
+            student.Username = studentParam.Username;
+            student.Password = studentParam.Password;
+            student.Status = studentParam.Status;
+            student.SecretQuestion = studentParam.SecretQuestion;
+            student.SecretAnswer = studentParam.SecretAnswer;
+            student.HiringLocation = studentParam.HiringLocation;
+            student.AccessCard = studentParam.AccessCard;
+            student.classes = _context.Classes.Find(studentParam.classes);
+            student.UpdateDate = DateTimeOffset.Now.LocalDateTime;
+            result = _context.SaveChanges();
+            if (result > 0)
+            {
+                status = true;
+                MessageBox.Show("Update Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Update Failed");
+            }
+
+            return status;
+        }
+
+        public bool UpdatePr(int? id, StudentParam studentParam)
+        {
+            var result = 0;
+            var student = Get(id);
+            student.FirstName = studentParam.FirstName;
+            student.LastName = studentParam.LastName;
             student.Dob = studentParam.Dob;
             student.Pob = studentParam.Pob;
             student.Gender = studentParam.Gender;
@@ -110,12 +191,51 @@ namespace Microservice.Common.Interfaces.Master
             student.Village = studentParam.Village;
             student.District = studentParam.District;
             student.Regencie = studentParam.Regencie;
+            student.Provience = studentParam.Provience;
             student.Phone = studentParam.Phone;
             student.Email = studentParam.Email;
-            student.Username = studentParam.Username;
+            student.HiringLocation = studentParam.HiringLocation;
+            student.UpdateDate = DateTimeOffset.Now.LocalDateTime;
+            result = _context.SaveChanges();
+            if (result > 0)
+            {
+                status = true;
+                MessageBox.Show("Update Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Update Failed");
+            }
+
+            return status;
+        }
+
+        public bool UpdateS(int? id, StudentParam studentParam)
+        {
+            var result = 0;
+            var student = Get(id);
+            student.SecretQuestion = studentParam.SecretQuestion;
+            student.SecretAnswer = studentParam.SecretAnswer;
+            student.UpdateDate = DateTimeOffset.Now.LocalDateTime;
+            result = _context.SaveChanges();
+            if (result > 0)
+            {
+                status = true;
+                MessageBox.Show("Update Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Update Failed");
+            }
+
+            return status;
+        }
+
+        public bool UpdateP(int? id, StudentParam studentParam)
+        {
+            var result = 0;
+            var student = Get(id);
             student.Password = studentParam.Password;
-            student.Status = studentParam.Status;
-            student.classes = _context.Classes.Find(studentParam.classes);
             student.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)

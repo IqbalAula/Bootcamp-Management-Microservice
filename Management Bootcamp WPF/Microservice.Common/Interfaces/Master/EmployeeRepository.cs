@@ -45,21 +45,13 @@ namespace Microservice.Common.Interfaces.Master
             {
                 var result = 0;
                 employee.FirstName = employeeParam.FirstName;
-                //employee.Dob = employeeParam.Dob;
-                //employee.Pob = employeeParam.Pob;
-                //employee.Gender = employeeParam.Gender;
-                //employee.Religion = employeeParam.Religion;
-                //employee.Address = employeeParam.Address;
-                //employee.RT = employeeParam.RT;
-                //employee.RW = employeeParam.RW;
-                //employee.Kelurahan = employeeParam.Kelurahan;
-                //employee.Kecamatan = employeeParam.Kecamatan;
-                //employee.Kabupaten = employeeParam.Kabupaten;
+                employee.LastName = employeeParam.LastName;                
                 employee.Phone = employeeParam.Phone;
                 employee.Email = employeeParam.Email;
                 employee.Username = employeeParam.Username;
                 employee.Password = employeeParam.Password;
                 employee.Role = employeeParam.Role;
+                employee.AccessCard = employeeParam.AccessCard;
                 employee.CreateDate = DateTimeOffset.Now.LocalDateTime;
                 _context.Employees.Add(employee);
                 result = _context.SaveChanges();
@@ -93,27 +85,18 @@ namespace Microservice.Common.Interfaces.Master
             {
                 return _context.Employees.Where(x => x.IsDelete == false).ToList();
             }
-        }
-        public bool Update(int? id, EmployeeParam employeeParam)
+        }        
+
+        public bool UpdateHR(int? id, EmployeeParam employeeParam)
         {
             var result = 0;
             var employee = Get(id);
             employee.FirstName = employeeParam.FirstName;
-            employee.Dob = employeeParam.Dob;
-            employee.Pob = employeeParam.Pob;
-            employee.Gender = employeeParam.Gender;
-            employee.Religion = employeeParam.Religion;
-            employee.Address = employeeParam.Address;
-            employee.RT = employeeParam.RT;
-            employee.RW = employeeParam.RW;
-            //employee.Kelurahan = employeeParam.Kelurahan;
-            //employee.Kecamatan = employeeParam.Kecamatan;
-            //employee.Kabupaten = employeeParam.Kabupaten;
+            employee.LastName = employeeParam.LastName;
             employee.Phone = employeeParam.Phone;
             employee.Email = employeeParam.Email;
-            employee.Username = employeeParam.Username;
-            employee.Password = employeeParam.Password;
-            //employee.Role = employeeParam.Role;
+            employee.Role = employeeParam.Role;
+            employee.AccessCard = employeeParam.AccessCard;
             employee.UpdateDate = DateTimeOffset.Now.LocalDateTime;
             result = _context.SaveChanges();
             if (result > 0)
@@ -125,7 +108,79 @@ namespace Microservice.Common.Interfaces.Master
             {
                 MessageBox.Show("Update Failed");
             }
+            return status;
+        }
 
+        public bool UpdatePr(int? id, EmployeeParam employeeParam)
+        {
+            var result = 0;
+            var employee = Get(id);
+            employee.FirstName = employeeParam.FirstName;
+            employee.LastName = employeeParam.LastName;
+            employee.Dob = employeeParam.Dob;
+            employee.Pob = employeeParam.Pob;
+            employee.Gender = employeeParam.Gender;
+            employee.Religion = employeeParam.Religion;
+            employee.Address = employeeParam.Address;
+            employee.RT = employeeParam.RT;
+            employee.RW = employeeParam.RW;
+            employee.Village = employeeParam.Village;
+            employee.District = employeeParam.District;
+            employee.Regencies = employeeParam.Regencies;
+            employee.Provience = employeeParam.Provience;
+            employee.Phone = employeeParam.Phone;
+            employee.Email = employeeParam.Email;
+            employee.UpdateDate = DateTimeOffset.Now.LocalDateTime;
+            result = _context.SaveChanges();
+            if (result > 0)
+            {
+                status = true;
+                MessageBox.Show("Update Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Update Failed");
+            }
+            return status;
+        }
+
+        public bool UpdateS(int? id, EmployeeParam employeeParam)
+        {
+            var result = 0;
+            var employee = Get(id);
+            
+            employee.SecretQuestion = employeeParam.SecretQuestion;
+            employee.AnswerQuestion = employeeParam.AnswerQuestion;
+            employee.UpdateDate = DateTimeOffset.Now.LocalDateTime;
+            result = _context.SaveChanges();
+            if (result > 0)
+            {
+                status = true;
+                MessageBox.Show("Update Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Update Failed");
+            }
+            return status;
+        }
+
+        public bool UpdateP(int? id, EmployeeParam employeeParam)
+        {
+            var result = 0;
+            var employee = Get(id);
+            employee.Password = employeeParam.Password;
+            employee.UpdateDate = DateTimeOffset.Now.LocalDateTime;
+            result = _context.SaveChanges();
+            if (result > 0)
+            {
+                status = true;
+                MessageBox.Show("Update Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Update Failed");
+            }
             return status;
         }
     }

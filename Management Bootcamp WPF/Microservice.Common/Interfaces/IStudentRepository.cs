@@ -10,10 +10,14 @@ namespace Microservice.Common.Interfaces
     public interface IStudentRepository
     {
         bool Insert(StudentParam studentParam);
-        bool Update(int? id, StudentParam studentParam);
+        bool UpdateHR(int? id, StudentParam studentParam);
+        bool UpdatePr(int? id, StudentParam studentParam);
+        bool UpdateS(int? id, StudentParam studentParam);
+        bool UpdateP(int? id, StudentParam studentParam);
         bool Delete(int? id);
         List<Student> Get();
         Student Get(int? id);
         List<Student> Search(string keyword, string category);
+        List<Student> Join(int? id);
     }
 }

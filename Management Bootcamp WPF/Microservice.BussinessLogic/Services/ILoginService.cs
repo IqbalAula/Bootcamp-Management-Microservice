@@ -9,7 +9,7 @@ namespace Microservice.BussinessLogic.Services
 {
     public interface ILoginService
     {
-        Employee GetEmployee(string username, string password);
-        Student GetStudent(string username, string password);
+        Employee GetEmployee(string username);
+        Student GetStudent(string username);
     }
 }

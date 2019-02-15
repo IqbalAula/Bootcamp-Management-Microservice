@@ -5,11 +5,259 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Management_Bootcamp_WPF"
         mc:Ignorable="d"
-        Title="Menu Mentor" Height="699.263" Width="733.456"
+        Title="Menu Mentor" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" Height="500" Width="800"
         Loaded="Window_Loaded" Background="#FFF4F7F4" Foreground="Black">
     <Grid Margin="0,0,0,-1">
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="603" Margin="10,56,0,0" VerticalAlignment="Top" Width="706">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="425" Margin="10,35,0,0" VerticalAlignment="Top" Width="757">
             <TabItem Header="Manage Lesson">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
+                    <Label x:Name="labelSearchLesson" Content="Search Category" HorizontalAlignment="Left" Margin="206,4,0,0" VerticalAlignment="Top" Width="97"/>
+                    <ComboBox x:Name="comboBoxSearchLesson" HorizontalAlignment="Left" Margin="308,8,0,0" VerticalAlignment="Top" Width="111">
+                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Level" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Department" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <TextBox x:Name="textBoxSearchLesson" HorizontalAlignment="Left" Height="23" Margin="424,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
+                    <Button x:Name="buttonSearchLesson" Content="Search" HorizontalAlignment="Left" Margin="611,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchLesson_Click"/>
+                    <Label x:Name="labelIdLesson" Content="Id" HorizontalAlignment="Left" Margin="22,16,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdLesson" HorizontalAlignment="Left" Margin="140,20,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
+                    <Label x:Name="labelNameLesson" Content="Name" HorizontalAlignment="Left" Margin="22,37,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxNameLesson" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403"/>
+                    <Button x:Name="buttonInsertLesson" Content="Insert" HorizontalAlignment="Left" Margin="114,170,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertLesson_Click"/>
+                    <Button x:Name="buttonUpdateLesson" Content="Update" HorizontalAlignment="Left" Margin="235,170,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateLesson_Click"/>
+                    <Button x:Name="buttonDeleteLesson" Content="Delete" HorizontalAlignment="Left" Margin="349,170,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteLesson_Click"/>
+                    <DataGrid x:Name="dataGridLesson" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,209,0,0" VerticalAlignment="Top" Width="719" Height="177" AutoGenerateColumns="False" SelectedCellsChanged="dataGridLesson_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Level" Binding="{Binding Path=Level}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Department" Binding="{Binding Path=departements.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Mentor Id" Binding="{Binding Path=employees.Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Mentor" Binding="{Binding Path=employees.FirstName}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label x:Name="labelLevelLesson" Content="Level" HorizontalAlignment="Left" Margin="22,70,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxLevelLesson" HorizontalAlignment="Left" Margin="98,74,0,0" VerticalAlignment="Top" Width="95">
+                        <ComboBoxItem Content="Pre Requisite" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Fundamental" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Begginer" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Intermediate" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <Label x:Name="labelDepartmentLesson" Content="Department"  HorizontalAlignment="Left" Margin="22,103,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxDepartmentLesson" ItemsSource="{Binding Path=getDepartment}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="98,107,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label x:Name="labelLinkFileLesson" Content="Link File" HorizontalAlignment="Left" Margin="22,137,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxLinkFileLesson" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Manage Schedule">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
+                    <Label x:Name="labelSearchSchedule" Content="Search Category" HorizontalAlignment="Left" Margin="206,4,0,0" VerticalAlignment="Top" Width="97"/>
+                    <ComboBox x:Name="comboBoxSearchSchedule" HorizontalAlignment="Left" Margin="308,8,0,0" VerticalAlignment="Top" Width="111">
+                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Lesson" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Class" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Room" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Date Start" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Date End" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Employee" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <TextBox x:Name="textBoxSearchSchedule" HorizontalAlignment="Left" Height="23" Margin="424,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
+                    <Button x:Name="buttonSearchSchedule" Content="Search" HorizontalAlignment="Left" Margin="611,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchSchedule_Click"/>
+                    <Label x:Name="labelIdSchedule" Content="Id" HorizontalAlignment="Left" Margin="22,16,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdSchedule" HorizontalAlignment="Left" Margin="140,20,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
+                    <Button x:Name="buttonInsertSchedule" Content="Insert" HorizontalAlignment="Left" Margin="208,148,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertSchedule_Click"/>
+                    <Button x:Name="buttonUpdateSchedule" Content="Update" HorizontalAlignment="Left" Margin="329,148,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateSchedule_Click"/>
+                    <Button x:Name="buttonDeleteSchedule" Content="Delete" HorizontalAlignment="Left" Margin="443,148,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteSchedule_Click"/>
+                    <DataGrid x:Name="dataGridSchedule" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,186,0,0" VerticalAlignment="Top" Width="731" Height="205" AutoGenerateColumns="False" SelectedCellsChanged="dataGridSchedule_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Lesson" Binding="{Binding Path=lessons.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Class" Binding="{Binding Path=classes.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Room" Binding="{Binding Path=room.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date Start" Binding="{Binding Path=DateStart}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date End" Binding="{Binding Path=DateEnd}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label x:Name="labelClassSchedule" Content="Class"  HorizontalAlignment="Left" Margin="24,84,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxClassSchedule" ItemsSource="{Binding Path=getClass}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="100,88,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label x:Name="labelRoomSchedule" Content="Room"  HorizontalAlignment="Left" Margin="24,117,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxRoomSchedule" ItemsSource="{Binding Path=getRoom}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="100,121,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label x:Name="labelDateStartSchedule" Content="Date Start" HorizontalAlignment="Left" Margin="310,52,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelDateEndSchedule" Content="Date End" HorizontalAlignment="Left" Margin="310,117,0,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="DatePickerStartSchedule" HorizontalAlignment="Left" Margin="394,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.264,-0.288"/>
+                    <DatePicker x:Name="DatePickerEndSchedule" HorizontalAlignment="Left" Margin="394,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.264,-0.288"/>
+                    <Label x:Name="labelLessonSchedule" Content="Lesson"  HorizontalAlignment="Left" Margin="24,51,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxLessonSchedule" ItemsSource="{Binding Path=getClass}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="100,55,0,0" VerticalAlignment="Top" Width="124"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Manage Daily Score">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
+                    <Label x:Name="labelSearchDailyScore" Content="Search Category" HorizontalAlignment="Left" Margin="310,211,0,0" VerticalAlignment="Top" Width="97"/>
+                    <ComboBox x:Name="comboBoxSearchDailyScore" HorizontalAlignment="Left" Margin="412,214,0,0" VerticalAlignment="Top" Width="96">
+                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Lesson" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Student Name" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Employee" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <TextBox x:Name="textBoxSearchDailyScore" HorizontalAlignment="Left" Height="23" Margin="513,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"/>
+                    <Button x:Name="buttonSearchDailyScore" Content="Search" HorizontalAlignment="Left" Margin="666,216,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchDailyScore_Click"/>
+                    <Label x:Name="labelIdDailyScore" Content="Id" HorizontalAlignment="Left" Margin="22,16,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdDailyScore" HorizontalAlignment="Left" Margin="98,21,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
+                    <Label x:Name="labelScore1DailyScore" Content="Score 1" HorizontalAlignment="Left" Margin="22,72,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore1DailyScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="24" Margin="97,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Button x:Name="buttonInsertDailyScore" Content="Insert" HorizontalAlignment="Left" Margin="17,211,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertDailyScore_Click"/>
+                    <Button x:Name="buttonUpdateDailyScore" Content="Update" HorizontalAlignment="Left" Margin="115,211,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateDailyScore_Click"/>
+                    <Button x:Name="buttonDeleteDailyScore" Content="Delete" HorizontalAlignment="Left" Margin="207,213,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteDailyScore_Click"/>
+                    <DataGrid x:Name="dataGridDailyScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,249,0,0" VerticalAlignment="Top" Width="728" Height="142" AutoGenerateColumns="False" SelectedCellsChanged="dataGridDailyScore_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Score 1" Binding="{Binding Path=Score1}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Score 2" Binding="{Binding Path=Score2}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Score 3" Binding="{Binding Path=Score3}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Lesson" Binding="{Binding Path=lessons.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Students Id" Binding="{Binding Path=students.Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Students Name" Binding="{Binding Path=students.FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Mentor" Binding="{Binding Path=employees.FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label x:Name="labelDepartmentDailyScore" Content="Lesson"  HorizontalAlignment="Left" Margin="22,38,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxLessonDailyScore" ItemsSource="{Binding Path=getLesson}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="98,42,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label x:Name="labelScore2DailyScore" Content="Score 2" HorizontalAlignment="Left" Margin="22,104,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore2DailyScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="22" Margin="97,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelScore3DailyScore" Content="Score 3" HorizontalAlignment="Left" Margin="22,138,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore3DailyScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="24" Margin="97,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelStudentIdDailyScore" Content="Student Id"  HorizontalAlignment="Left" Margin="22,184,0,0" VerticalAlignment="Top"/>
+                    <DataGrid x:Name="dataGridStudentsDailyScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="267,10,0,0" VerticalAlignment="Top" Width="474" Height="165" AutoGenerateColumns="False" SelectedCellsChanged="dataGridStudentsDailyScore_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=FirstName}"/>
+                            <DataGridTextColumn Header="Gender" Binding="{Binding Path=Gender}"/>
+                            <DataGridTextColumn Header="Address" Binding="{Binding Path=Address}"/>
+                            <DataGridTextColumn Header="Class" Binding="{Binding Path=classes.Name}"/>
+                            <DataGridTextColumn Header="Mentor" Binding="{Binding Path=classes.employees.FirstName}"/>
+                            <DataGridTextColumn Header="Status" Binding="{Binding Path=Status}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBlock x:Name="textBlockIdStudent" HorizontalAlignment="Left" Margin="98,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="45"/>
+                    <Label x:Name="labelChooseDailyScore" Content="Choose"  HorizontalAlignment="Left" Margin="22,162,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Manage Weekly Score">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
+                    <Label x:Name="labelSearchTaskScore" Content="Search Category" HorizontalAlignment="Left" Margin="320,220,0,0" VerticalAlignment="Top" Width="97"/>
+                    <ComboBox x:Name="comboBoxSearchTaskScore" HorizontalAlignment="Left" Margin="422,221,0,0" VerticalAlignment="Top" Width="90">
+                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Student Name" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Employee" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <TextBox x:Name="textBoxSearchTaskScore" HorizontalAlignment="Left" Height="23" Margin="517,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
+                    <Button x:Name="buttonSearchTaskScore" Content="Search" HorizontalAlignment="Left" Margin="666,221,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchTaskScore_Click"/>
+                    <Label x:Name="labelIdTaskScore" Content="Id" HorizontalAlignment="Left" Margin="22,4,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdTaskScore" HorizontalAlignment="Left" Margin="98,6,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
+                    <Label x:Name="labelScore1TaskScore" Content="Score 1" HorizontalAlignment="Left" Margin="22,50,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore1TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Button x:Name="buttonInsertTaskScore" Content="Insert" HorizontalAlignment="Left" Margin="57,226,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertTaskScore_Click"/>
+                    <Button x:Name="buttonUpdateTaskScore" Content="Update" HorizontalAlignment="Left" Margin="147,226,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateTaskScore_Click"/>
+                    <Button x:Name="buttonDeleteTaskScore" Content="Delete" HorizontalAlignment="Left" Margin="232,226,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteTaskScore_Click"/>
+                    <DataGrid x:Name="dataGridTaskScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,257,0,0" VerticalAlignment="Top" Width="731" Height="134" AutoGenerateColumns="False" SelectedCellsChanged="dataGridTaskScore_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Score 1" Binding="{Binding Path=Score1}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Score 2" Binding="{Binding Path=Score2}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Score 3" Binding="{Binding Path=Score3}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Score 4" Binding="{Binding Path=Score4}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Score 5" Binding="{Binding Path=Score5}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Students Id" Binding="{Binding Path=students.Id}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Students Name" Binding="{Binding Path=students.FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Mentor" Binding="{Binding Path=employees.FirstName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label x:Name="labelScore2TaskScore" Content="Score 2" HorizontalAlignment="Left" Margin="22,77,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore2TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelScore3TaskScore" Content="Score 3" HorizontalAlignment="Left" Margin="22,104,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore3TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelStudentIdTaskScore" Content="Student Id"  HorizontalAlignment="Left" Margin="22,196,0,0" VerticalAlignment="Top"/>
+                    <DataGrid x:Name="dataGridStudentsTaskScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="267,15,0,0" VerticalAlignment="Top" Width="474" Height="167" AutoGenerateColumns="False" SelectedCellsChanged="dataGridStudentsTaskScore_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=FirstName}"/>
+                            <DataGridTextColumn Header="Gender" Binding="{Binding Path=Gender}"/>
+                            <DataGridTextColumn Header="Address" Binding="{Binding Path=Address}"/>
+                            <DataGridTextColumn Header="Class" Binding="{Binding Path=classes.Name}"/>
+                            <DataGridTextColumn Header="Mentor" Binding="{Binding Path=classes.employees.FirstName}"/>
+                            <DataGridTextColumn Header="Status" Binding="{Binding Path=Status}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBlock x:Name="textBlockIdStudentTaskScore" HorizontalAlignment="Left" Margin="98,201,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="45"/>
+                    <Label x:Name="labelChooseTaskScore" Content="Choose"  HorizontalAlignment="Left" Margin="22,179,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelNameTaskScore" Content="Name" HorizontalAlignment="Left" Margin="22,23,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxNameTaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelScore4TaskScore" Content="Score 4" HorizontalAlignment="Left" Margin="22,131,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore4TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelScore5TaskScore" Content="Score 5" HorizontalAlignment="Left" Margin="22,157,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore5TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                </Grid>
+            </TabItem>
+            <!--Manage ProfileMentor-->            
+            <TabItem Header="Profile">
+                <Grid Background="#FFE5E5E5" Margin="3,4,4,13" VerticalAlignment="Top" Height="571">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="156*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="labelIdProfileMentor" Content="Id" HorizontalAlignment="Left" Margin="22,18,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdProfileMentor" HorizontalAlignment="Left" Margin="28,21,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelFirstNameProfileMentor" Content="First Name" HorizontalAlignment="Left" Margin="22,44,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="75"/>
+                    <TextBox x:Name="textBoxFirstNameProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileMentor_PreviewTextInput" Height="23" Margin="28,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="273" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
+                    <Label x:Name="labelLastNameProfileMentor" Content="Last Name" HorizontalAlignment="Left" Margin="22,75,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="75"/>
+                    <TextBox x:Name="textBoxLastNameProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileMentor_PreviewTextInput" Height="23" Margin="28,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="273" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
+                    <Label x:Name="labelDobProfileMentor" Content="Date of Birth" Margin="22,104,596,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <DatePicker x:Name="dateDobProfileMentor" HorizontalAlignment="Left" Margin="28,106,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelPobProfileMentor" Content="Place of Birth" HorizontalAlignment="Left" Margin="22,139,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="89"/>
+                    <TextBox x:Name="textBoxPobProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileMentor_PreviewTextInput" Height="23" Margin="28,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="165" Grid.Column="1"/>
+                    <Label x:Name="labelGenderProfileMentor" Content="Gender" HorizontalAlignment="Left" Margin="22,169,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxGenderProfileMentor" HorizontalAlignment="Left" Margin="28,166,0,0" VerticalAlignment="Top" Width="97" Grid.Column="1">
+                        <ComboBoxItem Content="Pria" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Wanita" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <Label x:Name="labelReligionProfileMentor" Content="Religion" HorizontalAlignment="Left" Margin="22,199,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxReligionProfileMentor" HorizontalAlignment="Left" Margin="28,199,0,0" VerticalAlignment="Top" Width="97" Grid.Column="1">
+                        <ComboBoxItem Content="Islam" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Kristen" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Katolik" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Hindu" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Budha" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <Label x:Name="labelPhoneProfileMentor" Content="Phone" HorizontalAlignment="Left" Margin="22,230,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxPhoneProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxPhoneProfileMentor_PreviewTextInput" Height="23" Margin="28,231,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
+                    <Label x:Name="labelEmailProfileMentor" Content="Email" HorizontalAlignment="Left" Margin="22,256,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxEmailProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxEmailProfileMentor_PreviewTextInput" Height="23" Margin="28,259,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
+                    <Label x:Name="labelAddressProfileMentor" Content="Address" HorizontalAlignment="Left" Margin="328,23,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxAddressProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxUsernameProfileMentor_PreviewTextInput" Height="86" Margin="404,21,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
+                    <Label x:Name="labelRtProfileMentor" Content="RT" HorizontalAlignment="Left" Margin="328,108,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxRtProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxRtProfileMentor_PreviewTextInput" Height="23" Margin="404,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
+                    <Label x:Name="labelRwProfileMentor" Content="RW" HorizontalAlignment="Left" Margin="328,138,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxRwProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxRtProfileMentor_PreviewTextInput" Height="23" Margin="404,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
+                    <Label x:Name="labelVillageProfileMentor" Content="Village" HorizontalAlignment="Left" Margin="328,168,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxVillageProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileMentor_PreviewTextInput" Height="23" Margin="404,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
+                    <Label x:Name="labelDistrictProfileMentor" Content="District" HorizontalAlignment="Left" Margin="328,198,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxDistrictProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileMentor_PreviewTextInput" Height="23" Margin="404,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
+                    <Label x:Name="labelRegencieProfileMentor" Content="Regencies" HorizontalAlignment="Left" Margin="328,228,0,0" Grid.Column="1" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxRegencieProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileMentor_PreviewTextInput" Height="23" Margin="404,232,0,0" TextWrapping="Wrap" Text="" Width="240" Grid.Column="1" VerticalAlignment="Top"/>
+                    <Button x:Name="buttonSaveProfileMentor" Content="Save" Margin="570,309,32,0" VerticalAlignment="Top" Click="buttonSaveProfileMentor_Click" Grid.Column="1"/>
+                    <Label x:Name="labelProvinceProfileMentor" Content="Province" HorizontalAlignment="Left" Margin="328,258,0,0" Grid.Column="1" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxProvienceProfileMentor" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileMentor_PreviewTextInput" Height="23" Margin="404,262,0,0" TextWrapping="Wrap" Text="" Width="240" Grid.Column="1" VerticalAlignment="Top"/>
+                    <Label x:Name="labelUsernameProfileMentor" Content="Username" HorizontalAlignment="Left" Margin="21,288,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="textBlockUsernameProfileMentor" HorizontalAlignment="Left" Margin="28,293,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1" Width="161"/>
+                    <Button x:Name="buttonChangeProfileMentor" Content="Change Password" HorizontalAlignment="Left" Margin="452,309,0,0" VerticalAlignment="Top" Width="102" Grid.Column="1" Click="buttonChangeProfileMentor_Click"/>
+                </Grid>
+            </TabItem>
+            <!--<TabItem Header="Manage Lesson">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
                     <Label x:Name="labelSearchLesson" Content="Search Category" HorizontalAlignment="Left" Margin="206,4,0,0" VerticalAlignment="Top" Width="97"/>
                     <ComboBox x:Name="comboBoxSearchLesson" HorizontalAlignment="Left" Margin="308,8,0,0" VerticalAlignment="Top" Width="111">
@@ -27,7 +275,7 @@
                     <Button x:Name="buttonInsertLesson" Content="Insert" HorizontalAlignment="Left" Margin="118,156,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertLesson_Click"/>
                     <Button x:Name="buttonUpdateLesson" Content="Update" HorizontalAlignment="Left" Margin="239,156,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateLesson_Click"/>
                     <Button x:Name="buttonDeleteLesson" Content="Delete" HorizontalAlignment="Left" Margin="353,156,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteLesson_Click"/>
-                    <DataGrid x:Name="dataGridLesson" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,195,0,0" VerticalAlignment="Top" Width="653" Height="208" AutoGenerateColumns="False" SelectedCellsChanged="dataGridLesson_SelectedCellsChanged">
+                    <DataGrid x:Name="dataGridLesson" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,195,0,0" VerticalAlignment="Top" Width="703" Height="191" AutoGenerateColumns="False" SelectedCellsChanged="dataGridLesson_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
@@ -45,43 +293,8 @@
                     <Label x:Name="labelDepartmentLesson" Content="Department"  HorizontalAlignment="Left" Margin="22,113,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="comboBoxDepartmentLesson" ItemsSource="{Binding Path=getDepartment}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="98,117,0,0" VerticalAlignment="Top" Width="124"/>
                 </Grid>
-            </TabItem>
-            <!-- 
-            <TabItem Header="Manage Detail Lesson">
-                <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
-                    <Label x:Name="labelSearchDetailLesson" Content="Search Category" HorizontalAlignment="Left" Margin="206,4,0,0" VerticalAlignment="Top" Width="97"/>
-                    <ComboBox x:Name="comboBoxSearchDetailLesson" HorizontalAlignment="Left" Margin="308,8,0,0" VerticalAlignment="Top" Width="111">
-                        <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
-                        <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
-                        <ComboBoxItem Content="Link File" HorizontalAlignment="Left" Width="92"/>
-                        <ComboBoxItem Content="Lesson" HorizontalAlignment="Left" Width="92"/>
-                        <ComboBoxItem Content="Employee" HorizontalAlignment="Left" Width="92"/>
-                    </ComboBox>
-                    <TextBox x:Name="textBoxSearchDetailLesson" HorizontalAlignment="Left" Height="23" Margin="424,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
-                    <Button x:Name="buttonSearchDetailLesson" Content="Search" HorizontalAlignment="Left" Margin="611,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchDetailLesson_Click"/>
-                    <Label x:Name="labelIdDetailLesson" Content="Id" HorizontalAlignment="Left" Margin="22,16,0,0" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlockIdDetailLesson" HorizontalAlignment="Left" Margin="140,20,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
-                    <Label x:Name="labelNameDetailLesson" Content="Name" HorizontalAlignment="Left" Margin="22,47,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxNameDetailLesson" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403"/>
-                    <Button x:Name="buttonInsertDetailLesson" Content="Insert" HorizontalAlignment="Left" Margin="118,156,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertDetailLesson_Click"/>
-                    <Button x:Name="buttonUpdateDetailLesson" Content="Update" HorizontalAlignment="Left" Margin="239,156,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateDetailLesson_Click"/>
-                    <Button x:Name="buttonDeleteDetailLesson" Content="Delete" HorizontalAlignment="Left" Margin="353,156,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteDetailLesson_Click"/>
-                    <DataGrid x:Name="dataGridDetailLesson" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,195,0,0" VerticalAlignment="Top" Width="653" Height="208" AutoGenerateColumns="False" SelectedCellsChanged="dataGridDetailLesson_SelectedCellsChanged">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Link File" Binding="{Binding Path=LinkFile}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Lesson" Binding="{Binding Path=lessons.Name}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Employee" Binding="{Binding Path=employees.Name}"></DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Label x:Name="labelDepartmentDetailLesson" Content="Lesson"  HorizontalAlignment="Left" Margin="22,113,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="comboBoxLessonDetailLesson" ItemsSource="{Binding Path=getLesson}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="98,117,0,0" VerticalAlignment="Top" Width="124"/>
-                    <Label x:Name="labelNameDetailLessonLink" Content="Link File" HorizontalAlignment="Left" Margin="22,80,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxLinkfileDetailLesson" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403"/>
-                </Grid>
-            </TabItem>
-            -->
+            </TabItem>            -->
+            <!--
             <TabItem Header="Manage Schedule">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
                     <Label x:Name="labelSearchSchedule" Content="Search Category" HorizontalAlignment="Left" Margin="206,4,0,0" VerticalAlignment="Top" Width="97"/>
@@ -96,12 +309,12 @@
                     </ComboBox>
                     <TextBox x:Name="textBoxSearchSchedule" HorizontalAlignment="Left" Height="23" Margin="424,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
                     <Button x:Name="buttonSearchSchedule" Content="Search" HorizontalAlignment="Left" Margin="611,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchSchedule_Click"/>
-                    <Label x:Name="labelIdSchedule" Content="Id" HorizontalAlignment="Left" Margin="22,16,0,0" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlockIdSchedule" HorizontalAlignment="Left" Margin="140,20,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
-                    <Button x:Name="buttonInsertSchedule" Content="Insert" HorizontalAlignment="Left" Margin="118,200,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertSchedule_Click"/>
-                    <Button x:Name="buttonUpdateSchedule" Content="Update" HorizontalAlignment="Left" Margin="239,200,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateSchedule_Click"/>
-                    <Button x:Name="buttonDeleteSchedule" Content="Delete" HorizontalAlignment="Left" Margin="353,200,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteSchedule_Click"/>
-                    <DataGrid x:Name="dataGridSchedule" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,250,0,0" VerticalAlignment="Top" Width="653" Height="208" AutoGenerateColumns="False" SelectedCellsChanged="dataGridSchedule_SelectedCellsChanged">
+                    <Label x:Name="labelIdSchedule" Content="Id" HorizontalAlignment="Left" Margin="68,26,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdSchedule" HorizontalAlignment="Left" Margin="144,36,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
+                    <Button x:Name="buttonInsertSchedule" Content="Insert" HorizontalAlignment="Left" Margin="164,166,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertSchedule_Click"/>
+                    <Button x:Name="buttonUpdateSchedule" Content="Update" HorizontalAlignment="Left" Margin="285,166,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateSchedule_Click"/>
+                    <Button x:Name="buttonDeleteSchedule" Content="Delete" HorizontalAlignment="Left" Margin="399,166,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteSchedule_Click"/>
+                    <DataGrid x:Name="dataGridSchedule" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,210,0,0" VerticalAlignment="Top" Width="731" Height="176" AutoGenerateColumns="False" SelectedCellsChanged="dataGridSchedule_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Lesson" Binding="{Binding Path=lessons.Name}"></DataGridTextColumn>
@@ -112,37 +325,37 @@
                             <DataGridTextColumn Header="Employee" Binding="{Binding Path=employees.Name}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label x:Name="labelClassSchedule" Content="Class"  HorizontalAlignment="Left" Margin="22,102,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="comboBoxClassSchedule" ItemsSource="{Binding Path=getClass}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="98,106,0,0" VerticalAlignment="Top" Width="124"/>
-                    <Label x:Name="labelRoomSchedule" Content="Room"  HorizontalAlignment="Left" Margin="22,135,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="comboBoxRoomSchedule" ItemsSource="{Binding Path=getRoom}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="98,139,0,0" VerticalAlignment="Top" Width="124"/>
-                    <Label x:Name="labelDateStartSchedule" Content="Date Start" HorizontalAlignment="Left" Margin="308,70,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="labelDateEndSchedule" Content="Date End" HorizontalAlignment="Left" Margin="308,135,0,0" VerticalAlignment="Top"/>
-                    <DatePicker x:Name="DatePickerStartSchedule" HorizontalAlignment="Left" Margin="392,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.264,-0.288"/>
-                    <DatePicker x:Name="DatePickerEndSchedule" HorizontalAlignment="Left" Margin="392,137,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.264,-0.288"/>
-                    <Label x:Name="labelLessonSchedule" Content="Lesson"  HorizontalAlignment="Left" Margin="22,69,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="comboBoxLessonSchedule" ItemsSource="{Binding Path=getClass}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="98,73,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label x:Name="labelClassSchedule" Content="Class"  HorizontalAlignment="Left" Margin="68,96,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxClassSchedule" ItemsSource="{Binding Path=getClass}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="144,100,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label x:Name="labelRoomSchedule" Content="Room"  HorizontalAlignment="Left" Margin="68,129,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxRoomSchedule" ItemsSource="{Binding Path=getRoom}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="144,133,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label x:Name="labelDateStartSchedule" Content="Date Start" HorizontalAlignment="Left" Margin="354,64,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelDateEndSchedule" Content="Date End" HorizontalAlignment="Left" Margin="354,129,0,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="DatePickerStartSchedule" HorizontalAlignment="Left" Margin="438,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.264,-0.288"/>
+                    <DatePicker x:Name="DatePickerEndSchedule" HorizontalAlignment="Left" Margin="438,131,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.264,-0.288"/>
+                    <Label x:Name="labelLessonSchedule" Content="Lesson"  HorizontalAlignment="Left" Margin="68,63,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxLessonSchedule" ItemsSource="{Binding Path=getClass}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="144,67,0,0" VerticalAlignment="Top" Width="124"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Manage Daily Score">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
-                    <Label x:Name="labelSearchDailyScore" Content="Search Category" HorizontalAlignment="Left" Margin="206,284,0,0" VerticalAlignment="Top" Width="97"/>
-                    <ComboBox x:Name="comboBoxSearchDailyScore" HorizontalAlignment="Left" Margin="308,288,0,0" VerticalAlignment="Top" Width="111">
+                    <Label x:Name="labelSearchDailyScore" Content="Search Category" HorizontalAlignment="Left" Margin="259,200,0,0" VerticalAlignment="Top" Width="97"/>
+                    <ComboBox x:Name="comboBoxSearchDailyScore" HorizontalAlignment="Left" Margin="361,204,0,0" VerticalAlignment="Top" Width="111">
                         <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Lesson" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Student Name" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Employee" HorizontalAlignment="Left" Width="92"/>
                     </ComboBox>
-                    <TextBox x:Name="textBoxSearchDailyScore" HorizontalAlignment="Left" Height="23" Margin="424,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
-                    <Button x:Name="buttonSearchDailyScore" Content="Search" HorizontalAlignment="Left" Margin="611,290,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchDailyScore_Click"/>
+                    <TextBox x:Name="textBoxSearchDailyScore" HorizontalAlignment="Left" Height="23" Margin="477,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
+                    <Button x:Name="buttonSearchDailyScore" Content="Search" HorizontalAlignment="Left" Margin="664,206,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchDailyScore_Click"/>
                     <Label x:Name="labelIdDailyScore" Content="Id" HorizontalAlignment="Left" Margin="22,16,0,0" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlockIdDailyScore" HorizontalAlignment="Left" Margin="140,20,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
-                    <Label x:Name="labelScore1DailyScore" Content="Score 1" HorizontalAlignment="Left" Margin="22,110,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxScore1DailyScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-                    <Button x:Name="buttonInsertDailyScore" Content="Insert" HorizontalAlignment="Left" Margin="118,321,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertDailyScore_Click"/>
-                    <Button x:Name="buttonUpdateDailyScore" Content="Update" HorizontalAlignment="Left" Margin="239,321,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateDailyScore_Click"/>
-                    <Button x:Name="buttonDeleteDailyScore" Content="Delete" HorizontalAlignment="Left" Margin="353,321,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteDailyScore_Click"/>
-                    <DataGrid x:Name="dataGridDailyScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,361,0,0" VerticalAlignment="Top" Width="653" Height="208" AutoGenerateColumns="False" SelectedCellsChanged="dataGridDailyScore_SelectedCellsChanged">
+                    <TextBlock x:Name="textBlockIdDailyScore" HorizontalAlignment="Left" Margin="98,21,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
+                    <Label x:Name="labelScore1DailyScore" Content="Score 1" HorizontalAlignment="Left" Margin="22,82,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore1DailyScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Button x:Name="buttonInsertDailyScore" Content="Insert" HorizontalAlignment="Left" Margin="39,227,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertDailyScore_Click"/>
+                    <Button x:Name="buttonUpdateDailyScore" Content="Update" HorizontalAlignment="Left" Margin="160,227,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateDailyScore_Click"/>
+                    <Button x:Name="buttonDeleteDailyScore" Content="Delete" HorizontalAlignment="Left" Margin="267,227,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteDailyScore_Click"/>
+                    <DataGrid x:Name="dataGridDailyScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="1,259,0,0" VerticalAlignment="Top" Width="738" Height="127" AutoGenerateColumns="False" SelectedCellsChanged="dataGridDailyScore_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Score 1" Binding="{Binding Path=Score1}"></DataGridTextColumn>
@@ -155,14 +368,14 @@
                             <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label x:Name="labelDepartmentDailyScore" Content="Lesson"  HorizontalAlignment="Left" Margin="22,77,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="comboBoxLessonDailyScore" ItemsSource="{Binding Path=getLesson}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="98,81,0,0" VerticalAlignment="Top" Width="124"/>
-                    <Label x:Name="labelScore2DailyScore" Content="Score 2" HorizontalAlignment="Left" Margin="22,143,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxScore2DailyScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-                    <Label x:Name="labelScore3DailyScore" Content="Score 3" HorizontalAlignment="Left" Margin="22,176,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxScore3DailyScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-                    <Label x:Name="labelStudentIdDailyScore" Content="Student Id"  HorizontalAlignment="Left" Margin="22,223,0,0" VerticalAlignment="Top"/>
-                    <DataGrid x:Name="dataGridStudentsDailyScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="267,64,0,0" VerticalAlignment="Top" Width="419" Height="163" AutoGenerateColumns="False" SelectedCellsChanged="dataGridStudentsDailyScore_SelectedCellsChanged">
+                    <Label x:Name="labelDepartmentDailyScore" Content="Lesson"  HorizontalAlignment="Left" Margin="22,49,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxLessonDailyScore" ItemsSource="{Binding Path=getLesson}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="98,53,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label x:Name="labelScore2DailyScore" Content="Score 2" HorizontalAlignment="Left" Margin="22,115,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore2DailyScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelScore3DailyScore" Content="Score 3" HorizontalAlignment="Left" Margin="22,148,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore3DailyScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelStudentIdDailyScore" Content="Student Id"  HorizontalAlignment="Left" Margin="22,195,0,0" VerticalAlignment="Top"/>
+                    <DataGrid x:Name="dataGridStudentsDailyScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="267,49,0,0" VerticalAlignment="Top" Width="474" Height="139" AutoGenerateColumns="False" SelectedCellsChanged="dataGridStudentsDailyScore_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
@@ -171,38 +384,38 @@
                             <DataGridTextColumn Header="Class" Binding="{Binding Path=classes.Name}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label x:Name="labelSearchStudentDailyScore" Content="Search Student" HorizontalAlignment="Left" Margin="206,25,0,0" VerticalAlignment="Top" Width="97"/>
-                    <ComboBox x:Name="comboBoxSearchStudentDailyScore" HorizontalAlignment="Left" Margin="308,29,0,0" VerticalAlignment="Top" Width="111">
+                    <Label x:Name="labelSearchStudentDailyScore" Content="Search Student" HorizontalAlignment="Left" Margin="267,10,0,0" VerticalAlignment="Top" Width="97"/>
+                    <ComboBox x:Name="comboBoxSearchStudentDailyScore" HorizontalAlignment="Left" Margin="369,14,0,0" VerticalAlignment="Top" Width="111">
                         <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Gender" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Class" HorizontalAlignment="Left" Width="92"/>
                     </ComboBox>
-                    <TextBox x:Name="textBoxSearchStudentDailyScore" HorizontalAlignment="Left" Height="23" Margin="424,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
-                    <Button x:Name="buttonSearchStudentDailyScore" Content="Search" HorizontalAlignment="Left" Margin="611,31,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchStudentDailyScore_Click"/>
-                    <TextBlock x:Name="textBlockIdStudent" HorizontalAlignment="Left" Margin="98,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="45"/>
-                    <Label x:Name="labelChooseDailyScore" Content="Choose"  HorizontalAlignment="Left" Margin="22,201,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxSearchStudentDailyScore" HorizontalAlignment="Left" Height="23" Margin="485,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
+                    <Button x:Name="buttonSearchStudentDailyScore" Content="Search" HorizontalAlignment="Left" Margin="672,16,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchStudentDailyScore_Click"/>
+                    <TextBlock x:Name="textBlockIdStudent" HorizontalAlignment="Left" Margin="98,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="45"/>
+                    <Label x:Name="labelChooseDailyScore" Content="Choose"  HorizontalAlignment="Left" Margin="22,173,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Manage Weekly Score">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
-                    <Label x:Name="labelSearchTaskScore" Content="Search Category" HorizontalAlignment="Left" Margin="206,274,0,0" VerticalAlignment="Top" Width="97"/>
-                    <ComboBox x:Name="comboBoxSearchTaskScore" HorizontalAlignment="Left" Margin="308,278,0,0" VerticalAlignment="Top" Width="111">
+                    <Label x:Name="labelSearchTaskScore" Content="Search Category" HorizontalAlignment="Left" Margin="261,206,0,0" VerticalAlignment="Top" Width="97"/>
+                    <ComboBox x:Name="comboBoxSearchTaskScore" HorizontalAlignment="Left" Margin="363,210,0,0" VerticalAlignment="Top" Width="111">
                         <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Student Name" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Employee" HorizontalAlignment="Left" Width="92"/>
                     </ComboBox>
-                    <TextBox x:Name="textBoxSearchTaskScore" HorizontalAlignment="Left" Height="23" Margin="424,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
-                    <Button x:Name="buttonSearchTaskScore" Content="Search" HorizontalAlignment="Left" Margin="611,280,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchTaskScore_Click"/>
+                    <TextBox x:Name="textBoxSearchTaskScore" HorizontalAlignment="Left" Height="23" Margin="479,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
+                    <Button x:Name="buttonSearchTaskScore" Content="Search" HorizontalAlignment="Left" Margin="666,212,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchTaskScore_Click"/>
                     <Label x:Name="labelIdTaskScore" Content="Id" HorizontalAlignment="Left" Margin="22,16,0,0" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlockIdTaskScore" HorizontalAlignment="Left" Margin="140,20,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top"/>
-                    <Label x:Name="labelScore1TaskScore" Content="Score 1" HorizontalAlignment="Left" Margin="22,70,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxScore1TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-                    <Button x:Name="buttonInsertTaskScore" Content="Insert" HorizontalAlignment="Left" Margin="118,321,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertTaskScore_Click"/>
-                    <Button x:Name="buttonUpdateTaskScore" Content="Update" HorizontalAlignment="Left" Margin="239,321,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateTaskScore_Click"/>
-                    <Button x:Name="buttonDeleteTaskScore" Content="Delete" HorizontalAlignment="Left" Margin="353,321,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteTaskScore_Click"/>
-                    <DataGrid x:Name="dataGridTaskScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,361,0,0" VerticalAlignment="Top" Width="653" Height="208" AutoGenerateColumns="False" SelectedCellsChanged="dataGridTaskScore_SelectedCellsChanged">
+                    <Label x:Name="labelScore1TaskScore" Content="Score 1" HorizontalAlignment="Left" Margin="22,61,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore1TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Button x:Name="buttonInsertTaskScore" Content="Insert" HorizontalAlignment="Left" Margin="31,238,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertTaskScore_Click"/>
+                    <Button x:Name="buttonUpdateTaskScore" Content="Update" HorizontalAlignment="Left" Margin="152,238,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateTaskScore_Click"/>
+                    <Button x:Name="buttonDeleteTaskScore" Content="Delete" HorizontalAlignment="Left" Margin="266,238,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteTaskScore_Click"/>
+                    <DataGrid x:Name="dataGridTaskScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,269,0,0" VerticalAlignment="Top" Width="731" Height="117" AutoGenerateColumns="False" SelectedCellsChanged="dataGridTaskScore_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
@@ -217,12 +430,12 @@
                             <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label x:Name="labelScore2TaskScore" Content="Score 2" HorizontalAlignment="Left" Margin="22,103,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxScore2TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-                    <Label x:Name="labelScore3TaskScore" Content="Score 3" HorizontalAlignment="Left" Margin="22,136,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxScore3TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-                    <Label x:Name="labelStudentIdTaskScore" Content="Student Id"  HorizontalAlignment="Left" Margin="22,243,0,0" VerticalAlignment="Top"/>
-                    <DataGrid x:Name="dataGridStudentsTaskScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="267,64,0,0" VerticalAlignment="Top" Width="419" Height="163" AutoGenerateColumns="False" SelectedCellsChanged="dataGridStudentsTaskScore_SelectedCellsChanged">
+                    <Label x:Name="labelScore2TaskScore" Content="Score 2" HorizontalAlignment="Left" Margin="22,87,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore2TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelScore3TaskScore" Content="Score 3" HorizontalAlignment="Left" Margin="22,113,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore3TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelStudentIdTaskScore" Content="Student Id"  HorizontalAlignment="Left" Margin="22,207,0,0" VerticalAlignment="Top"/>
+                    <DataGrid x:Name="dataGridStudentsTaskScore" HorizontalAlignment="Left" IsReadOnly="True" Margin="267,40,0,0" VerticalAlignment="Top" Width="474" Height="161" AutoGenerateColumns="False" SelectedCellsChanged="dataGridStudentsTaskScore_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
@@ -231,25 +444,26 @@
                             <DataGridTextColumn Header="Class" Binding="{Binding Path=classes.Name}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label x:Name="labelSearchStudentTaskScore" Content="Search Student" HorizontalAlignment="Left" Margin="206,15,0,0" VerticalAlignment="Top" Width="97"/>
-                    <ComboBox x:Name="comboBoxSearchStudentTaskScore" HorizontalAlignment="Left" Margin="308,19,0,0" VerticalAlignment="Top" Width="111">
+                    <Label x:Name="labelSearchStudentTaskScore" Content="Search Student" HorizontalAlignment="Left" Margin="261,4,0,0" VerticalAlignment="Top" Width="97"/>
+                    <ComboBox x:Name="comboBoxSearchStudentTaskScore" HorizontalAlignment="Left" Margin="363,8,0,0" VerticalAlignment="Top" Width="111">
                         <ComboBoxItem Content="Id" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Gender" HorizontalAlignment="Left" Width="92"/>
                         <ComboBoxItem Content="Class" HorizontalAlignment="Left" Width="92"/>
                     </ComboBox>
-                    <TextBox x:Name="textBoxSearchStudentTaskScore" HorizontalAlignment="Left" Height="23" Margin="424,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
-                    <Button x:Name="buttonSearchStudentTaskScore" Content="Search" HorizontalAlignment="Left" Margin="611,21,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchStudentTaskScore_Click"/>
-                    <TextBlock x:Name="textBlockIdStudentTaskScore" HorizontalAlignment="Left" Margin="98,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="45"/>
-                    <Label x:Name="labelChooseTaskScore" Content="Choose"  HorizontalAlignment="Left" Margin="22,221,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="labelNameTaskScore" Content="Name" HorizontalAlignment="Left" Margin="22,40,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxNameTaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-                    <Label x:Name="labelScore4TaskScore" Content="Score 4" HorizontalAlignment="Left" Margin="22,166,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxScore4TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-                    <Label x:Name="labelScore5TaskScore" Content="Score 5" HorizontalAlignment="Left" Margin="22,196,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxScore5TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <TextBox x:Name="textBoxSearchStudentTaskScore" HorizontalAlignment="Left" Height="23" Margin="479,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
+                    <Button x:Name="buttonSearchStudentTaskScore" Content="Search" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchStudentTaskScore_Click"/>
+                    <TextBlock x:Name="textBlockIdStudentTaskScore" HorizontalAlignment="Left" Margin="98,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="45"/>
+                    <Label x:Name="labelChooseTaskScore" Content="Choose"  HorizontalAlignment="Left" Margin="22,185,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelNameTaskScore" Content="Name" HorizontalAlignment="Left" Margin="22,36,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxNameTaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelScore4TaskScore" Content="Score 4" HorizontalAlignment="Left" Margin="22,139,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore4TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+                    <Label x:Name="labelScore5TaskScore" Content="Score 5" HorizontalAlignment="Left" Margin="22,165,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxScore5TaskScore" HorizontalAlignment="Left" PreviewTextInput="textBoxNameLesson_PreviewTextInput" Height="23" Margin="97,168,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
                 </Grid>
             </TabItem>
+            -->
             <!-- 
             <TabItem Header="History Lesson">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-4">
@@ -274,9 +488,9 @@
             </TabItem>
             -->
         </TabControl>
-        <Label x:Name="labelMentorWelcome" Content="Welcome Mentor" HorizontalAlignment="Left" Margin="422,10,0,0" VerticalAlignment="Top" Width="105"/>
-        <TextBlock x:Name="textBlockMentor" HorizontalAlignment="Left" Margin="523,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113" Height="20"/>
+        <Label x:Name="labelMentorWelcome" Content="Welcome Mentor" HorizontalAlignment="Left" Margin="448,10,0,0" VerticalAlignment="Top" Width="105"/>
+        <TextBlock x:Name="textBlockMentor" HorizontalAlignment="Left" Margin="549,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113" Height="20"/>
         <TextBlock x:Name="textBlockIdMentor" HorizontalAlignment="Left" Margin="636,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="26" Height="20"/>
-        <Button x:Name="buttonLogoutMentor" Content="Logout" HorizontalAlignment="Left" Margin="617,14,0,0" VerticalAlignment="Top" Width="75" Height="21"  Click="buttonLogoutMentor_Click"/>
+        <Button x:Name="buttonLogoutMentor" Content="Logout" HorizontalAlignment="Left" Margin="692,15,0,0" VerticalAlignment="Top" Width="75" Height="21"  Click="buttonLogoutMentor_Click"/>
     </Grid>
 </Window>

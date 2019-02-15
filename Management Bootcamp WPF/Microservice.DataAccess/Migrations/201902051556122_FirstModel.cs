@@ -3,7 +3,7 @@ namespace Microservice.DataAccess.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class firstAddMigrationNewDB : DbMigration
+    public partial class FirstModel : DbMigration
     {
         public override void Up()
         {

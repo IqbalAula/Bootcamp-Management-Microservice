@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\obj\Debug\
 Management_Bootcamp_WPF
 none
 false
 DEBUG;TRACE
-C:\Users\Habibie\Documents\Visual Studio 2015\Projects\Bootcamp Management WPF Manster\Management Bootcamp WPF\Management Bootcamp WPF\App.xaml
-4-2114922581
+D:\Bootcamp22\Bootcamp-Management-Microservice\Management Bootcamp WPF\Management Bootcamp WPF\App.xaml
+11-1860345788
 
-13-1362780441
-19-85758667
-MainWindow.xaml;MenuMentor.xaml;MenuStudent.xaml;MenuHR.xaml;
+20340739183
+19316539806
+ChangePassEmployee.xaml;ChangePassStudent.xaml;CheckSecretEmployee.xaml;CheckSecretStudent.xaml;ForgotPass.xaml;MainWindow.xaml;MenuMentor.xaml;MenuStudent.xaml;MenuHR.xaml;SecretEmployee.xaml;SecretStudent.xaml;
 
-False
+True
 

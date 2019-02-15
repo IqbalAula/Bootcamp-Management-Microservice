@@ -31,7 +31,7 @@ namespace Management_Bootcamp_WPF
         IDepartmentService _departmentService = new DepartmentService();
         IBatchService _batchService = new BatchService();
         IClassService _classService = new ClassService();
-        IPlacementService _placementService = new PlacementService();        
+        IPlacementService _placementService = new PlacementService();
         IStudentService _studentService = new StudentService();
         EmployeeParam employeeParam = new EmployeeParam();
         RoomParam roomParam = new RoomParam();
@@ -39,15 +39,15 @@ namespace Management_Bootcamp_WPF
         BatchParam batchParam = new BatchParam();
         ClassParam classParam = new ClassParam();
         PlacementParam placementParam = new PlacementParam();
-        StudentParam studentParam = new StudentParam();        
-                
+        StudentParam studentParam = new StudentParam();
+
         public MenuHR()
         {
             InitializeComponent();
-        }        
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {            
+        {
             dataGridEmployee.ItemsSource = _employeeService.Get();
             dataGridRoom.ItemsSource = _roomService.Get();
             dataGridDepartment.ItemsSource = _departmentService.Get();
@@ -59,24 +59,26 @@ namespace Management_Bootcamp_WPF
             comboBoxDepartmentClass.ItemsSource = _context.Departments.Where(x => x.IsDelete == false).ToList();
             comboBoxBatchClass.ItemsSource = _context.Batchs.Where(x => x.IsDelete == false).ToList();
             comboBoxClassStudent.ItemsSource = _context.Classes.Where(x => x.IsDelete == false).ToList();
+            comboBoxMentorClass.ItemsSource = _context.Employees.Where(x => x.IsDelete == false && x.Role == "Mentor").ToList();
 
             var get = _employeeService.Get(Settings.Default.Id);
             textBlockIdProfileHR.Text = Convert.ToString(get.Id);
-            textBoxNameProfileHR.Text = get.FirstName;
+            textBoxFirstNameProfileHR.Text = get.FirstName;
+            textBoxLastNameProfileHR.Text = get.LastName;
             dateDobProfileHR.SelectedDate = get.Dob;
             textBoxPobProfileHR.Text = get.Pob;
             comboBoxGenderProfileHR.Text = get.Gender;
             comboBoxReligionProfileHR.Text = get.Religion;
             textBoxPhoneProfileHR.Text = get.Phone;
             textBoxEmailProfileHR.Text = get.Email;
-            textBoxUsernameProfileHR.Text = get.Username;
-            textBoxPasswordProfileHR.Text = get.Password;
             textBoxAddressProfileHR.Text = get.Address;
             textBoxRtProfileHR.Text = Convert.ToString(get.RT);
             textBoxRwProfileHR.Text = Convert.ToString(get.RW);
-            textBoxKelurahanProfileHR.Text = get.Village;
-            textBoxKecamatanProfileHR.Text = get.District;
-            textBoxKabupatenProfileHR.Text = get.Regencies;           
+            textBoxVillageProfileHR.Text = get.Village;
+            textBoxDistrictProfileHR.Text = get.District;
+            textBoxRegencieProfileHR.Text = get.Regencies;
+            textBoxProvienceProfileHR.Text = get.Provience;
+            textBlockUsernameProfileHR.Text = get.Username;
         }
 
         private void LoadCombo()
@@ -84,6 +86,7 @@ namespace Management_Bootcamp_WPF
             comboBoxDepartmentClass.ItemsSource = _context.Departments.Where(x => x.IsDelete == false).ToList();
             comboBoxBatchClass.ItemsSource = _context.Batchs.Where(x => x.IsDelete == false).ToList();
             comboBoxClassStudent.ItemsSource = _context.Classes.Where(x => x.IsDelete == false).ToList();
+            comboBoxMentorClass.ItemsSource = _context.Employees.Where(x => x.IsDelete == false && x.Role == "Mentor").ToList();
         }
 
         private void buttonLogout_Click(object sender, RoutedEventArgs e)
@@ -96,12 +99,12 @@ namespace Management_Bootcamp_WPF
         private void LoadGridEmployee()
         {
             textBlockIdEmployee.Text = "";
-            textBoxNameEmployee.Text = "";
+            textBoxFirstNameEmployee.Text = "";
+            textBoxLastNameEmployee.Text = "";
             textBoxPhoneEmployee.Text = "";
             comboBoxRoleEmployee.Text = "";
             textBoxEmailEmployee.Text = "";
-            textBoxUsernameEmployee.Text = "";
-            textBoxPasswordEmployee.Text = "";
+            textBoxAccessEmployee.Text = "";
             dataGridEmployee.ItemsSource = _employeeService.Get();
         }
 
@@ -131,17 +134,19 @@ namespace Management_Bootcamp_WPF
 
         private void buttonInsertEmployee_Click(object sender, RoutedEventArgs e)
         {
-            employeeParam.FirstName = textBoxNameEmployee.Text;
+            employeeParam.FirstName = textBoxFirstNameEmployee.Text;
+            employeeParam.LastName = textBoxLastNameEmployee.Text;
             employeeParam.Phone = textBoxPhoneEmployee.Text;
             employeeParam.Role = comboBoxRoleEmployee.Text;
             employeeParam.Email = textBoxEmailEmployee.Text;
-            employeeParam.Username = textBoxUsernameEmployee.Text;
-            employeeParam.Password = textBoxPasswordEmployee.Text;
-            if (string.IsNullOrEmpty(textBoxNameEmployee.Text) == true)
+            employeeParam.Username = string.Concat(textBoxFirstNameEmployee.Text, textBoxPhoneEmployee.Text[4], textBoxPhoneEmployee.Text[5]);
+            employeeParam.Password = "bootcamp";
+            employeeParam.AccessCard = textBoxAccessEmployee.Text;
+            if (string.IsNullOrEmpty(textBoxFirstNameEmployee.Text) == true)
             {
                 MessageBox.Show("Please insert name employee!");
             }
-            else if (string.IsNullOrWhiteSpace(textBoxNameEmployee.Text) == true)
+            else if (string.IsNullOrWhiteSpace(textBoxFirstNameEmployee.Text) == true)
             {
                 MessageBox.Show("Don't insert white space");
             }
@@ -149,6 +154,7 @@ namespace Management_Bootcamp_WPF
             {
                 _employeeService.Insert(employeeParam);
                 LoadGridEmployee();
+                LoadCombo();
             }
         }
 
@@ -158,21 +164,23 @@ namespace Management_Bootcamp_WPF
             if (dataGridEmployee.SelectedIndex < 0)
             {
                 textBlockIdEmployee.Text = "";
-                textBoxNameEmployee.Text = "";
+                textBoxFirstNameEmployee.Text = "";
+                textBoxLastNameEmployee.Text = "";
                 textBoxPhoneEmployee.Text = "";
                 comboBoxRoleEmployee.Text = "";
                 textBoxEmailEmployee.Text = "";
-                textBoxUsernameEmployee.Text = "";
-                textBoxPasswordEmployee.Text = "";
+                textBoxAccessEmployee.Text = "";
+                //textBoxPasswordEmployee.Text = "";
             }
             else
             {
                 textBlockIdEmployee.Text = (dataGridEmployee.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxNameEmployee.Text = (dataGridEmployee.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxPhoneEmployee.Text = (dataGridEmployee.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxEmailEmployee.Text = (dataGridEmployee.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxUsernameEmployee.Text = (dataGridEmployee.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxPasswordEmployee.Text = (dataGridEmployee.SelectedCells[5].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxFirstNameEmployee.Text = (dataGridEmployee.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxLastNameEmployee.Text = (dataGridEmployee.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxPhoneEmployee.Text = (dataGridEmployee.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxEmailEmployee.Text = (dataGridEmployee.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxAccessEmployee.Text = (dataGridEmployee.SelectedCells[5].Column.GetCellContent(item) as TextBlock).Text;
+                //textBoxPasswordEmployee.Text = (dataGridEmployee.SelectedCells[5].Column.GetCellContent(item) as TextBlock).Text;
                 comboBoxRoleEmployee.Text = (dataGridEmployee.SelectedCells[6].Column.GetCellContent(item) as TextBlock).Text;
             }
         }
@@ -186,24 +194,26 @@ namespace Management_Bootcamp_WPF
             }
             else
             {
-                employeeParam.FirstName = textBoxNameEmployee.Text;
+                employeeParam.FirstName = textBoxFirstNameEmployee.Text;
+                employeeParam.LastName = textBoxLastNameEmployee.Text;
                 employeeParam.Phone = textBoxPhoneEmployee.Text;
                 employeeParam.Role = comboBoxRoleEmployee.Text;
                 employeeParam.Email = textBoxEmailEmployee.Text;
-                employeeParam.Username = textBoxUsernameEmployee.Text;
-                employeeParam.Password = textBoxPasswordEmployee.Text;
-                if (string.IsNullOrEmpty(textBoxNameEmployee.Text) == true)
+                employeeParam.Username = string.Concat(textBoxFirstNameEmployee.Text, textBoxPhoneEmployee.Text[4], textBoxPhoneEmployee.Text[5]);                
+                employeeParam.AccessCard = textBoxAccessEmployee.Text;
+                if (string.IsNullOrEmpty(textBoxFirstNameEmployee.Text) == true)
                 {
                     MessageBox.Show("Please insert name employee!");
                 }
-                else if (string.IsNullOrWhiteSpace(textBoxNameEmployee.Text) == true)
+                else if (string.IsNullOrWhiteSpace(textBoxFirstNameEmployee.Text) == true)
                 {
                     MessageBox.Show("Don't insert white space");
                 }
                 else
                 {
-                    _employeeService.Update(Convert.ToInt16(textBlockIdEmployee.Text), employeeParam);
+                    _employeeService.UpdateHR(Convert.ToInt16(textBlockIdEmployee.Text), employeeParam);
                     LoadGridEmployee();
+                    LoadCombo();
                 }
             }
         }
@@ -220,7 +230,7 @@ namespace Management_Bootcamp_WPF
                 _employeeService.Delete(Convert.ToInt16(textBlockIdEmployee.Text));
                 LoadGridEmployee();
             }
-        }                
+        }
 
         private void buttonSearchEmployee_Click(object sender, RoutedEventArgs e)
         {
@@ -321,9 +331,10 @@ namespace Management_Bootcamp_WPF
 
                 _roomService.Insert(roomParam);
                 LoadGridRoom();
+                LoadCombo();
             }
         }
-        
+
         private void dataGridRoom_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             object item = dataGridRoom.SelectedItem;
@@ -377,6 +388,7 @@ namespace Management_Bootcamp_WPF
 
                     _roomService.Update(Convert.ToInt16(textBlockIdRoom.Text), roomParam);
                     LoadGridRoom();
+                    LoadCombo();
                 }
             }
         }
@@ -452,7 +464,7 @@ namespace Management_Bootcamp_WPF
             textBlockIdDepartment.Text = "";
             dataGridDepartment.ItemsSource = _departmentService.Get();
         }
-                
+
         private void textBoxNameDepartment_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-Z. ]*$");
@@ -521,7 +533,7 @@ namespace Management_Bootcamp_WPF
         }
 
         private void buttonDeleteDepartment_Click(object sender, RoutedEventArgs e)
-        {           
+        {
             object item = dataGridDepartment.SelectedItem;
             if (item == null)
             {
@@ -532,8 +544,8 @@ namespace Management_Bootcamp_WPF
                 _departmentService.Delete(Convert.ToInt16(textBlockIdDepartment.Text));
                 LoadGridDepartment();
                 LoadCombo();
-            }            
-        }        
+            }
+        }
 
         private void buttonSearchDepartment_Click(object sender, RoutedEventArgs e)
         {
@@ -555,7 +567,7 @@ namespace Management_Bootcamp_WPF
                 {
                     dataGridDepartment.ItemsSource = _departmentService.Search(textBoxSearchDepartment.Text, comboBoxSearchDepartment.Text);
                 }
-            }            
+            }
         }
 
         private void textBoxSearchDepartment_KeyUp(object sender, KeyEventArgs e)
@@ -637,8 +649,12 @@ namespace Management_Bootcamp_WPF
             else
             {
                 textBlockIdBatch.Text = (dataGridBatch.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxNameBatch.Text = (dataGridBatch.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;                
+                //var get = _batchService.Get(Convert.ToInt16((dataGridBatch.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text));
+                //textBoxNameBatch.Text = get.Name;
+                //dateDateStartBatch.SelectedDate = Convert.ToDateTime(get.DateStart);
+                textBoxNameBatch.Text = (dataGridBatch.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
                 dateDateStartBatch.SelectedDate = Convert.ToDateTime((dataGridBatch.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text);
+                //dateDateStartBatch.SelectedDate = DateTime.ParseExact((dataGridBatch.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text, "MM-dd-yyyy HH:mm tt", null);
             }
         }
 
@@ -792,7 +808,7 @@ namespace Management_Bootcamp_WPF
         {
             object item = dataGridClass.SelectedItem;
             if (dataGridClass.SelectedIndex < 0)
-            {                
+            {
                 textBlockIdClass.Text = "";
                 textBoxNameClass.Text = "";
                 comboBoxDepartmentClass.Text = "";
@@ -1032,7 +1048,7 @@ namespace Management_Bootcamp_WPF
                 LoadGridPlacement();
             }
         }
-        
+
         private void buttonSearchPlacement_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(comboBoxSearchPlacement.Text) == true)
@@ -1088,12 +1104,13 @@ namespace Management_Bootcamp_WPF
         private void LoadGridStudent()
         {
             textBlockIdStudent.Text = "";
-            textBoxNameStudent.Text = "";
+            textBoxFirstNameStudent.Text = "";
+            textBoxLastNameStudent.Text = "";
             textBoxPhoneStudent.Text = "";
             comboBoxClassStudent.Text = "";
             textBoxEmailStudent.Text = "";
-            textBoxUsernameStudent.Text = "";
-            textBoxPasswordStudent.Text = "";
+            //textBoxUsernameStudent.Text = "";
+            //textBoxPasswordStudent.Text = "";
             dataGridStudent.ItemsSource = _studentService.Get();
         }
 
@@ -1123,17 +1140,20 @@ namespace Management_Bootcamp_WPF
 
         private void buttonInsertStudent_Click(object sender, RoutedEventArgs e)
         {
-            studentParam.FirstName = textBoxNameStudent.Text;
+            studentParam.FirstName = textBoxFirstNameStudent.Text;
+            studentParam.LastName = textBoxLastNameStudent.Text;
             studentParam.Phone = textBoxPhoneStudent.Text;
             studentParam.classes = Convert.ToInt16(comboBoxClassStudent.SelectedValue);
             studentParam.Email = textBoxEmailStudent.Text;
-            studentParam.Username = textBoxUsernameStudent.Text;
-            studentParam.Password = textBoxPasswordStudent.Text;
-            if (string.IsNullOrEmpty(textBoxNameStudent.Text) == true)
+            studentParam.Username = string.Concat(textBoxFirstNameStudent.Text, textBoxPhoneStudent.Text[4], textBoxPhoneStudent.Text[5]);
+            studentParam.Password = "bootcamp";
+            //studentParam.Username = textBoxUsernameStudent.Text;
+            //studentParam.Password = textBoxPasswordStudent.Text;
+            if (string.IsNullOrEmpty(textBoxFirstNameStudent.Text) == true)
             {
                 MessageBox.Show("Please insert name student!");
             }
-            else if (string.IsNullOrWhiteSpace(textBoxNameStudent.Text) == true)
+            else if (string.IsNullOrWhiteSpace(textBoxFirstNameStudent.Text) == true)
             {
                 MessageBox.Show("Don't insert white space");
             }
@@ -1150,22 +1170,24 @@ namespace Management_Bootcamp_WPF
             if (dataGridStudent.SelectedIndex < 0)
             {
                 textBlockIdStudent.Text = "";
-                textBoxNameStudent.Text = "";
+                textBoxFirstNameStudent.Text = "";
+                textBoxLastNameStudent.Text = "";
                 comboBoxClassStudent.Text = "";
                 textBoxPhoneStudent.Text = "";
                 textBoxEmailStudent.Text = "";
-                textBoxUsernameStudent.Text = "";
-                textBoxPasswordStudent.Text = "";
+                //textBoxUsernameStudent.Text = "";
+                //textBoxPasswordStudent.Text = "";
             }
             else
             {
                 textBlockIdStudent.Text = (dataGridStudent.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxNameStudent.Text = (dataGridStudent.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxPhoneStudent.Text = (dataGridStudent.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxEmailStudent.Text = (dataGridStudent.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxUsernameStudent.Text = (dataGridStudent.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxPasswordStudent.Text = (dataGridStudent.SelectedCells[5].Column.GetCellContent(item) as TextBlock).Text;
-                comboBoxClassStudent.Text = (dataGridStudent.SelectedCells[6].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxFirstNameStudent.Text = (dataGridStudent.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxLastNameStudent.Text = (dataGridStudent.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxPhoneStudent.Text = (dataGridStudent.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxEmailStudent.Text = (dataGridStudent.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
+                //textBoxUsernameStudent.Text = (dataGridStudent.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
+                //textBoxPasswordStudent.Text = (dataGridStudent.SelectedCells[5].Column.GetCellContent(item) as TextBlock).Text;
+                comboBoxClassStudent.Text = (dataGridStudent.SelectedCells[5].Column.GetCellContent(item) as TextBlock).Text;
             }
         }
 
@@ -1178,23 +1200,26 @@ namespace Management_Bootcamp_WPF
             }
             else
             {
-                studentParam.FirstName = textBoxNameStudent.Text;
+                studentParam.FirstName = textBoxFirstNameStudent.Text;
+                studentParam.LastName = textBoxLastNameStudent.Text;
                 studentParam.Phone = textBoxPhoneStudent.Text;
                 studentParam.classes = Convert.ToInt16(comboBoxClassStudent.SelectedValue);
                 studentParam.Email = textBoxEmailStudent.Text;
-                studentParam.Username = textBoxUsernameStudent.Text;
-                studentParam.Password = textBoxPasswordStudent.Text;
-                if (string.IsNullOrEmpty(textBoxNameStudent.Text) == true)
+                studentParam.Username = string.Concat(textBoxFirstNameStudent.Text, textBoxPhoneStudent.Text[4], textBoxPhoneStudent.Text[5]);
+                studentParam.Password = "bootcamp";
+                //studentParam.Username = textBoxUsernameStudent.Text;
+                //studentParam.Password = textBoxPasswordStudent.Text;
+                if (string.IsNullOrEmpty(textBoxFirstNameStudent.Text) == true)
                 {
                     MessageBox.Show("Please insert name student!");
                 }
-                else if (string.IsNullOrWhiteSpace(textBoxNameStudent.Text) == true)
+                else if (string.IsNullOrWhiteSpace(textBoxFirstNameStudent.Text) == true)
                 {
                     MessageBox.Show("Don't insert white space");
                 }
                 else
                 {
-                    _studentService.Update(Convert.ToInt16(textBlockIdStudent.Text), studentParam);
+                    _studentService.UpdateHR(Convert.ToInt16(textBlockIdStudent.Text), studentParam);
                     LoadGridStudent();
                 }
             }
@@ -1269,29 +1294,31 @@ namespace Management_Bootcamp_WPF
         {
             var get = _employeeService.Get(Settings.Default.Id);
             textBlockIdProfileHR.Text = Convert.ToString(get.Id);
-            textBoxNameProfileHR.Text = get.FirstName;
-            dateDobProfileHR.DisplayDate = Convert.ToDateTime(get.Dob);
+            textBoxFirstNameProfileHR.Text = get.FirstName;
+            textBoxLastNameProfileHR.Text = get.LastName;
+            dateDobProfileHR.SelectedDate = Convert.ToDateTime(get.Dob);
             textBoxPobProfileHR.Text = get.Pob;
             comboBoxGenderProfileHR.Text = get.Gender;
             comboBoxReligionProfileHR.Text = get.Religion;
             textBoxPhoneProfileHR.Text = get.Phone;
             textBoxEmailProfileHR.Text = get.Email;
-            textBoxUsernameProfileHR.Text = get.Username;
-            textBoxPasswordProfileHR.Text = get.Password;
             textBoxAddressProfileHR.Text = get.Address;
             textBoxRtProfileHR.Text = Convert.ToString(get.RT);
             textBoxRwProfileHR.Text = Convert.ToString(get.RW);
-            textBoxKelurahanProfileHR.Text = get.Village;
-            textBoxKecamatanProfileHR.Text = get.District;
-            textBoxKabupatenProfileHR.Text = get.Regencies;
+            textBoxVillageProfileHR.Text = get.Village;
+            textBoxDistrictProfileHR.Text = get.District;
+            textBoxRegencieProfileHR.Text = get.Regencies;
+            textBoxProvienceProfileHR.Text = get.Provience;
+            textBlockUsernameProfileHR.Text = get.Username;
         }
 
         private void buttonSaveProfileHR_Click(object sender, RoutedEventArgs e)
         {
-            employeeParam.FirstName = textBoxNameProfileHR.Text;
+            employeeParam.FirstName = textBoxFirstNameProfileHR.Text;
+            employeeParam.LastName = textBoxLastNameProfileHR.Text;
             DateTime? selectedDate = dateDobProfileHR.SelectedDate;
             if (selectedDate.HasValue)
-            {                
+            {
                 employeeParam.Dob = selectedDate.Value;
             }
             employeeParam.Pob = textBoxPobProfileHR.Text;
@@ -1299,27 +1326,27 @@ namespace Management_Bootcamp_WPF
             employeeParam.Religion = comboBoxReligionProfileHR.Text;
             employeeParam.Phone = textBoxPhoneProfileHR.Text;
             employeeParam.Email = textBoxEmailProfileHR.Text;
-            employeeParam.Username = textBoxUsernameProfileHR.Text;
-            employeeParam.Password = textBoxPasswordProfileHR.Text;
             employeeParam.Address = textBoxAddressProfileHR.Text;
             employeeParam.RT = Convert.ToInt16(textBoxRtProfileHR.Text);
             employeeParam.RW = Convert.ToInt16(textBoxRwProfileHR.Text);
-            employeeParam.Village = textBoxKelurahanProfileHR.Text;
-            employeeParam.District = textBoxKecamatanProfileHR.Text;
-            employeeParam.Regencies = textBoxKabupatenProfileHR.Text;
-            if (string.IsNullOrEmpty(textBoxNameProfileHR.Text) == true)
+            employeeParam.Village = textBoxVillageProfileHR.Text;
+            employeeParam.District = textBoxDistrictProfileHR.Text;
+            employeeParam.Regencies = textBoxRegencieProfileHR.Text;
+            employeeParam.Provience = textBoxProvienceProfileHR.Text;
+            if (string.IsNullOrEmpty(textBoxFirstNameProfileHR.Text) == true)
             {
                 MessageBox.Show("Please insert name employee!");
             }
-            else if (string.IsNullOrWhiteSpace(textBoxNameProfileHR.Text) == true)
+            else if (string.IsNullOrWhiteSpace(textBoxFirstNameProfileHR.Text) == true)
             {
                 MessageBox.Show("Don't insert white space");
             }
             else
             {
-                _employeeService.Update(Convert.ToInt16(textBlockIdProfileHR.Text), employeeParam);
+                _employeeService.UpdatePr(Convert.ToInt16(textBlockIdProfileHR.Text), employeeParam);
                 LoadProfile();
                 LoadGridEmployee();
+                LoadCombo();
             }
         }
 
@@ -1351,6 +1378,12 @@ namespace Management_Bootcamp_WPF
         {
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[1-9]*$");
             e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        }
+
+        private void buttonChangeProfileHR_Click(object sender, RoutedEventArgs e)
+        {
+            new CheckSecretEmployee().Show();
+            this.Close();
         }
     }
 }

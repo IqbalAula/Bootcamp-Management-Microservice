@@ -7,13 +7,13 @@ namespace Microservice.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class firstAddMigrationNewDB : IMigrationMetadata
+    public sealed partial class FirstModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(firstAddMigrationNewDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902051527159_firstAddMigrationNewDB"; }
+            get { return "201902051556122_FirstModel"; }
         }
         
         string IMigrationMetadata.Source

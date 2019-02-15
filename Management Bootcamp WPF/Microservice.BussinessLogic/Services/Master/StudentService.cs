@@ -42,20 +42,81 @@ namespace Microservice.BussinessLogic.Services.Master
             return _studentRepository.Insert(studentParam);
         }
 
+        public List<Student> Join(int? id)
+        {
+            return _studentRepository.Join(id);
+        }
+
         public List<Student> Search(string keyword, string category)
         {
             return _studentRepository.Search(keyword, category);
         }
 
-        public bool Update(int? id, StudentParam studentParam)
+        //public bool Update(int? id, StudentParam studentParam)
+        //{
+        //    if (_studentRepository.Get(id) == null)
+        //    {
+        //        MessageBox.Show("Sorry, your data is not found");
+        //    }
+        //    else
+        //    {
+        //        status = _studentRepository.Update(id, studentParam);
+        //    }
+        //    return status;
+        //}
+
+        public bool UpdateHR(int? id, StudentParam studentParam)
         {
+
             if (_studentRepository.Get(id) == null)
             {
                 MessageBox.Show("Sorry, your data is not found");
             }
             else
             {
-                status = _studentRepository.Update(id, studentParam);
+                status = _studentRepository.UpdateHR(id, studentParam);
+            }
+            return status;
+        }
+
+        public bool UpdateP(int? id, StudentParam studentParam)
+        {
+
+            if (_studentRepository.Get(id) == null)
+            {
+                MessageBox.Show("Sorry, your data is not found");
+            }
+            else
+            {
+                status = _studentRepository.UpdateP(id, studentParam);
+            }
+            return status;
+        }
+
+        public bool UpdatePr(int? id, StudentParam studentParam)
+        {
+
+            if (_studentRepository.Get(id) == null)
+            {
+                MessageBox.Show("Sorry, your data is not found");
+            }
+            else
+            {
+                status = _studentRepository.UpdatePr(id, studentParam);
+            }
+            return status;
+        }
+
+        public bool UpdateS(int? id, StudentParam studentParam)
+        {
+
+            if (_studentRepository.Get(id) == null)
+            {
+                MessageBox.Show("Sorry, your data is not found");
+            }
+            else
+            {
+                status = _studentRepository.UpdateS(id, studentParam);
             }
             return status;
         }

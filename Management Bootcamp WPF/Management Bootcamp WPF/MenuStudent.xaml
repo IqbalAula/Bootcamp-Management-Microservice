@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Management_Bootcamp_WPF"
         mc:Ignorable="d"
-        Title="Menu Student" Height="433.882" Width="734.471"
+        Title="Menu Student" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" Height="500" Width="800"
         Loaded="Window_Loaded">
     <Grid Margin="0,0,0,24">
-        <Button x:Name="buttonLogout" Content="Logout" HorizontalAlignment="Left" Margin="641,0,0,0" VerticalAlignment="Top" Width="75" Click="buttonLogout_Click"/>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="346" Margin="10,25,0,0" VerticalAlignment="Top" Width="706">
+        <Button x:Name="buttonLogout" Content="Logout" HorizontalAlignment="Left" Margin="694,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonLogout_Click"/>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="420" Margin="10,25,0,0" VerticalAlignment="Top" Width="772">
             <!--<TabItem Header="Skill">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,-26">
                     <Label x:Name="labelSearchSkill" Content="Search" HorizontalAlignment="Left" Margin="291,4,0,0" VerticalAlignment="Top"/>
@@ -55,22 +55,22 @@
                         <ComboBoxItem Content="Name" HorizontalAlignment="Left" Width="92"/>
                     </ComboBox>
                     <Button x:Name="buttonSearchAchievement" Content="Search" HorizontalAlignment="Left" Margin="524,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearchAchievement_Click" Grid.Column="1"/>
-                    <Label x:Name="labelIdAchievement" Content="Id" HorizontalAlignment="Left" Margin="64,26,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="textBlockIdAchievement" HorizontalAlignment="Left" Margin="64,31,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1"/>
-                    <Label x:Name="labelNameAchievement" Content="Name" HorizontalAlignment="Left" Margin="64,57,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="textBoxNameAchievement" HorizontalAlignment="Left" PreviewTextInput="textBoxNameAchievement_PreviewTextInput" Height="23" Margin="64,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403" Grid.Column="1"/>
-                    <Label x:Name="labelDateAchievement" Content="Date" Margin="64,95,564,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <DatePicker x:Name="dateDateAchievement" SelectedDate="{Binding Path=DateStartAchievement, StringFormat='mm/dd/yyyy'}" HorizontalAlignment="Center" Margin="65,96,457,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Button x:Name="buttonInsertAchievement" Content="Insert" HorizontalAlignment="Left" Margin="67,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertAchievement_Click" Grid.Column="1"/>
-                    <Button x:Name="buttonUpdateAchievement" Content="Update" HorizontalAlignment="Left" Margin="152,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateAchievement_Click" Grid.Column="1"/>
-                    <DataGrid x:Name="dataGridAchievement" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,165,0,0" VerticalAlignment="Top" Width="653" Height="188" AutoGenerateColumns="False" SelectedCellsChanged="dataGridAchievement_SelectedCellsChanged" Grid.ColumnSpan="2">
+                    <Label x:Name="labelIdAchievement" Content="Id" HorizontalAlignment="Left" Margin="59,26,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBlock x:Name="textBlockIdAchievement" HorizontalAlignment="Left" Margin="142,31,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelNameAchievement" Content="Name" HorizontalAlignment="Left" Margin="59,57,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxNameAchievement" HorizontalAlignment="Left" PreviewTextInput="textBoxNameAchievement_PreviewTextInput" Height="23" Margin="142,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403" Grid.Column="1"/>
+                    <Label x:Name="labelDateAchievement" Content="Date" Margin="59,95,486,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <DatePicker x:Name="dateDateAchievement" SelectedDate="{Binding Path=DateStartAchievement, StringFormat='mm/dd/yyyy'}" HorizontalAlignment="Center" Margin="145,95,436,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button x:Name="buttonInsertAchievement" Content="Insert" HorizontalAlignment="Left" Margin="145,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertAchievement_Click" Grid.Column="1"/>
+                    <Button x:Name="buttonUpdateAchievement" Content="Update" HorizontalAlignment="Left" Margin="230,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateAchievement_Click" Grid.Column="1"/>
+                    <DataGrid x:Name="dataGridAchievement" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,165,0,0" VerticalAlignment="Top" Width="746" Height="213" AutoGenerateColumns="False" SelectedCellsChanged="dataGridAchievement_SelectedCellsChanged" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="buttonDeleteAchievement" Content="Delete" HorizontalAlignment="Left" Margin="241,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteAchievement_Click" Grid.Column="1"/>
+                    <Button x:Name="buttonDeleteAchievement" Content="Delete" HorizontalAlignment="Left" Margin="319,130,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteAchievement_Click" Grid.Column="1"/>
                     <Label x:Name="labelCategoryAchievement" Content="Category" HorizontalAlignment="Left" Margin="65,3,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                 </Grid>
             </TabItem>
@@ -103,7 +103,7 @@
                     <Button x:Name="buttonInsertOrganization" Content="Insert" HorizontalAlignment="Left" Margin="333,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertOrganization_Click" Grid.Column="1"/>
                     <Button x:Name="buttonUpdateOrganization" Content="Update" HorizontalAlignment="Left" Margin="418,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateOrganization_Click" Grid.Column="1"/>
                     <Button x:Name="buttonDeleteOrganization" Content="Delete" HorizontalAlignment="Left" Margin="507,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteOrganization_Click" Grid.Column="1"/>
-                    <DataGrid x:Name="dataGridOrganization" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,168,0,0" VerticalAlignment="Top" Width="668" Height="185" AutoGenerateColumns="False" SelectedCellsChanged="dataGridOrganization_SelectedCellsChanged" Grid.ColumnSpan="2">
+                    <DataGrid x:Name="dataGridOrganization" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,168,0,0" VerticalAlignment="Top" Width="746" Height="218" AutoGenerateColumns="False" SelectedCellsChanged="dataGridOrganization_SelectedCellsChanged" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
@@ -144,7 +144,7 @@
                     <Button x:Name="buttonInsertWorkExperience" Content="Insert" HorizontalAlignment="Left" Margin="333,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertWorkExperience_Click" Grid.Column="1"/>
                     <Button x:Name="buttonUpdateWorkExperience" Content="Update" HorizontalAlignment="Left" Margin="418,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateWorkExperience_Click" Grid.Column="1"/>
                     <Button x:Name="buttonDeleteWorkExperience" Content="Delete" HorizontalAlignment="Left" Margin="507,129,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteWorkExperience_Click" Grid.Column="1"/>
-                    <DataGrid x:Name="dataGridWorkExperience" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,168,0,0" VerticalAlignment="Top" Width="668" Height="185" AutoGenerateColumns="False" SelectedCellsChanged="dataGridWorkExperience_SelectedCellsChanged" Grid.ColumnSpan="2">
+                    <DataGrid x:Name="dataGridWorkExperience" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,168,0,0" VerticalAlignment="Top" Width="746" Height="221" AutoGenerateColumns="False" SelectedCellsChanged="dataGridWorkExperience_SelectedCellsChanged" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
@@ -181,7 +181,7 @@
                     <Button x:Name="buttonInsertErrorBank" Content="Insert" HorizontalAlignment="Left" Margin="458,64,0,0" VerticalAlignment="Top" Width="75" Click="buttonInsertErrorBank_Click" Grid.Column="1"/>
                     <Button x:Name="buttonUpdateErrorBank" Content="Update" HorizontalAlignment="Left" Margin="458,94,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdateErrorBank_Click" Grid.Column="1"/>
                     <Button x:Name="buttonDeleteErrorBank" Content="Delete" HorizontalAlignment="Left" Margin="458,126,0,0" VerticalAlignment="Top" Width="75" Click="buttonDeleteErrorBank_Click" Grid.Column="1"/>
-                    <DataGrid x:Name="dataGridErrorBank" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,179,0,0" VerticalAlignment="Top" Width="668" Height="143" AutoGenerateColumns="False" SelectedCellsChanged="dataGridErrorBank_SelectedCellsChanged" Grid.ColumnSpan="2">
+                    <DataGrid x:Name="dataGridErrorBank" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,179,0,0" VerticalAlignment="Top" Width="746" Height="200" AutoGenerateColumns="False" SelectedCellsChanged="dataGridErrorBank_SelectedCellsChanged" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Message Error" Binding="{Binding Path=Message}"></DataGridTextColumn>
@@ -209,7 +209,7 @@
                     <Label x:Name="labelNameDetailLesson" Content="Name" HorizontalAlignment="Left" Margin="22,47,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="textBoxNameDetailLesson" HorizontalAlignment="Left" PreviewTextInput="textBoxNameDetailLesson_PreviewTextInput" Height="23" Margin="86,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="403"/>
                     <Button x:Name="buttonDownloadDetailLesson" Content="Download" HorizontalAlignment="Left" Margin="530,53,0,0" VerticalAlignment="Top" Width="75" Click="buttonDownloadDetailLesson_Click"/>
-                    <DataGrid x:Name="dataGridDetailLesson" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,115,0,0" VerticalAlignment="Top" Width="653" Height="208" AutoGenerateColumns="False" SelectedCellsChanged="dataGridDetailLesson_SelectedCellsChanged">
+                    <DataGrid x:Name="dataGridDetailLesson" HorizontalAlignment="Left" IsReadOnly="True" Margin="10,102,0,0" VerticalAlignment="Top" Width="748" Height="284" AutoGenerateColumns="False" SelectedCellsChanged="dataGridDetailLesson_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
@@ -220,6 +220,59 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
+            <!--Manage ProfileHR--><!--
+            <TabItem Header="Profile">
+                <Grid Background="#FFE5E5E5" Margin="21,4,-14,13" VerticalAlignment="Top" Height="571">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="156*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="labelIdProfileHR" Content="Id" HorizontalAlignment="Left" Margin="22,18,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockIdProfileHR" HorizontalAlignment="Left" Margin="28,21,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelFirstNameProfileHR" Content="First Name" HorizontalAlignment="Left" Margin="22,44,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="75"/>
+                    <TextBox x:Name="textBoxFirstNameProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="28,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="273" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
+                    <Label x:Name="labelLastNameProfileHR" Content="Last Name" HorizontalAlignment="Left" Margin="22,75,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="75"/>
+                    <TextBox x:Name="textBoxLastNameProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="28,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="273" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
+                    <Label x:Name="labelDobProfileHR" Content="Date of Birth" Margin="22,104,596,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <DatePicker x:Name="dateDobProfileHR" HorizontalAlignment="Left" Margin="28,106,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="labelPobProfileHR" Content="Place of Birth" HorizontalAlignment="Left" Margin="22,139,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="89"/>
+                    <TextBox x:Name="textBoxPobProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="28,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="165" Grid.Column="1"/>
+                    <Label x:Name="labelGenderProfileHR" Content="Gender" HorizontalAlignment="Left" Margin="22,169,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxGenderProfileHR" HorizontalAlignment="Left" Margin="28,166,0,0" VerticalAlignment="Top" Width="97" Grid.Column="1">
+                        <ComboBoxItem Content="Pria" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Wanita" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <Label x:Name="labelReligionProfileHR" Content="Religion" HorizontalAlignment="Left" Margin="22,199,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxReligionProfileHR" HorizontalAlignment="Left" Margin="28,199,0,0" VerticalAlignment="Top" Width="97" Grid.Column="1">
+                        <ComboBoxItem Content="Islam" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Kristen" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Katolik" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Hindu" HorizontalAlignment="Left" Width="92"/>
+                        <ComboBoxItem Content="Budha" HorizontalAlignment="Left" Width="92"/>
+                    </ComboBox>
+                    <Label x:Name="labelPhoneProfileHR" Content="Phone" HorizontalAlignment="Left" Margin="22,230,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxPhoneProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxPhoneProfileHR_PreviewTextInput" Height="23" Margin="28,231,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
+                    <Label x:Name="labelEmailProfileHR" Content="Email" HorizontalAlignment="Left" Margin="22,256,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxEmailProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxEmailProfileHR_PreviewTextInput" Height="23" Margin="28,259,0,0" TextWrapping="Wrap" Text="" Width="161" Grid.Column="1" VerticalAlignment="Top"/>
+                    <Label x:Name="labelAddressProfileHR" Content="Address" HorizontalAlignment="Left" Margin="328,23,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxAddressProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxUsernameProfileHR_PreviewTextInput" Height="86" Margin="404,21,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
+                    <Label x:Name="labelRtProfileHR" Content="RT" HorizontalAlignment="Left" Margin="328,108,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxRtProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxRtProfileHR_PreviewTextInput" Height="23" Margin="404,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
+                    <Label x:Name="labelRwProfileHR" Content="RW" HorizontalAlignment="Left" Margin="328,138,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxRwProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxRtProfileHR_PreviewTextInput" Height="23" Margin="404,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" Grid.Column="1"/>
+                    <Label x:Name="labelVillageProfileHR" Content="Village" HorizontalAlignment="Left" Margin="328,168,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxVillageProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="404,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
+                    <Label x:Name="labelDistrictProfileHR" Content="District" HorizontalAlignment="Left" Margin="328,198,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxDistrictProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="404,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Grid.Column="1"/>
+                    <Label x:Name="labelRegencieProfileHR" Content="Regencies" HorizontalAlignment="Left" Margin="328,228,0,0" Grid.Column="1" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxRegencieProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="404,232,0,0" TextWrapping="Wrap" Text="" Width="240" Grid.Column="1" VerticalAlignment="Top"/>
+                    <Button x:Name="buttonSaveProfileHR" Content="Save" Margin="569,340,33,0" VerticalAlignment="Top" Click="buttonSaveProfileHR_Click" Grid.Column="1"/>
+                    <Label x:Name="labelProvinceProfileHR" Content="Province" HorizontalAlignment="Left" Margin="328,258,0,0" Grid.Column="1" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxProvienceProfileHR" HorizontalAlignment="Left" PreviewTextInput="textBoxNameProfileHR_PreviewTextInput" Height="23" Margin="404,262,0,0" TextWrapping="Wrap" Text="" Width="240" Grid.Column="1" VerticalAlignment="Top"/>
+                    <Label x:Name="labelUsernameProfileHR" Content="Username" HorizontalAlignment="Left" Margin="27,288,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="textBlockUsernameProfileHR" HorizontalAlignment="Left" Margin="28,293,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Grid.Column="1" Width="161"/>
+                </Grid>
+            </TabItem>-->
         </TabControl>
     </Grid>
 </Window>

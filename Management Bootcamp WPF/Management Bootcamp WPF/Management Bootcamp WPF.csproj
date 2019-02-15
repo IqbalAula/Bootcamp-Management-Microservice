@@ -64,8 +64,49 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChangePassEmployee.xaml.cs">
+      <DependentUpon>ChangePassEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassStudent.xaml.cs">
+      <DependentUpon>ChangePassStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CheckSecretEmployee.xaml.cs">
+      <DependentUpon>CheckSecretEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CheckSecretStudent.xaml.cs">
+      <DependentUpon>CheckSecretStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPass.xaml.cs">
+      <DependentUpon>ForgotPass.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenuMentor.xaml.cs" />
+    <Compile Include="SecretEmployee.xaml.cs">
+      <DependentUpon>SecretEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecretStudent.xaml.cs">
+      <DependentUpon>SecretStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
+    <Page Include="ChangePassEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangePassStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CheckSecretEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CheckSecretStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForgotPass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -87,6 +128,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MenuHR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecretEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecretStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

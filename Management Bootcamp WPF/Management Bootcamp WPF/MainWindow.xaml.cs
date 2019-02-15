@@ -24,7 +24,7 @@ namespace Management_Bootcamp_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        ILoginService loginService = new LoginService();
+        ILoginService _loginService = new LoginService();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,60 +35,150 @@ namespace Management_Bootcamp_WPF
             var username = textBoxUsername.Text;
             var password = passwordBoxPassword.Password;
             var loginas = comboBoxLoginAs.Text;
-            if (loginas == "Student")
+            if (string.IsNullOrEmpty(comboBoxLoginAs.Text) == false)
             {
-                var get = loginService.GetStudent(username, password);
-                if (get == null)
+                if (string.IsNullOrEmpty(textBoxUsername.Text) == true)
                 {
-                    MessageBox.Show("Sorry your username and password not correct");
-
+                    MessageBox.Show("Please insert username!");
+                }
+                else if (string.IsNullOrWhiteSpace(textBoxUsername.Text) == true)
+                {
+                    MessageBox.Show("Don't insert white space");
                 }
                 else
                 {
-                    Settings.Default.Id = get.Id;
-                    Settings.Default.username = get.Username;
-                    Settings.Default.password = get.Password;
-                    new MenuStudent().Show();
-                    this.Close();
-                }
-            }
-            else if (loginas == "Employee")
-            {
-                var get = loginService.GetEmployee(username, password);
-                if (get == null)
-                {
-                    MessageBox.Show("Sorry your username and password not correct");
-
-                }
-                else
-                {
-                    Settings.Default.Id = get.Id;
-                    Settings.Default.username = get.Username;
-                    Settings.Default.password = get.Password;
-                    Settings.Default.role = get.Role;
-                    if (get.Role == "Manager")
+                    if (string.IsNullOrEmpty(passwordBoxPassword.Password) == true)
                     {
-                        new MenuHR().Show();
-                        this.Close();
+                        MessageBox.Show("Please insert password!");
                     }
-                    else if (get.Role == "HR")
+                    else if (string.IsNullOrWhiteSpace(passwordBoxPassword.Password) == true)
                     {
-                        new MenuHR().Show();
-                        this.Close();
-                    } else if (get.Role == "Mentor")
+                        MessageBox.Show("Don't insert white space");
+                    }
+                    else
                     {
-                        new MenuMentor().Show();
-                        this.Close();
-                    } else
-                    {
-                        MessageBox.Show("Sorry account cannot access the systems!");
+                        if (loginas == "Student")
+                        {
+                            var get = _loginService.GetStudent(username);
+                            if (get != null)
+                            {
+                                if (get.Password == password)
+                                {
+                                    if (get.IsDelete == false)
+                                    {
+                                        Settings.Default.Id = get.Id;
+                                        Settings.Default.username = get.Username;
+                                        Settings.Default.password = get.Password;
+                                        if (string.IsNullOrEmpty(get.SecretQuestion) == false || string.IsNullOrEmpty(get.SecretAnswer) == false || string.IsNullOrWhiteSpace(get.SecretQuestion) == false || string.IsNullOrWhiteSpace(get.SecretAnswer) == false)
+                                        {
+                                            if (Settings.Default.password == "bootcamp")
+                                            {
+                                                new CheckSecretStudent().Show();
+                                                this.Close();
+                                            }
+                                            else
+                                            {
+                                                new MenuStudent().Show(); 
+                                                this.Close();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            new SecretStudent().Show();
+                                            this.Close();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Sorry your account was banned");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Sorry the password you entered are incorrect");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sorry the username you entered is incorrect");
+                            }
+                        }
+                        else if (loginas == "Employee")
+                        {
+                            var get = _loginService.GetEmployee(username);
+                            if (get != null)
+                            {
+                                if (get.Password == password)
+                                {
+                                    if (get.IsDelete == false)
+                                    {
+                                        Settings.Default.Id = get.Id;
+                                        Settings.Default.username = get.Username;
+                                        Settings.Default.password = get.Password;
+                                        Settings.Default.role = get.Role;
+                                        if (string.IsNullOrEmpty(get.SecretQuestion) == false || string.IsNullOrEmpty(get.AnswerQuestion) == false || string.IsNullOrWhiteSpace(get.SecretQuestion) == false || string.IsNullOrWhiteSpace(get.AnswerQuestion) == false)
+                                        {
+                                            if (Settings.Default.password == "bootcamp")
+                                            {
+                                                new CheckSecretEmployee().Show();
+                                                this.Close();
+
+                                            }
+                                            else
+                                            {
+                                                if (Settings.Default.role == "Manager")
+                                                {
+                                                    new MenuHR().Show();
+                                                    this.Close();
+                                                }
+                                                else if (Settings.Default.role == "HR")
+                                                {
+                                                    new MenuHR().Show();
+                                                    this.Close();
+                                                }
+                                                else if (Settings.Default.role == "Mentor")
+                                                {
+                                                    new MenuMentor().Show();
+                                                    this.Close();
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Sorry account cannot access the systems!");
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            new SecretEmployee().Show();
+                                            this.Close();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Sorry your account was banned");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Sorry the password you entered are incorrect");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sorry the username you entered is incorrect");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please Choice Category As Login");
+                        }
                     }
                 }
             }
             else
             {
                 MessageBox.Show("Please Choice Category As Login");
-            }
+            }            
         }
 
         private void passwordBoxPassword_KeyUp(object sender, KeyEventArgs e)
@@ -100,55 +190,143 @@ namespace Management_Bootcamp_WPF
             var username = textBoxUsername.Text;
             var password = passwordBoxPassword.Password;
             var loginas = comboBoxLoginAs.Text;
-            if (loginas == "Student")
+            if (string.IsNullOrEmpty(comboBoxLoginAs.Text) == false)
             {
-                var get = loginService.GetStudent(username, password);
-                if (get == null)
+                if (string.IsNullOrEmpty(textBoxUsername.Text) == true)
                 {
-                    MessageBox.Show("Sorry your username and password not correct");
-
+                    MessageBox.Show("Please insert username!");
+                }
+                else if (string.IsNullOrWhiteSpace(textBoxUsername.Text) == true)
+                {
+                    MessageBox.Show("Don't insert white space");
                 }
                 else
                 {
-                    Settings.Default.Id = get.Id;
-                    Settings.Default.username = get.Username;
-                    Settings.Default.password = get.Password;
-                    new MenuStudent().Show();
-                    this.Close();
-                }
-            }
-            else if (loginas == "Employee")
-            {
-                var get = loginService.GetEmployee(username, password);
-                if (get == null)
-                {
-                    MessageBox.Show("Sorry your username and password not correct");
-
-                }
-                else
-                {
-                    Settings.Default.Id = get.Id;
-                    Settings.Default.username = get.Username;
-                    Settings.Default.password = get.Password;
-                    Settings.Default.role = get.Role;
-                    if (get.Role == "Manager")
+                    if (string.IsNullOrEmpty(passwordBoxPassword.Password) == true)
                     {
-                        new MenuHR().Show();
-                        this.Close();
+                        MessageBox.Show("Please insert password!");
                     }
-                    else if (get.Role == "HR")
+                    else if (string.IsNullOrWhiteSpace(passwordBoxPassword.Password) == true)
                     {
-                        new MenuHR().Show();
-                        this.Close();
-                    }
-                    else if (get.Role == "Mentor")
-                    {
-                        new MenuMentor().Show();
-                        this.Close();
+                        MessageBox.Show("Don't insert white space");
                     }
                     else
                     {
-                        MessageBox.Show("Sorry account cannot access the systems!");
+                        if (loginas == "Student")
+                        {
+                            var get = _loginService.GetStudent(username);
+                            if (get != null)
+                            {
+                                if (get.Password == password)
+                                {
+                                    if (get.IsDelete == false)
+                                    {
+                                        Settings.Default.Id = get.Id;
+                                        Settings.Default.username = get.Username;
+                                        Settings.Default.password = get.Password;
+                                        if (string.IsNullOrEmpty(get.SecretQuestion) == false || string.IsNullOrEmpty(get.SecretAnswer) == false || string.IsNullOrWhiteSpace(get.SecretQuestion) == false || string.IsNullOrWhiteSpace(get.SecretAnswer) == false)
+                                        {
+                                            if (Settings.Default.password == "bootcamp")
+                                            {
+                                                new CheckSecretStudent().Show();
+                                                this.Close();
+                                            }
+                                            else
+                                            {
+                                                new MenuStudent().Show();
+                                                this.Close();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            new SecretStudent().Show();
+                                            this.Close();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Sorry your account was banned");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Sorry the password you entered are incorrect");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sorry the username you entered is incorrect");
+                            }
+                        }
+                        else if (loginas == "Employee")
+                        {
+                            var get = _loginService.GetEmployee(username);
+                            if (get != null)
+                            {
+                                if (get.Password == password)
+                                {
+                                    if (get.IsDelete == false)
+                                    {
+                                        Settings.Default.Id = get.Id;
+                                        Settings.Default.username = get.Username;
+                                        Settings.Default.password = get.Password;
+                                        Settings.Default.role = get.Role;
+                                        if (string.IsNullOrEmpty(get.SecretQuestion) == false || string.IsNullOrEmpty(get.AnswerQuestion) == false || string.IsNullOrWhiteSpace(get.SecretQuestion) == false || string.IsNullOrWhiteSpace(get.AnswerQuestion) == false)
+                                        {
+                                            if (Settings.Default.password == "bootcamp")
+                                            {
+                                                new CheckSecretEmployee().Show();
+                                                this.Close();
+
+                                            }
+                                            else
+                                            {
+                                                if (Settings.Default.role == "Manager")
+                                                {
+                                                    new MenuHR().Show();
+                                                    this.Close();
+                                                }
+                                                else if (Settings.Default.role == "HR")
+                                                {
+                                                    new MenuHR().Show();
+                                                    this.Close();
+                                                }
+                                                else if (Settings.Default.role == "Mentor")
+                                                {
+                                                    new MenuMentor().Show();
+                                                    this.Close();
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Sorry account cannot access the systems!");
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            new SecretEmployee().Show();
+                                            this.Close();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Sorry your account was banned");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Sorry the password you entered are incorrect");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sorry the username you entered is incorrect");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please Choice Category As Login");
+                        }
                     }
                 }
             }
@@ -156,6 +334,12 @@ namespace Management_Bootcamp_WPF
             {
                 MessageBox.Show("Please Choice Category As Login");
             }
+        }
+
+        private void buttonForgot_Click(object sender, RoutedEventArgs e)
+        {
+            new ForgotPass().Show();
+            this.Close();
         }
     }
 }
